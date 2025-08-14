@@ -1,0 +1,56 @@
+{
+  "name": "@treeai/alex-sdk",
+  "version": "1.0.0",
+  "description": "Universal TreeAI Alex Agent SDK - Plug Alex intelligence into any TreeAI project",
+  "main": "treeai-alex-sdk.js",
+  "types": "treeai-alex-sdk.d.ts",
+  "bin": {
+    "alex": "./cli.js"
+  },
+  "scripts": {
+    "test": "node examples.js",
+    "demo": "node examples.js",
+    "health": "node -e \"const {TreeAIAlex} = require('./treeai-alex-sdk.js'); new TreeAIAlex().healthCheck().then(h => console.log(h ? '✅ Alex Online' : '❌ Alex Offline'))\"",
+    "install-global": "npm install -g .",
+    "create-integration": "node create-integration.js"
+  },
+  "keywords": [
+    "treeai", 
+    "alex", 
+    "ai-agent", 
+    "tree-service", 
+    "business-intelligence",
+    "convex",
+    "claude-ai",
+    "sdk",
+    "api-wrapper"
+  ],
+  "author": "TreeAI <hello@treeai.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CVO-TreeAi/alextreeshopai-agent.git",
+    "directory": "sdk"
+  },
+  "homepage": "https://github.com/CVO-TreeAi/alextreeshopai-agent#readme",
+  "bugs": {
+    "url": "https://github.com/CVO-TreeAi/alextreeshopai-agent/issues"
+  },
+  "files": [
+    "treeai-alex-sdk.js",
+    "treeai-alex-sdk.d.ts",
+    "examples.js",
+    "cli.js",
+    "create-integration.js",
+    "templates/"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}
