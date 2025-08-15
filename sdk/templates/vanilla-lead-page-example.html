@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeShop - Get Your Tree Service Quote</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-section h1 {
+            color: #2d5a27;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-header {
+            background: #2d5a27;
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            background: #A3E635;
+            color: #1C1C1C;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .message.alex {
+            background: white;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        .message.loading {
+            background: #f0f0f0;
+            font-style: italic;
+            color: #888;
+        }
+
+        .quote-indicator {
+            background: #A3E635;
+            color: #1C1C1C;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 8px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .contact-button {
+            background: #2d5a27;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .contact-button:hover {
+            background: #1e3d1a;
+        }
+
+        .timestamp {
+            font-size: 0.7em;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+
+        .quick-actions button {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+
+        .quick-actions button:hover {
+            background: #A3E635;
+            color: #1C1C1C;
+            border-color: #A3E635;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: white;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px 0 0 6px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .chat-input input:focus {
+            border-color: #A3E635;
+        }
+
+        .chat-input button {
+            background: #2d5a27;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+
+        .chat-input button:hover:not(:disabled) {
+            background: #1e3d1a;
+        }
+
+        .chat-input button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .lead-form-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lead-form-overlay.show {
+            display: flex;
+        }
+
+        .lead-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .lead-form h3 {
+            color: #2d5a27;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .lead-form input,
+        .lead-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .lead-form input:focus,
+        .lead-form select:focus {
+            border-color: #A3E635;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .form-actions button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+
+        .form-actions button[type="button"] {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .form-actions button[type="button"]:hover {
+            background: #ddd;
+        }
+
+        .form-actions button[type="submit"] {
+            background: #2d5a27;
+            color: white;
+        }
+
+        .form-actions button[type="submit"]:hover {
+            background: #1e3d1a;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 40px;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .indicator {
+            flex: 1;
+        }
+
+        .indicator span {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .indicator p {
+            font-weight: bold;
+            color: #2d5a27;
+        }
+
+        .status-indicator {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .status-indicator.online {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-indicator.offline {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .hero-section h1 {
+                font-size: 2em;
+            }
+
+            .quick-actions {
+                flex-direction: column;
+            }
+
+            .quick-actions button {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .chat-input {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .chat-input input,
+            .chat-input button {
+                border-radius: 6px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1>Get Your Tree Service Quote</h1>
+            <p>Professional tree services in Florida. Chat with Alex to get started!</p>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-header">
+                💬 Chat with Alex - TreeShop's AI Assistant
+                <div class="status-indicator" id="alexStatus">Connecting...</div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be inserted here -->
+            </div>
+
+            <div class="quick-actions">
+                <button onclick="handleQuickAction('tree-removal')">Tree Removal</button>
+                <button onclick="handleQuickAction('land-clearing')">Land Clearing</button>
+                <button onclick="handleQuickAction('stump-grinding')">Stump Grinding</button>
+                <button onclick="handleQuickAction('get-quote')">Get Quote</button>
+            </div>
+
+            <div class="chat-input">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Ask about tree services..."
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button onclick="sendMessage()" id="sendButton">Send</button>
+            </div>
+        </div>
+
+        <div class="trust-indicators">
+            <div class="indicator">
+                <span>🏆</span>
+                <p>Licensed & Insured</p>
+            </div>
+            <div class="indicator">
+                <span>⚡</span>
+                <p>24/7 Emergency Service</p>
+            </div>
+            <div class="indicator">
+                <span>💯</span>
+                <p>Satisfaction Guaranteed</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lead Form Modal -->
+    <div class="lead-form-overlay" id="leadFormOverlay">
+        <div class="lead-form">
+            <h3>Get Your Professional Quote</h3>
+            <form id="leadForm" onsubmit="handleLeadFormSubmit(event)">
+                <input
+                    type="text"
+                    id="leadName"
+                    placeholder="Your Name"
+                    required
+                >
+                <input
+                    type="tel"
+                    id="leadPhone"
+                    placeholder="Phone Number"
+                    required
+                >
+                <input
+                    type="email"
+                    id="leadEmail"
+                    placeholder="Email (optional)"
+                >
+                <input
+                    type="text"
+                    id="leadLocation"
+                    placeholder="Property Location"
+                    required
+                >
+                <select id="leadProjectType" required>
+                    <option value="">Select Service Type</option>
+                    <option value="tree-removal">Tree Removal</option>
+                    <option value="land-clearing">Land Clearing</option>
+                    <option value="stump-grinding">Stump Grinding</option>
+                    <option value="forestry-mulching">Forestry Mulching</option>
+                    <option value="multiple">Multiple Services</option>
+                </select>
+                
+                <div class="form-actions">
+                    <button type="button" onclick="hideLeadForm()">Cancel</button>
+                    <button type="submit">Get My Quote</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // CustomerAlex Integration - Vanilla JavaScript
+        class CustomerAlex {
+            constructor(options = {}) {
+                this.apiUrl = options.apiUrl || 'https://tremendous-whale-894.convex.site/api';
+                this.projectName = 'TreeShop-Customer-Portal';
+                this.sessionId = options.sessionId || this.generateSessionId();
+                this.timeout = options.timeout || 15000;
+            }
+
+            generateSessionId() {
+                return `customer-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;
+            }
+
+            async chat(message, options = {}) {
+                const filteredMessage = this.filterCustomerMessage(message);
+                
+                try {
+                    const response = await fetch(`${this.apiUrl}/customer-chat`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: filteredMessage,
+                            sessionId: this.sessionId,
+                            customerContext: true,
+                            restrictedMode: true
+                        }),
+                        signal: AbortSignal.timeout(this.timeout),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Service temporarily unavailable');
+                    }
+
+                    const data = await response.json();
+                    return new CustomerResponse(data);
+                } catch (error) {
+                    return new CustomerResponse({
+                        response: "I'm having trouble right now. Please try again or call us at (555) 123-4567 for immediate assistance.",
+                        intent: { name: 'error', confidence: 1.0 },
+                        sessionId: this.sessionId
+                    });
+                }
+            }
+
+            filterCustomerMessage(message) {
+                const restrictedTerms = [
+                    'revenue', 'profit', 'cost', 'margin', 'competitor', 'employee', 
+                    'salary', 'pricing strategy', 'business plan', 'financial'
+                ];
+                
+                let filtered = message.toLowerCase();
+                restrictedTerms.forEach(term => {
+                    if (filtered.includes(term)) {
+                        filtered = filtered.replace(new RegExp(term, 'gi'), '[business inquiry]');
+                    }
+                });
+                
+                return filtered;
+            }
+
+            async explainService(service) {
+                const validServices = ['tree removal', 'land clearing', 'stump grinding', 'forestry mulching'];
+                if (!validServices.includes(service.toLowerCase())) {
+                    return new CustomerResponse({
+                        response: "I can help explain our tree removal, land clearing, stump grinding, or forestry mulching services. Which would you like to know about?",
+                        intent: { name: 'service_clarification', confidence: 1.0 }
+                    });
+                }
+                
+                const message = `Explain ${service} service for customers`;
+                return this.chat(message);
+            }
+
+            async requestConsultation({ name, phone, email, preferredTime, projectType }) {
+                const message = `Schedule consultation for ${name} (${phone}) for ${projectType} project. Preferred time: ${preferredTime}`;
+                return this.chat(message);
+            }
+
+            async healthCheck() {
+                try {
+                    const response = await fetch(`${this.apiUrl}/test`, {
+                        method: 'GET',
+                        signal: AbortSignal.timeout(5000),
+                    });
+                    return response.ok;
+                } catch (error) {
+                    return false;
+                }
+            }
+        }
+
+        class CustomerResponse {
+            constructor(data) {
+                this.raw = data;
+                this.response = this.sanitizeResponse(data.response || '');
+                this.intent = data.intent || { name: 'general', confidence: 0.5 };
+                this.sessionId = data.sessionId;
+                this.isQuote = this.response.includes('$') || this.response.includes('estimate');
+                this.needsContact = this.response.includes('call') || this.response.includes('contact');
+            }
+
+            sanitizeResponse(response) {
+                return response
+                    .replace(/profit|margin|cost\s+breakdown/gi, 'pricing')
+                    .replace(/employee|crew\s+pay/gi, 'team member')
+                    .replace(/competitor|competition/gi, 'other companies');
+            }
+
+            getText() {
+                return this.response;
+            }
+
+            isQuoteResponse() {
+                return this.isQuote;
+            }
+
+            needsHumanContact() {
+                return this.needsContact;
+            }
+        }
+
+        // Global variables
+        let alex = null;
+        let chatHistory = [];
+        let isLoading = false;
+
+        // Initialize Alex when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            alex = new CustomerAlex({
+                sessionId: `lead-${Date.now()}`
+            });
+
+            // Check Alex health
+            const isOnline = await alex.healthCheck();
+            updateAlexStatus(isOnline);
+
+            // Add welcome message
+            addMessage('alex', "Hi! I'm Alex, TreeShop's AI assistant. I can help you get a quote for tree services. What kind of tree work do you need?");
+        });
+
+        function updateAlexStatus(isOnline) {
+            const statusEl = document.getElementById('alexStatus');
+            if (isOnline) {
+                statusEl.textContent = '✅ Alex Online';
+                statusEl.className = 'status-indicator online';
+            } else {
+                statusEl.textContent = '❌ Alex Offline';
+                statusEl.className = 'status-indicator offline';
+            }
+        }
+
+        function addMessage(sender, message, isQuote = false, needsContact = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+
+            let messageContent = `
+                <div class="message-content">
+                    ${message}
+                    ${isQuote ? '<div class="quote-indicator">💰 Quote Available</div>' : ''}
+                    ${needsContact ? '<button class="contact-button" onclick="showLeadForm()">Get My Quote</button>' : ''}
+                </div>
+                <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+            `;
+
+            messageDiv.innerHTML = messageContent;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            chatHistory.push({ sender, message, timestamp: new Date() });
+        }
+
+        function addLoadingMessage() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message alex loading';
+            loadingDiv.id = 'loadingMessage';
+            loadingDiv.innerHTML = 'Alex is typing...';
+            messagesContainer.appendChild(loadingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeLoadingMessage() {
+            const loadingMsg = document.getElementById('loadingMessage');
+            if (loadingMsg) {
+                loadingMsg.remove();
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (!message || !alex || isLoading) return;
+
+            // Add user message
+            addMessage('user', message);
+            input.value = '';
+            
+            // Show loading
+            isLoading = true;
+            updateInputState();
+            addLoadingMessage();
+
+            try {
+                const response = await alex.chat(message);
+                
+                removeLoadingMessage();
+                addMessage('alex', response.getText(), response.isQuoteResponse(), response.needsHumanContact());
+
+                // Show lead form if needed
+                if (response.isQuoteResponse() || response.needsHumanContact()) {
+                    setTimeout(showLeadForm, 1000);
+                }
+
+            } catch (error) {
+                removeLoadingMessage();
+                addMessage('alex', "I'm having trouble right now. Please try again or call us at (555) 123-4567 for immediate assistance.");
+            } finally {
+                isLoading = false;
+                updateInputState();
+            }
+        }
+
+        function updateInputState() {
+            const input = document.getElementById('userInput');
+            const button = document.getElementById('sendButton');
+            
+            input.disabled = isLoading;
+            button.disabled = isLoading || !input.value.trim();
+            button.textContent = isLoading ? 'Sending...' : 'Send';
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        async function handleQuickAction(action) {
+            if (!alex || isLoading) return;
+            
+            isLoading = true;
+            updateInputState();
+            addLoadingMessage();
+
+            try {
+                let response;
+                
+                switch (action) {
+                    case 'tree-removal':
+                        response = await alex.explainService('tree removal');
+                        break;
+                    case 'land-clearing':
+                        response = await alex.explainService('land clearing');
+                        break;
+                    case 'stump-grinding':
+                        response = await alex.explainService('stump grinding');
+                        break;
+                    case 'get-quote':
+                        removeLoadingMessage();
+                        showLeadForm();
+                        isLoading = false;
+                        updateInputState();
+                        return;
+                    default:
+                        removeLoadingMessage();
+                        isLoading = false;
+                        updateInputState();
+                        return;
+                }
+
+                removeLoadingMessage();
+                addMessage('alex', response.getText());
+
+            } catch (error) {
+                removeLoadingMessage();
+                addMessage('alex', "I'm having trouble right now. Please try again or call us at (555) 123-4567 for immediate assistance.");
+            } finally {
+                isLoading = false;
+                updateInputState();
+            }
+        }
+
+        function showLeadForm() {
+            document.getElementById('leadFormOverlay').classList.add('show');
+        }
+
+        function hideLeadForm() {
+            document.getElementById('leadFormOverlay').classList.remove('show');
+            document.getElementById('leadForm').reset();
+        }
+
+        async function handleLeadFormSubmit(event) {
+            event.preventDefault();
+            if (!alex) return;
+
+            const formData = {
+                name: document.getElementById('leadName').value,
+                phone: document.getElementById('leadPhone').value,
+                email: document.getElementById('leadEmail').value,
+                location: document.getElementById('leadLocation').value,
+                projectType: document.getElementById('leadProjectType').value
+            };
+
+            try {
+                const consultation = await alex.requestConsultation({
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    preferredTime: 'ASAP',
+                    projectType: formData.projectType
+                });
+
+                addMessage('alex', consultation.getText());
+                hideLeadForm();
+
+            } catch (error) {
+                alert('Sorry, there was an error submitting your information. Please call us at (555) 123-4567.');
+            }
+        }
+
+        // Update input state on input change
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('userInput');
+            input.addEventListener('input', updateInputState);
+        });
+    </script>
+</body>
+</html>

@@ -41,16 +41,18 @@ const proposal = await alex.generateProposal({
 ## 🎯 Pre-Built Integrations
 
 ### **Customer-Facing Lead Generation** ⭐️ NEW
-```javascript
-const { CustomerAlex } = require('@treeai/alex-sdk/customer-alex-sdk');
-
-const customerAlex = new CustomerAlex();
-const quote = await customerAlex.getQuoteEstimate({
+```html
+<!-- Simple HTML/CSS/JS Integration -->
+<script src="customer-alex-sdk.js"></script>
+<script>
+const alex = new CustomerAlex();
+const quote = await alex.getQuoteEstimate({
   service: 'tree removal',
   acres: 2,
   description: 'Large oak trees near house',
   timeframe: 'ASAP'
 });
+</script>
 ```
 
 ### **DroneAI Projects**
@@ -256,7 +258,14 @@ await customerAlex.requestConsultation({ name: 'John', phone: '555-1234' });
 - ✅ Customer-appropriate responses only
 - ✅ Restricted to lead generation and service explanation
 - ✅ Automatic fallback to human contact
-- ✅ Perfect for Next.js lead pages
+- ✅ Perfect for vanilla HTML/CSS/JS websites
+
+**Complete Lead Page Template:**
+- 💬 Full chat interface with CustomerAlex
+- 📝 Automatic quote form integration
+- 📱 Mobile-responsive design
+- 🎨 TreeShop branding (dark charcoal + lime green)
+- ⚡ Zero dependencies - just HTML/CSS/JS
 
 ## 🎉 Ready to Use
 
