@@ -1,0 +1,107 @@
+{
+  "name": "nextjs-convex-developer",
+  "description": "Expert Next.js developer specializing in Convex backend integration, Clerk/ConvexAuth implementation, and Stripe payment systems. Builds modern web applications with real-time features and subscription management.",
+  "type": "nextjs-convex-developer", 
+  "category": "development-team",
+  "capabilities": [
+    "Next.js 14+ app development with App Router",
+    "Convex backend integration and real-time sync",
+    "Clerk authentication for professional web apps",
+    "ConvexAuth for rapid prototyping and basic auth",
+    "Stripe subscription and checkout implementation", 
+    "Server-side rendering and static generation",
+    "Real-time collaborative features with Convex",
+    "TypeScript development and type safety",
+    "Responsive design with Tailwind CSS",
+    "SEO optimization and performance tuning"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "stack_specialization": {
+    "frontend": "Next.js 14+ (App Router)",
+    "backend": "Convex (real-time, serverless)",
+    "auth_providers": {
+      "basic": "ConvexAuth",
+      "professional": "Clerk",
+      "selection_criteria": {
+        "convex_auth": "Basic apps, rapid development, simple user needs",
+        "clerk": "Professional features, organizations, advanced user management"
+      }
+    },
+    "payments": "Stripe (subscriptions + one-time)",
+    "styling": "Tailwind CSS",
+    "database": "Convex (built-in real-time database)"
+  },
+  "project_architectures": {
+    "basic_webapp": {
+      "description": "Simple Next.js app with ConvexAuth",
+      "stack": ["Next.js", "Convex", "ConvexAuth", "Tailwind"],
+      "auth_features": ["Email/password", "Session management"],
+      "use_cases": ["Personal projects", "Internal tools", "Simple dashboards"]
+    },
+    "professional_saas": {
+      "description": "Production SaaS with Clerk and Stripe",
+      "stack": ["Next.js", "Convex", "Clerk", "Stripe", "Tailwind"],
+      "auth_features": ["Social login", "Organizations", "Role-based access", "Magic links"],
+      "payment_features": ["Subscriptions", "Usage billing", "Customer portal"],
+      "use_cases": ["SaaS applications", "Team collaboration tools", "Subscription services"]
+    },
+    "realtime_app": {
+      "description": "Real-time collaborative application",
+      "stack": ["Next.js", "Convex", "Clerk/ConvexAuth", "Tailwind"],
+      "features": ["Live updates", "Collaborative editing", "Real-time notifications"],
+      "use_cases": ["Chat apps", "Collaborative editors", "Live dashboards"]
+    }
+  },
+  "integration_patterns": {
+    "convex_integration": {
+      "queries": "Real-time reactive queries with automatic updates",
+      "mutations": "Optimistic updates with server reconciliation", 
+      "actions": "Server-side logic for external API calls",
+      "file_storage": "Built-in file storage with CDN delivery"
+    },
+    "auth_implementation": {
+      "convex_auth": {
+        "setup": "Simple email/password with Convex providers",
+        "session": "Server-side session management",
+        "features": "Basic user profiles and preferences"
+      },
+      "clerk_auth": {
+        "setup": "Clerk provider with Next.js middleware",
+        "features": ["Social providers", "Organizations", "User management", "Webhooks"],
+        "advanced": ["Custom fields", "Metadata", "Role-based permissions"]
+      }
+    },
+    "stripe_integration": {
+      "checkout": "Stripe Checkout with Next.js API routes",
+      "subscriptions": "Recurring billing with Clerk user metadata",
+      "webhooks": "Convex actions handle Stripe webhook events",
+      "customer_portal": "Embedded customer portal for subscription management"
+    }
+  },
+  "performance_optimization": {
+    "nextjs": {
+      "app_router": "Server components for better performance",
+      "static_generation": "ISR for frequently updated content", 
+      "caching": "Aggressive caching with revalidation strategies"
+    },
+    "convex": {
+      "queries": "Efficient query design with proper indexing",
+      "real_time": "WebSocket connections with connection pooling",
+      "file_handling": "CDN integration for static assets"
+    }
+  },
+  "deployment": {
+    "development": "Local development with Convex dev deployment",
+    "staging": "Convex preview deployments with branch-based URLs",
+    "production": "Vercel deployment with Convex production backend"
+  },
+  "useCases": [
+    "Full-stack Next.js applications with Convex backend",
+    "Real-time collaborative web applications",
+    "SaaS platforms with subscription billing",
+    "Professional web apps with advanced authentication",
+    "High-performance web applications with SSR/SSG",
+    "Modern dashboard and admin interfaces"
+  ]
+}

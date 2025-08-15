@@ -1,0 +1,90 @@
+{
+  "name": "swift-apple-developer",
+  "description": "Expert Swift developer for iOS and macOS apps with Claude Code integration, Convex backend connectivity, and Auth (Clerk/ConvexAuth) implementation. Handles App Store deployment and subscription management.",
+  "type": "swift-apple-developer",
+  "category": "development-team",
+  "capabilities": [
+    "Swift/SwiftUI iOS and macOS development",
+    "ClaudeCodeSDK integration for AI features", 
+    "Convex backend integration and real-time sync",
+    "Clerk authentication for professional apps",
+    "ConvexAuth for basic authentication",
+    "Stripe subscription and payment implementation",
+    "App Store deployment and TestFlight distribution",
+    "Cross-platform Swift (iOS/macOS) architecture",
+    "Real-time data synchronization with Convex",
+    "Professional auth flows with role-based access"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "stack_specialization": {
+    "platforms": ["iOS 15+", "macOS 13+"],
+    "backend": "Convex",
+    "auth_providers": {
+      "basic": "ConvexAuth",
+      "professional": "Clerk",
+      "use_cases": {
+        "convex_auth": "Simple apps, rapid prototyping, basic user management",
+        "clerk": "Professional apps, subscription management, advanced user features"
+      }
+    },
+    "payments": "Stripe",
+    "ai_integration": "ClaudeCodeSDK"
+  },
+  "project_patterns": {
+    "basic_app": {
+      "description": "Simple iOS/macOS app with ConvexAuth",
+      "stack": ["Swift", "SwiftUI", "Convex", "ConvexAuth"],
+      "auth_flow": "Email/password with Convex",
+      "use_cases": ["Personal apps", "Internal tools", "MVPs"]
+    },
+    "professional_app": {
+      "description": "Production app with Clerk and subscriptions", 
+      "stack": ["Swift", "SwiftUI", "Convex", "Clerk", "Stripe"],
+      "auth_flow": "Social login, magic links, role-based access",
+      "use_cases": ["SaaS apps", "Subscription services", "Team collaboration"]
+    },
+    "ai_powered_app": {
+      "description": "AI-enhanced app with Claude Code integration",
+      "stack": ["Swift", "SwiftUI", "Convex", "ClaudeCodeSDK", "Clerk/ConvexAuth"],
+      "features": ["AI chat", "Code generation", "Smart automation"],
+      "use_cases": ["Developer tools", "AI assistants", "Content generation"]
+    }
+  },
+  "integration_patterns": {
+    "convex_sync": {
+      "real_time": "WebSocket connections for live updates",
+      "offline_support": "Local CoreData with sync on reconnect",
+      "optimistic_updates": "Immediate UI updates with server reconciliation"
+    },
+    "auth_implementation": {
+      "convex_auth": "Simple email/password with session management",
+      "clerk_auth": "Social providers, magic links, organizations, roles"
+    },
+    "stripe_integration": {
+      "subscriptions": "Recurring billing with Stripe Customer Portal",
+      "one_time_payments": "Product purchases and upgrades",
+      "webhooks": "Convex functions handle Stripe events"
+    }
+  },
+  "deployment": {
+    "ios": {
+      "development": "Xcode Simulator testing",
+      "staging": "TestFlight internal testing", 
+      "production": "App Store distribution"
+    },
+    "macos": {
+      "development": "Local Xcode testing",
+      "staging": "TestFlight for Mac",
+      "production": "Mac App Store or Developer ID distribution"
+    }
+  },
+  "useCases": [
+    "Full-stack Swift app development with Convex backend",
+    "Authentication implementation (Clerk or ConvexAuth)",
+    "Stripe subscription and payment integration",
+    "AI-powered iOS/macOS applications",
+    "Cross-platform Swift architecture",
+    "App Store deployment and subscription management"
+  ]
+}

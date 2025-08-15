@@ -1,0 +1,49 @@
+# Alex TreeAI Operations Agent - Python Dependencies
+
+# Core AI & LangChain
+langchain>=0.1.0
+langchain-openai>=0.1.0
+langchain-chroma>=0.1.0
+langchain-core>=0.1.0
+openai>=1.0.0
+
+# Vector Database & Embeddings
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.0
+
+# Machine Learning & Data Science
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+
+# Async & Networking
+aiohttp>=3.8.0
+asyncpg>=0.28.0
+httpx>=0.24.0
+
+# Data Validation & Parsing
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+PyYAML>=6.0
+
+# Database & Storage
+psycopg2-binary>=2.9.0
+redis>=4.5.0
+
+# Logging & Monitoring
+structlog>=23.0.0
+prometheus-client>=0.17.0
+
+# Development & Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Optional: CrewAI integration
+crewai>=0.1.0
+
+# Optional: Convex integration (when available)
+# convex-python>=0.1.0

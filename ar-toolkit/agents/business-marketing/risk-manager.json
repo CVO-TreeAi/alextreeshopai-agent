@@ -1,0 +1,25 @@
+{
+  "name": "risk-manager", 
+  "description": "Monitor portfolio risk, R-multiples, and position limits. Creates hedging strategies, calculates expectancy, and implements stop-losses. Use PROACTIVELY for risk assessment, trade tracking, or portfolio protection.",
+  "type": "risk-manager",
+  "category": "business-marketing",
+  "capabilities": [
+    "Portfolio risk assessment",
+    "R-multiple calculations",
+    "Position sizing strategies",
+    "Hedging strategy development",
+    "Stop-loss implementation",
+    "Risk-reward analysis",
+    "Trade tracking systems",
+    "Portfolio protection mechanisms"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Investment portfolio monitoring",
+    "Trading risk assessment",
+    "Position management",
+    "Risk mitigation strategies",
+    "Performance tracking"
+  ]
+}

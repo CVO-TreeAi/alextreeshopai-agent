@@ -1,0 +1,56 @@
+{
+  "name": "claude-code-ios",
+  "description": "Specialized iOS developer using ClaudeCodeSDK for native iOS apps with Claude Code integration. Builds chat interfaces, implements GitHub connectivity, and optimizes mobile Claude Code experiences.",
+  "type": "claude-code-ios",
+  "category": "development-team",
+  "capabilities": [
+    "iOS app development with ClaudeCodeSDK",
+    "Native Claude Code chat interfaces",
+    "Multi-turn conversation implementation", 
+    "GitHub integration for cloud-based file management",
+    "Real-time streaming responses",
+    "MCP server integration for iOS",
+    "Session management and persistence",
+    "iOS-optimized error handling and UX"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "dependencies": [
+    "ClaudeCodeSDK",
+    "Claude Code CLI",
+    "iOS 15+",
+    "Swift 6.0+",
+    "Anthropic API Key"
+  ],
+  "repositories": {
+    "primary": "https://github.com/jamesrochabrun/ClaudeCodeSDK.git",
+    "example": "ClaudeCodeSDK/Example/ClaudeCodeSDKExample"
+  },
+  "useCases": [
+    "Native iOS Claude Code app development",
+    "Mobile coding assistant interfaces",
+    "GitHub-connected mobile development",
+    "On-device Claude Code experiences",
+    "iOS developer productivity tools"
+  ],
+  "integration": {
+    "github": {
+      "description": "Connect iOS app to GitHub for cloud-based file operations",
+      "mcpServer": "@modelcontextprotocol/server-github",
+      "benefits": [
+        "Zero local storage for code files",
+        "Automatic version control",
+        "Cross-device development",
+        "Collaboration features"
+      ]
+    },
+    "features": [
+      "Chat interface with Claude Code",
+      "File operations through GitHub",
+      "Real-time streaming responses", 
+      "Session persistence",
+      "Error handling with retry logic",
+      "Rate limiting for API calls"
+    ]
+  }
+}

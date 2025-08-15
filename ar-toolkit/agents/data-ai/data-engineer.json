@@ -1,0 +1,25 @@
+{
+  "name": "data-engineer",
+  "description": "Build ETL pipelines, data warehouses, and streaming architectures. Implements Spark jobs, Airflow DAGs, and Kafka streams. Use PROACTIVELY for data pipeline design or analytics infrastructure.",
+  "type": "data-engineer",
+  "category": "data-ai",
+  "capabilities": [
+    "ETL pipeline development",
+    "Data warehouse architecture",
+    "Streaming data processing",
+    "Apache Spark job implementation",
+    "Airflow DAG creation",
+    "Kafka stream processing",
+    "Data quality monitoring",
+    "Analytics infrastructure setup"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Data pipeline automation",
+    "Real-time data processing", 
+    "Data warehouse implementation",
+    "Analytics infrastructure",
+    "Data quality assurance"
+  ]
+}

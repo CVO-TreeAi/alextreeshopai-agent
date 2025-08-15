@@ -1,0 +1,25 @@
+{
+  "name": "customer-support",
+  "description": "Handle support tickets, FAQ responses, and customer emails. Creates help docs, troubleshooting guides, and canned responses. Use PROACTIVELY for customer inquiries or support documentation.",
+  "type": "customer-support", 
+  "category": "business-marketing",
+  "capabilities": [
+    "Customer ticket resolution",
+    "FAQ creation and maintenance",
+    "Help documentation writing",
+    "Troubleshooting guide development",
+    "Canned response templates",
+    "Customer communication handling",
+    "Support workflow optimization",
+    "Knowledge base management"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Customer inquiry responses",
+    "Support documentation updates",
+    "FAQ section maintenance",
+    "Troubleshooting guide creation",
+    "Customer onboarding materials"
+  ]
+}

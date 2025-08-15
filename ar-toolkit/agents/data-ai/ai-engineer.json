@@ -1,0 +1,25 @@
+{
+  "name": "ai-engineer",
+  "description": "Build LLM applications, RAG systems, and prompt pipelines. Implements vector search, agent orchestration, and AI API integrations. Use PROACTIVELY for LLM features, chatbots, or AI-powered applications.",
+  "type": "ai-engineer",
+  "category": "data-ai",
+  "capabilities": [
+    "LLM application development",
+    "RAG system implementation",
+    "Prompt engineering and optimization",
+    "Vector database integration",
+    "AI agent orchestration",
+    "Chatbot development",
+    "AI API integration",
+    "Model fine-tuning and deployment"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Chatbot implementation",
+    "AI-powered search systems",
+    "Document analysis tools",
+    "Content generation systems",
+    "AI workflow automation"
+  ]
+}

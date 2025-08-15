@@ -1,0 +1,25 @@
+{
+  "name": "search-specialist",
+  "description": "Expert in search algorithms, indexing strategies, and information retrieval. Optimizes search functionality and implements advanced search features.",
+  "type": "search-specialist",
+  "category": "ai-specialists", 
+  "capabilities": [
+    "Search algorithm optimization",
+    "Full-text search implementation",
+    "Elasticsearch configuration",
+    "Search indexing strategies", 
+    "Query optimization",
+    "Search relevance tuning",
+    "Autocomplete implementation",
+    "Search analytics and insights"
+  ],
+  "tools": ["*"],
+  "proactive": false,
+  "useCases": [
+    "Search functionality implementation",
+    "Search performance optimization",
+    "Advanced search features",
+    "Search analytics setup",
+    "Query processing improvement"
+  ]
+}

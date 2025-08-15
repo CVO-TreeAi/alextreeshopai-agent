@@ -1,0 +1,25 @@
+{
+  "name": "data-scientist",
+  "description": "Data analysis expert for SQL queries, BigQuery operations, and data insights. Use proactively for data analysis tasks and queries.",
+  "type": "data-scientist",
+  "category": "data-ai",
+  "capabilities": [
+    "Statistical analysis and modeling",
+    "SQL query optimization",
+    "BigQuery analytics",
+    "Data visualization",
+    "Predictive modeling",
+    "A/B testing analysis",
+    "Machine learning model development",
+    "Data insights and reporting"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Business intelligence analysis",
+    "Customer behavior insights",
+    "Predictive analytics",
+    "Performance metrics analysis",
+    "Data-driven decision support"
+  ]
+}

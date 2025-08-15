@@ -1,0 +1,185 @@
+{
+  "name": "treescore-calculator",
+  "description": "TreeAI Operations Agent for TreeScore point calculations, tree measurements, and AFISS assessments. Handles both standard tree removal and stump grinding point calculations for accurate job estimation and pricing.",
+  "type": "treescore-calculator",
+  "category": "treeai-operations",
+  "capabilities": [
+    "TreeScore point calculations using Height × (Canopy Radius × 2) × (DBH/12) + AFISS",
+    "Stump TreeScore calculations using ((Height above grade + depth of grind) × diameter) + AFISS",
+    "AFISS (Access, Fall zone, Interference, Severity, Site) assessment scoring",
+    "Tree measurement validation and standardization",
+    "Point calculation verification and quality control",
+    "Bulk point calculations for multi-tree projects",
+    "Historical point data analysis and trending",
+    "Point-based job complexity classification"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "daily_operations": {
+    "primary_users": ["Field crews", "Estimators", "Project managers", "Office staff"],
+    "interaction_frequency": "Multiple times daily",
+    "use_cases": [
+      "On-site tree assessment and point calculation",
+      "Proposal generation and pricing",
+      "Work order creation and crew assignment",
+      "Real-time job progress tracking",
+      "Post-job analysis and performance review"
+    ]
+  },
+  "calculation_formulas": {
+    "tree_removal": {
+      "formula": "Height × (Canopy Radius × 2) × (DBH/12) + AFISS",
+      "components": {
+        "height": "Tree height in feet",
+        "canopy_radius": "Average canopy radius in feet",
+        "dbh": "Diameter at breast height in inches",
+        "afiss": "Access, Fall zone, Interference, Severity, Site complexity score"
+      },
+      "validation_rules": {
+        "height": "Must be between 5-200 feet",
+        "canopy_radius": "Must be between 1-100 feet",
+        "dbh": "Must be between 1-120 inches",
+        "afiss": "Must be between 0-100 points"
+      }
+    },
+    "stump_grinding": {
+      "formula": "((Height above grade + depth of grind) × diameter) + AFISS",
+      "components": {
+        "height_above_grade": "Remaining stump height in inches",
+        "depth_of_grind": "Required grinding depth in inches",
+        "diameter": "Stump diameter in inches",
+        "afiss": "Site-specific complexity factors"
+      },
+      "validation_rules": {
+        "height_above_grade": "Must be between 0-48 inches",
+        "depth_of_grind": "Must be between 4-24 inches",
+        "diameter": "Must be between 4-120 inches"
+      }
+    }
+  },
+  "afiss_assessment": {
+    "access": {
+      "description": "Equipment and crew access to work area",
+      "scoring": {
+        "0-5": "Easy access, no obstacles",
+        "6-10": "Moderate access, minor obstacles",
+        "11-15": "Difficult access, significant obstacles",
+        "16-20": "Extreme access challenges"
+      }
+    },
+    "fall_zone": {
+      "description": "Available space for tree/branch drops",
+      "scoring": {
+        "0-5": "Open fall zone, no concerns",
+        "6-10": "Limited fall zone, minor risks",
+        "11-15": "Restricted fall zone, rigging required",
+        "16-20": "No fall zone, piece-by-piece removal"
+      }
+    },
+    "interference": {
+      "description": "Utilities, structures, or other obstacles",
+      "scoring": {
+        "0-5": "No interference",
+        "6-10": "Minor interference, easy to work around",
+        "11-15": "Significant interference, careful planning required",
+        "16-20": "Major interference, specialized techniques needed"
+      }
+    },
+    "severity": {
+      "description": "Tree condition and removal difficulty",
+      "scoring": {
+        "0-5": "Healthy tree, straightforward removal",
+        "6-10": "Minor issues, standard techniques",
+        "11-15": "Compromised tree, advanced techniques",
+        "16-20": "Hazardous tree, extreme care required"
+      }
+    },
+    "site_conditions": {
+      "description": "Ground conditions, weather, and environmental factors",
+      "scoring": {
+        "0-5": "Ideal site conditions",
+        "6-10": "Minor site challenges",
+        "11-15": "Challenging site conditions",
+        "16-20": "Extreme site difficulties"
+      }
+    }
+  },
+  "integration_patterns": {
+    "convex_backend": {
+      "point_storage": "Store calculated points with job details",
+      "real_time_sync": "Live point calculations across devices",
+      "historical_data": "Track point accuracy and job outcomes",
+      "bulk_operations": "Calculate points for entire project lists"
+    },
+    "mobile_apps": {
+      "ios_integration": "Native TreeScore calculator with camera integration",
+      "offline_calculations": "Work without internet connectivity",
+      "photo_integration": "Attach measurement photos to calculations",
+      "voice_input": "Hands-free measurement entry"
+    },
+    "business_workflow": {
+      "lead_assessment": "Calculate points during initial site visit",
+      "proposal_generation": "Use points for time and cost estimation",
+      "crew_assignment": "Match point complexity to crew capabilities",
+      "performance_tracking": "Track actual vs estimated point completion"
+    }
+  },
+  "quality_control": {
+    "validation_checks": [
+      "Measurement reasonableness verification",
+      "AFISS scoring consistency checks",
+      "Point calculation accuracy validation",
+      "Historical comparison analysis"
+    ],
+    "error_handling": [
+      "Invalid measurement alerts",
+      "Unusual point value warnings",
+      "Missing data notifications",
+      "Calculation verification prompts"
+    ],
+    "data_integrity": [
+      "Audit trail for all calculations",
+      "Change tracking and approval workflow",
+      "Bulk correction capabilities",
+      "Data export and backup features"
+    ]
+  },
+  "performance_analytics": {
+    "calculation_metrics": [
+      "Average points per tree by species",
+      "AFISS complexity distribution",
+      "Point calculation accuracy rates",
+      "Time spent on measurements"
+    ],
+    "business_insights": [
+      "Point-to-revenue correlation analysis",
+      "Crew efficiency by point complexity",
+      "Seasonal point calculation trends",
+      "Geographic complexity patterns"
+    ]
+  },
+  "user_experience": {
+    "interface_design": [
+      "Simplified measurement input forms",
+      "Visual AFISS assessment guides",
+      "Real-time point calculation display",
+      "Batch calculation workflows"
+    ],
+    "workflow_optimization": [
+      "Pre-filled measurement templates",
+      "Measurement history recall",
+      "Quick calculation shortcuts",
+      "Bulk edit capabilities"
+    ]
+  },
+  "useCases": [
+    "Daily TreeScore calculations for job estimates",
+    "Real-time point tracking during job execution",
+    "AFISS complexity assessment for crew planning",
+    "Historical point analysis for business optimization",
+    "Mobile field calculations with photo documentation",
+    "Bulk point calculations for large project proposals",
+    "Point-based job complexity classification",
+    "Performance benchmarking and crew training"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "sales-automator",
+  "description": "Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sales scripts. Use PROACTIVELY for sales outreach or lead nurturing.",
+  "type": "sales-automator",
+  "category": "business-marketing",
+  "capabilities": [
+    "Cold email campaign creation",
+    "Follow-up sequence automation", 
+    "Proposal template development",
+    "Pricing page optimization",
+    "Case study creation",
+    "Sales script writing",
+    "Lead nurturing workflows",
+    "Sales funnel optimization"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Outbound sales campaigns",
+    "Lead nurturing sequences",
+    "Proposal generation",
+    "Sales page creation",
+    "Customer success stories"
+  ]
+}
