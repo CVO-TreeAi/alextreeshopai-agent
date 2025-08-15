@@ -40,6 +40,19 @@ const proposal = await alex.generateProposal({
 
 ## 🎯 Pre-Built Integrations
 
+### **Customer-Facing Lead Generation** ⭐️ NEW
+```javascript
+const { CustomerAlex } = require('@treeai/alex-sdk/customer-alex-sdk');
+
+const customerAlex = new CustomerAlex();
+const quote = await customerAlex.getQuoteEstimate({
+  service: 'tree removal',
+  acres: 2,
+  description: 'Large oak trees near house',
+  timeframe: 'ASAP'
+});
+```
+
 ### **DroneAI Projects**
 ```javascript
 const droneAnalysis = await alex.analyzeDroneSurvey({
@@ -221,6 +234,30 @@ app.post('/api/analyze', async (req, res) => {
    const response = await alex.chat('Hello Alex!');
    ```
 
+## 🔒 Customer-Safe Alex
+
+**NEW: CustomerAlex** - Restricted version for customer-facing applications:
+
+```javascript
+const { CustomerAlex } = require('@treeai/alex-sdk/customer-alex-sdk');
+
+const customerAlex = new CustomerAlex({
+  sessionId: `customer-${Date.now()}`
+});
+
+// Safe customer interactions only
+await customerAlex.assessProperty({ acres: 2, treeType: 'oak' });
+await customerAlex.explainService('forestry mulching');
+await customerAlex.requestConsultation({ name: 'John', phone: '555-1234' });
+```
+
+**Built-in Safety Features:**
+- ✅ Filters out business-sensitive terms (revenue, profit, costs)
+- ✅ Customer-appropriate responses only
+- ✅ Restricted to lead generation and service explanation
+- ✅ Automatic fallback to human contact
+- ✅ Perfect for Next.js lead pages
+
 ## 🎉 Ready to Use
 
 **Alex is production-ready** with:
@@ -230,6 +267,7 @@ app.post('/api/analyze', async (req, res) => {
 - ✅ Complete documentation
 - ✅ CLI tools included
 - ✅ Real-world examples
+- ✅ Customer-safe variant included
 
 **Add AI intelligence to your TreeAI project in minutes, not months!**
 

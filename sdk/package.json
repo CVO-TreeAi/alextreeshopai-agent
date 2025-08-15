@@ -39,6 +39,7 @@
   "files": [
     "treeai-alex-sdk.js",
     "treeai-alex-sdk.d.ts",
+    "customer-alex-sdk.js",
     "examples.js",
     "cli.js",
     "create-integration.js",
