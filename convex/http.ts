@@ -2,6 +2,129 @@ import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
 import { api } from "./_generated/api";
 
+// Customer-Safe Response Generation
+async function generateCustomerResponse(message: string, sessionId: string, customerContext: boolean = true) {
+  // Filter message for customer safety
+  const filteredMessage = filterCustomerMessage(message);
+  
+  const intent = classifyCustomerIntent(filteredMessage);
+  const entities = extractEntities(filteredMessage);
+  
+  switch (intent.name) {
+    case "property_assessment":
+      return generatePropertyAssessmentResponse(entities, sessionId);
+    case "service_explanation":
+      return generateServiceExplanationResponse(entities, sessionId);
+    case "quote_request":
+      return generateQuoteRequestResponse(entities, sessionId);
+    case "consultation_request":
+      return generateConsultationResponse(entities, sessionId);
+    case "service_area":
+      return generateServiceAreaResponse(entities, sessionId);
+    case "general_inquiry":
+      return generateCustomerGeneralResponse(filteredMessage, sessionId);
+    default:
+      return generateCustomerHelpResponse(sessionId);
+  }
+}
+
+function filterCustomerMessage(message: string): string {
+  const restrictedTerms = [
+    'revenue', 'profit', 'cost', 'margin', 'competitor', 'employee', 
+    'salary', 'pricing strategy', 'business plan', 'financial'
+  ];
+  
+  let filtered = message;
+  restrictedTerms.forEach(term => {
+    const regex = new RegExp(term, 'gi');
+    filtered = filtered.replace(regex, '[business inquiry]');
+  });
+  
+  return filtered;
+}
+
+function classifyCustomerIntent(message: string) {
+  const lower = message.toLowerCase();
+  
+  if (lower.includes('property') || lower.includes('acres') || lower.includes('assess')) {
+    return { name: "property_assessment", confidence: 0.9 };
+  }
+  if (lower.includes('service') && (lower.includes('explain') || lower.includes('what'))) {
+    return { name: "service_explanation", confidence: 0.9 };
+  }
+  if (lower.includes('quote') || lower.includes('estimate') || lower.includes('price')) {
+    return { name: "quote_request", confidence: 0.9 };
+  }
+  if (lower.includes('consultation') || lower.includes('schedule') || lower.includes('meet')) {
+    return { name: "consultation_request", confidence: 0.9 };
+  }
+  if (lower.includes('service') && (lower.includes('area') || lower.includes('location'))) {
+    return { name: "service_area", confidence: 0.9 };
+  }
+  
+  return { name: "general_inquiry", confidence: 0.7 };
+}
+
+function generatePropertyAssessmentResponse(entities: any, sessionId: string) {
+  return {
+    response: "I'd be happy to help assess your property! For an accurate evaluation, we'll need to know about your acreage, tree types, and access conditions. Our certified arborists can provide a comprehensive assessment including tree health, risk factors, and recommended services. Would you like to schedule a free on-site consultation?",
+    intent: { name: "property_assessment", confidence: 0.95 },
+    sessionId,
+    needsContact: true
+  };
+}
+
+function generateServiceExplanationResponse(entities: any, sessionId: string) {
+  return {
+    response: "TreeShop offers professional forestry services including tree removal, land clearing, stump grinding, and forestry mulching. Each service uses specialized equipment and certified crews to ensure safe, efficient work. Tree removal handles hazardous or unwanted trees, land clearing prepares properties for development, stump grinding eliminates unsightly stumps, and forestry mulching clears undergrowth while enriching soil. Which service interests you?",
+    intent: { name: "service_explanation", confidence: 0.95 },
+    sessionId
+  };
+}
+
+function generateQuoteRequestResponse(entities: any, sessionId: string) {
+  return {
+    response: "I can help you get a professional quote! Our estimates are based on project scope, tree size/quantity, equipment needed, and site conditions. For the most accurate quote, we offer free on-site consultations where our certified arborists assess your specific needs. This ensures you receive detailed, fair pricing with no surprises. Ready to schedule your free consultation?",
+    intent: { name: "quote_request", confidence: 0.95 },
+    sessionId,
+    needsContact: true,
+    isQuote: true
+  };
+}
+
+function generateConsultationResponse(entities: any, sessionId: string) {
+  return {
+    response: "Excellent! I can help you schedule a free consultation with one of our certified arborists. We'll need your name, phone number, property location, and preferred timing. Our expert will visit your property, assess your specific needs, and provide detailed recommendations with transparent pricing. Most consultations take 30-45 minutes. What's the best way to reach you?",
+    intent: { name: "consultation_request", confidence: 0.95 },
+    sessionId,
+    needsContact: true
+  };
+}
+
+function generateServiceAreaResponse(entities: any, sessionId: string) {
+  return {
+    response: "TreeShop provides professional tree services throughout Central Florida, including Orlando, Tampa, Jacksonville, and surrounding counties. We're licensed and insured to work in residential, commercial, and municipal properties across the region. If you're outside our primary service area, we may still be able to help with larger projects. What's your property location?",
+    intent: { name: "service_area", confidence: 0.95 },
+    sessionId
+  };
+}
+
+function generateCustomerGeneralResponse(message: string, sessionId: string) {
+  return {
+    response: "Thanks for your interest in TreeShop! We're Florida's trusted tree service professionals, offering safe and reliable tree removal, land clearing, stump grinding, and forestry mulching. Our certified arborists bring years of experience and state-of-the-art equipment to every project. How can we help with your tree service needs today?",
+    intent: { name: "general_inquiry", confidence: 0.8 },
+    sessionId
+  };
+}
+
+function generateCustomerHelpResponse(sessionId: string) {
+  return {
+    response: "I'm here to help with information about TreeShop's professional tree services! I can explain our services, help you understand what your property might need, assist with scheduling consultations, and answer questions about our service areas. For specific quotes or detailed technical questions, I'll connect you with our certified arborists. What would you like to know?",
+    intent: { name: "help", confidence: 0.9 },
+    sessionId
+  };
+}
+
 // Business Intelligence Functions
 async function generateBusinessResponse(message: string, sessionId: string) {
   const intent = classifyIntent(message);
@@ -468,6 +591,67 @@ http.route({
         }),
         {
           status: 500,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type",
+          },
+        }
+      );
+    }
+  }),
+});
+
+/**
+ * Customer-safe chat endpoint for CustomerAlex
+ */
+http.route({
+  path: "/api/customer-chat",
+  method: "POST",
+  handler: httpAction(async (ctx, request) => {
+    try {
+      // Parse request body
+      const body = await request.json();
+      const { message, sessionId, customerContext, restrictedMode } = body;
+
+      if (!message || !sessionId) {
+        return new Response(
+          JSON.stringify({ error: "Missing message or sessionId" }),
+          {
+            status: 400,
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "POST, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type",
+            },
+          }
+        );
+      }
+
+      // Generate customer-safe response
+      const result = await generateCustomerResponse(message, sessionId, customerContext);
+
+      return new Response(JSON.stringify(result), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      });
+    } catch (error) {
+      console.error("Customer chat API error:", error);
+      return new Response(
+        JSON.stringify({ 
+          response: "I'm having trouble right now. Please call us at (555) 123-4567 for immediate assistance.",
+          intent: { name: 'error', confidence: 1.0 },
+          sessionId: body?.sessionId || 'error'
+        }),
+        {
+          status: 200, // Return 200 so CustomerAlex can handle gracefully
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
