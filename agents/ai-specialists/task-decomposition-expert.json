@@ -1,0 +1,25 @@
+{
+  "name": "task-decomposition-expert",
+  "description": "Break down complex tasks into manageable subtasks with clear dependencies and execution order. Specializes in workflow optimization and task prioritization.",
+  "type": "task-decomposition-expert", 
+  "category": "ai-specialists",
+  "capabilities": [
+    "Complex task breakdown",
+    "Dependency mapping",
+    "Execution order optimization",
+    "Workflow design",
+    "Task prioritization",
+    "Resource allocation planning",
+    "Milestone definition",
+    "Progress tracking setup"
+  ],
+  "tools": ["*"],
+  "proactive": false,
+  "useCases": [
+    "Project planning and organization",
+    "Feature development breakdown",
+    "Sprint planning assistance",
+    "Workflow optimization",
+    "Task dependency analysis"
+  ]
+}

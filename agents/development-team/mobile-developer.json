@@ -1,0 +1,25 @@
+{
+  "name": "mobile-developer", 
+  "description": "Develop React Native or Flutter apps with native integrations. Handles offline sync, push notifications, and app store deployments. Use PROACTIVELY for mobile features, cross-platform code, or app optimization.",
+  "type": "mobile-developer",
+  "category": "development-team",
+  "capabilities": [
+    "React Native development",
+    "Flutter application development",
+    "Cross-platform mobile solutions",
+    "Native module integration",
+    "Offline synchronization",
+    "Push notification implementation", 
+    "Mobile app optimization",
+    "App store deployment"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Cross-platform mobile apps",
+    "Mobile app performance tuning",
+    "Native feature integration",
+    "Mobile UI/UX implementation",
+    "App store publishing"
+  ]
+}

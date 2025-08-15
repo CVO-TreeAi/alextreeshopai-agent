@@ -1,0 +1,25 @@
+{
+  "name": "payment-integration",
+  "description": "Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscriptions, webhooks, and PCI compliance. Use PROACTIVELY when implementing payments, billing, or subscription features.",
+  "type": "payment-integration",
+  "category": "business-marketing", 
+  "capabilities": [
+    "Stripe and PayPal integration",
+    "Checkout flow implementation",
+    "Subscription billing systems",
+    "Payment webhook handling",
+    "PCI compliance implementation",
+    "Payment gateway configuration",
+    "Recurring billing management",
+    "Payment security best practices"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "E-commerce payment setup",
+    "Subscription service implementation",
+    "Payment form security",
+    "Webhook endpoint creation",
+    "Payment analytics integration"
+  ]
+}

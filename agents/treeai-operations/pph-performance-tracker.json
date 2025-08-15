@@ -1,0 +1,196 @@
+{
+  "name": "pph-performance-tracker",
+  "description": "TreeAI Operations Agent for Points per Hour (PpH) performance tracking, crew efficiency monitoring, and real-time productivity analysis. Handles individual and team performance metrics across all tree service operations.",
+  "type": "pph-performance-tracker",
+  "category": "treeai-operations",
+  "capabilities": [
+    "Real-time PpH calculation: Total Points Completed ÷ Total Hours Worked",
+    "Individual service PpH tracking (removal, trimming, stump grinding)",
+    "Crew performance monitoring and comparison",
+    "Performance variance analysis: (Current PpH ÷ Expected PpH) × 100%",
+    "Historical PpH trending and analytics",
+    "Crew efficiency benchmarking and optimization",
+    "Performance-based crew assignment recommendations",
+    "Training needs identification based on PpH gaps"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "daily_operations": {
+    "primary_users": ["Crew supervisors", "Operations managers", "Field crews", "Estimators"],
+    "interaction_frequency": "Continuous throughout work day",
+    "real_time_tracking": [
+      "Live PpH monitoring during active jobs",
+      "Performance alerts for under/over-performing crews",
+      "Progress tracking against estimated hours",
+      "Efficiency recommendations during job execution"
+    ]
+  },
+  "pph_calculations": {
+    "overall_pph": {
+      "formula": "Total Points Completed ÷ Total Hours Worked",
+      "update_frequency": "Real-time as points are completed",
+      "historical_tracking": "Daily, weekly, monthly, yearly averages"
+    },
+    "service_specific_pph": {
+      "tree_removal_pph": "Tree removal points ÷ removal hours",
+      "tree_trimming_pph": "Trimming points ÷ trimming hours",
+      "stump_grinding_pph": "Stump points ÷ grinding hours",
+      "cleanup_pph": "Cleanup points ÷ cleanup hours"
+    },
+    "performance_metrics": {
+      "current_performance": "Points completed so far ÷ Hours elapsed",
+      "performance_variance": "(Current PpH ÷ Expected PpH) × 100%",
+      "efficiency_rating": "Actual PpH ÷ Target PpH",
+      "productivity_trend": "7-day moving average PpH"
+    }
+  },
+  "tracking_features": {
+    "real_time_monitoring": {
+      "live_pph_display": "Current job PpH updating every 15 minutes",
+      "progress_indicators": "Visual progress bars for point completion",
+      "performance_alerts": "Notifications for significant variance",
+      "crew_comparison": "Side-by-side crew performance display"
+    },
+    "historical_analysis": {
+      "performance_trends": "PpH trends over time periods",
+      "seasonal_patterns": "Seasonal performance variations",
+      "service_efficiency": "PpH by service type and complexity",
+      "crew_benchmarks": "Individual vs team performance"
+    },
+    "predictive_insights": {
+      "completion_estimates": "Projected job completion time",
+      "performance_forecasting": "Expected PpH based on conditions",
+      "crew_recommendations": "Best crew for specific job types",
+      "training_identification": "Skills gaps and improvement areas"
+    }
+  },
+  "integration_patterns": {
+    "convex_backend": {
+      "real_time_sync": "Live PpH data across all platforms",
+      "performance_storage": "Historical PpH data with job context",
+      "analytics_queries": "Complex performance analysis queries",
+      "reporting_data": "Automated performance report generation"
+    },
+    "mobile_tracking": {
+      "ios_integration": "Native PpH tracking with job timer",
+      "offline_capability": "Track performance without connectivity",
+      "photo_documentation": "Progress photos with timestamp",
+      "voice_updates": "Hands-free progress reporting"
+    },
+    "business_workflow": {
+      "job_assignment": "Crew selection based on PpH history",
+      "scheduling_optimization": "Schedule jobs based on crew efficiency",
+      "pricing_accuracy": "Improve estimates with actual PpH data",
+      "performance_reviews": "Data-driven crew evaluations"
+    }
+  },
+  "performance_benchmarks": {
+    "industry_standards": {
+      "tree_removal": {
+        "beginner": "250-350 PpH",
+        "experienced": "350-450 PpH",
+        "expert": "450+ PpH"
+      },
+      "tree_trimming": {
+        "beginner": "300-400 PpH",
+        "experienced": "400-500 PpH",
+        "expert": "500+ PpH"
+      },
+      "stump_grinding": {
+        "beginner": "400-500 PpH",
+        "experienced": "500-600 PpH", 
+        "expert": "600+ PpH"
+      }
+    },
+    "complexity_adjustments": {
+      "low_complexity": "15% PpH increase expected",
+      "standard_complexity": "Baseline PpH rates",
+      "high_complexity": "20% PpH decrease expected",
+      "extreme_complexity": "35% PpH decrease expected"
+    }
+  },
+  "alert_system": {
+    "performance_alerts": [
+      "PpH below 80% of expected rate",
+      "PpH above 130% of expected rate (quality check)",
+      "Significant crew performance variance",
+      "Job running over estimated hours"
+    ],
+    "quality_alerts": [
+      "Unusually high PpH (potential safety concern)",
+      "Consistent low PpH (training need identified)",
+      "Performance degradation trend",
+      "Equipment efficiency issues detected"
+    ],
+    "business_alerts": [
+      "Job profitability at risk due to low PpH",
+      "Crew utilization below target",
+      "Schedule adjustments needed",
+      "Customer expectation management required"
+    ]
+  },
+  "analytics_dashboard": {
+    "real_time_metrics": [
+      "Current job PpH vs target",
+      "Crew performance leaderboard",
+      "Today's overall company PpH",
+      "Active jobs progress status"
+    ],
+    "historical_insights": [
+      "30-day PpH trends by crew",
+      "Service type efficiency comparison",
+      "Seasonal performance patterns",
+      "Equipment impact on PpH"
+    ],
+    "predictive_analytics": [
+      "Projected job completion times",
+      "Crew performance forecasting",
+      "Optimal crew-job matching",
+      "Training ROI predictions"
+    ]
+  },
+  "crew_development": {
+    "performance_identification": {
+      "top_performers": "Crews consistently above target PpH",
+      "training_candidates": "Crews below benchmark PpH",
+      "skill_gaps": "Service-specific performance deficiencies",
+      "improvement_opportunities": "Areas for efficiency gains"
+    },
+    "training_programs": {
+      "efficiency_coaching": "PpH improvement techniques",
+      "safety_performance": "Maintain safety while improving speed",
+      "equipment_optimization": "Maximize tool and equipment efficiency",
+      "teamwork_coordination": "Crew coordination for better PpH"
+    }
+  },
+  "reporting_capabilities": {
+    "daily_reports": [
+      "Daily PpH summary by crew",
+      "Performance variance analysis",
+      "Job completion vs estimate",
+      "Productivity recommendations"
+    ],
+    "management_reports": [
+      "Weekly crew performance trends",
+      "Monthly efficiency analysis",
+      "Quarterly benchmarking results",
+      "Annual performance reviews"
+    ],
+    "operational_insights": [
+      "Most efficient crews by service type",
+      "Seasonal productivity patterns",
+      "Equipment impact on performance",
+      "Geographic performance variations"
+    ]
+  },
+  "useCases": [
+    "Real-time job progress monitoring and alerts",
+    "Daily crew performance tracking and comparison",
+    "Historical efficiency analysis for crew optimization",
+    "Performance-based crew assignment and scheduling",
+    "Training needs identification and program development",
+    "Job estimation accuracy improvement using actual PpH",
+    "Profitability analysis based on crew efficiency",
+    "Customer communication with accurate completion times"
+  ]
+}

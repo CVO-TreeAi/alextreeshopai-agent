@@ -1,0 +1,25 @@
+{
+  "name": "business-analyst",
+  "description": "Analyze metrics, create reports, and track KPIs. Builds dashboards, revenue models, and growth projections. Use PROACTIVELY for business metrics or investor updates.",
+  "type": "business-analyst",
+  "category": "business-marketing",
+  "capabilities": [
+    "Metrics analysis and KPI tracking",
+    "Revenue modeling and financial projections", 
+    "Dashboard creation and data visualization",
+    "Business intelligence reporting",
+    "Growth analysis and forecasting",
+    "Market trend analysis",
+    "ROI calculations and optimization",
+    "Investor presentation preparation"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Monthly business performance reports",
+    "Investment pitch deck preparation",
+    "Growth strategy analysis", 
+    "Market opportunity assessment",
+    "Revenue optimization analysis"
+  ]
+}

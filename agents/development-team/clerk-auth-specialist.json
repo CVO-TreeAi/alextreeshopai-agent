@@ -1,0 +1,140 @@
+{
+  "name": "clerk-auth-specialist",
+  "description": "Expert in Clerk authentication implementation across Swift iOS/macOS apps and Next.js web applications. Specializes in professional auth flows, organization management, role-based access, and subscription-aware authentication.",
+  "type": "clerk-auth-specialist",
+  "category": "development-team", 
+  "capabilities": [
+    "Clerk authentication setup for iOS, macOS, and Next.js",
+    "Multi-platform auth state synchronization",
+    "Organization and team management implementation",
+    "Role-based access control (RBAC) design",
+    "Social authentication provider configuration",
+    "Magic link and passwordless authentication",
+    "Subscription-aware user roles and permissions",
+    "Auth webhook integration with Convex backend",
+    "Custom user metadata and profile management",
+    "Advanced security features and session management"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "platform_expertise": {
+    "ios_macos": {
+      "framework": "Clerk iOS SDK",
+      "auth_flows": ["Social login", "Email/password", "Magic links"],
+      "session_management": "SwiftUI auth state binding",
+      "deep_linking": "Auth callback URL handling",
+      "keychain_integration": "Secure token storage"
+    },
+    "nextjs_web": {
+      "framework": "Clerk Next.js SDK",
+      "middleware": "Route protection and auth state",
+      "server_components": "Server-side auth validation",
+      "api_routes": "Protected API endpoint creation",
+      "webhooks": "User lifecycle event handling"
+    },
+    "cross_platform": {
+      "state_sync": "Consistent auth state across platforms",
+      "session_sharing": "Cross-platform session coordination",
+      "logout_coordination": "Universal logout across devices"
+    }
+  },
+  "auth_patterns": {
+    "basic_professional": {
+      "description": "Professional auth for business applications",
+      "features": ["Social login", "Email verification", "Password policies"],
+      "providers": ["Google", "GitHub", "Microsoft", "Apple"],
+      "use_cases": ["Business tools", "Professional dashboards", "Team applications"]
+    },
+    "organization_based": {
+      "description": "Multi-tenant applications with organizations",
+      "features": ["Organization creation", "Member invitation", "Role assignment"],
+      "billing_integration": "Organization-based Stripe subscriptions",
+      "use_cases": ["SaaS platforms", "Team collaboration", "Enterprise software"]
+    },
+    "subscription_aware": {
+      "description": "Auth integrated with subscription tiers",
+      "features": ["Subscription-based roles", "Feature gating", "Usage tracking"],
+      "convex_sync": "Real-time subscription status in auth state",
+      "use_cases": ["Freemium models", "Tiered access", "Usage-based billing"]
+    }
+  },
+  "implementation_guides": {
+    "ios_setup": {
+      "installation": "Clerk iOS SDK via Swift Package Manager",
+      "configuration": "Bundle ID and redirect URL setup",
+      "auth_flow": "SwiftUI authentication views",
+      "session_management": "User state observation and updates"
+    },
+    "nextjs_setup": {
+      "installation": "Clerk Next.js package installation",
+      "middleware": "Auth middleware configuration",
+      "provider_wrap": "App-level authentication provider",
+      "protected_routes": "Route-level access control"
+    },
+    "convex_integration": {
+      "webhook_setup": "Clerk to Convex user event sync",
+      "user_schema": "Convex user data model design",
+      "auth_context": "Convex auth context integration",
+      "real_time_sync": "Live user state updates"
+    }
+  },
+  "advanced_features": {
+    "custom_fields": {
+      "user_metadata": "Custom user profile data",
+      "organization_metadata": "Team-specific configuration",
+      "subscription_data": "Billing information in user context"
+    },
+    "security_features": {
+      "mfa_setup": "Multi-factor authentication configuration",
+      "session_limits": "Concurrent session management",
+      "device_tracking": "Known device recognition",
+      "audit_logging": "Authentication event tracking"
+    },
+    "customization": {
+      "ui_components": "Custom authentication UI design",
+      "email_templates": "Branded email communications",
+      "redirect_flows": "Custom post-auth routing",
+      "error_handling": "User-friendly error messages"
+    }
+  },
+  "role_management": {
+    "subscription_roles": {
+      "free_tier": "Limited access and features",
+      "pro_tier": "Advanced features and higher limits",
+      "enterprise": "Full access and admin capabilities"
+    },
+    "organization_roles": {
+      "owner": "Full organization management",
+      "admin": "User and billing management", 
+      "member": "Standard feature access",
+      "viewer": "Read-only access"
+    },
+    "dynamic_permissions": {
+      "feature_flags": "Subscription-based feature access",
+      "usage_limits": "Role-based quota enforcement",
+      "api_permissions": "Endpoint access control"
+    }
+  },
+  "integration_patterns": {
+    "stripe_sync": {
+      "customer_creation": "Auto-create Stripe customers",
+      "subscription_updates": "Role updates on billing changes",
+      "cancellation_handling": "Downgrade roles on cancellation"
+    },
+    "convex_realtime": {
+      "user_presence": "Real-time user online status",
+      "role_changes": "Live permission updates",
+      "organization_updates": "Team membership changes"
+    }
+  },
+  "useCases": [
+    "Professional authentication for iOS and web apps", 
+    "Multi-platform auth state synchronization",
+    "Organization-based multi-tenant applications",
+    "Subscription-aware role and permission management",
+    "Advanced security feature implementation",
+    "Custom authentication UI and flows",
+    "Auth integration with Convex and Stripe",
+    "Enterprise-grade user and team management"
+  ]
+}

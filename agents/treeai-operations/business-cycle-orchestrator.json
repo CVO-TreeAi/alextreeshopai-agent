@@ -1,0 +1,223 @@
+{
+  "name": "business-cycle-orchestrator",
+  "description": "TreeAI Operations Agent that orchestrates the complete business cycle from lead assessment through invoice generation. Manages point flow through all phases: lead assessment, proposal generation, work order creation, execution tracking, and invoice completion.",
+  "type": "business-cycle-orchestrator",
+  "category": "treeai-operations",
+  "capabilities": [
+    "Lead assessment point calculations and job complexity evaluation",
+    "Proposal generation with time estimates: Total Project Points ÷ Crew PpH",
+    "Pricing calculations: Estimated Hours × Loadout Billing Rate",
+    "Work order creation with crew assignment based on PpH ratings",
+    "Real-time execution tracking with performance variance monitoring",
+    "Invoice generation with actual vs estimated analysis",
+    "Profit variance calculation: (Estimated Hours - Actual Hours) × Loadout Billing Rate",
+    "End-to-end workflow automation and status management"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "daily_operations": {
+    "primary_users": ["Sales team", "Operations managers", "Project coordinators", "Billing staff"],
+    "interaction_frequency": "Throughout entire job lifecycle",
+    "workflow_stages": [
+      "Lead qualification and assessment",
+      "Proposal creation and approval",
+      "Work order scheduling and dispatch",
+      "Job execution and progress tracking", 
+      "Completion verification and invoicing"
+    ]
+  },
+  "business_cycle_phases": {
+    "1_lead_assessment": {
+      "description": "Initial site evaluation and point calculation",
+      "inputs": ["Site measurements", "Tree inventory", "Access conditions"],
+      "process": "Calculate TreeScore/Stump Points per line item",
+      "outputs": ["Total project points", "Complexity rating", "Resource requirements"],
+      "automation": [
+        "Automated point calculations from field measurements",
+        "AFISS complexity scoring with photo documentation",
+        "Initial resource requirement estimation",
+        "Lead qualification scoring based on point complexity"
+      ]
+    },
+    "2_proposal_generation": {
+      "description": "Time estimation and pricing calculation",
+      "time_estimation": {
+        "formula": "Estimated Hours = Total Project Points ÷ Crew PpH",
+        "crew_selection": "Match project complexity to appropriate PpH-rated crew",
+        "buffer_factors": "Add complexity and weather buffers to estimates"
+      },
+      "pricing_calculation": {
+        "formula": "Project Price = Estimated Hours × Loadout Billing Rate",
+        "loadout_components": ["Crew labor cost", "Equipment cost", "Material cost", "Profit margin"],
+        "pricing_validation": "Compare against historical similar jobs"
+      },
+      "automation": [
+        "Auto-generate proposals with point-based pricing",
+        "Dynamic crew assignment recommendations",
+        "Competitive pricing analysis",
+        "Proposal approval workflow routing"
+      ]
+    },
+    "3_work_order_creation": {
+      "description": "Job scheduling and crew assignment",
+      "crew_assignment": "Match project requirements to PpH-rated crew capabilities",
+      "schedule_planning": {
+        "formula": "Project Duration = Total Points ÷ (Crew Size × Average Individual PpH)",
+        "considerations": ["Weather windows", "Equipment availability", "Crew schedules"]
+      },
+      "resource_allocation": [
+        "Equipment scheduling based on job requirements",
+        "Material ordering and delivery coordination",
+        "Permit and utility coordination tracking",
+        "Customer communication and scheduling"
+      ]
+    },
+    "4_execution_tracking": {
+      "description": "Real-time job progress monitoring",
+      "real_time_performance": {
+        "current_pph": "Points Completed So Far ÷ Hours Elapsed",
+        "performance_variance": "(Current PpH ÷ Expected PpH) × 100%",
+        "completion_projection": "Estimated completion time based on current rate"
+      },
+      "monitoring_alerts": [
+        "Performance variance beyond acceptable limits",
+        "Schedule deviation notifications",
+        "Safety incident reporting and tracking",
+        "Equipment failure or delay alerts"
+      ],
+      "workflow_automation": [
+        "Automatic progress updates from field",
+        "Photo documentation with timestamp",
+        "Material usage tracking and resupply alerts",
+        "Customer progress notifications"
+      ]
+    },
+    "5_invoice_generation": {
+      "description": "Job completion and financial reconciliation",
+      "actual_vs_estimated": {
+        "actual_hours": "Total Points Completed ÷ Actual PpH Achieved",
+        "profit_variance": "(Estimated Hours - Actual Hours) × Loadout Billing Rate",
+        "efficiency_analysis": "Performance vs estimate with variance reasons"
+      },
+      "invoice_automation": [
+        "Automatic invoice generation upon job completion",
+        "Photo documentation attachment",
+        "Change order integration and billing",
+        "Payment processing and follow-up"
+      ]
+    }
+  },
+  "integration_workflows": {
+    "convex_backend": {
+      "data_flow": "Seamless data flow between all business cycle phases",
+      "real_time_sync": "Live updates across all platforms and users",
+      "historical_tracking": "Complete audit trail from lead to payment",
+      "analytics_integration": "Performance data feeding business intelligence"
+    },
+    "mobile_coordination": {
+      "field_updates": "Real-time progress updates from iOS field app",
+      "photo_sync": "Automatic photo documentation throughout cycle",
+      "offline_capability": "Continue workflow during connectivity issues",
+      "crew_communication": "Seamless crew-office communication"
+    },
+    "financial_systems": {
+      "stripe_integration": "Automatic payment processing and tracking",
+      "accounting_sync": "Integration with accounting software",
+      "cost_tracking": "Real-time cost accumulation and margin analysis",
+      "reporting_automation": "Automated financial and operational reports"
+    }
+  },
+  "automation_features": {
+    "workflow_triggers": [
+      "Auto-advance stages based on completion criteria",
+      "Automatic notifications at key milestones",
+      "Exception handling and escalation rules",
+      "Schedule optimization and conflict resolution"
+    ],
+    "data_validation": [
+      "Point calculation accuracy checks",
+      "Crew capacity validation",
+      "Resource availability confirmation",
+      "Customer requirements verification"
+    ],
+    "communication_automation": [
+      "Customer status updates at each phase",
+      "Crew assignment and schedule notifications",
+      "Management dashboard updates",
+      "Stakeholder progress reporting"
+    ]
+  },
+  "performance_analytics": {
+    "cycle_time_analysis": [
+      "Lead-to-proposal conversion time",
+      "Proposal-to-work order time",
+      "Job completion vs estimated time",
+      "Invoice generation and payment time"
+    ],
+    "profitability_tracking": [
+      "Margin analysis by job phase",
+      "Crew efficiency impact on profit",
+      "Cost variance identification",
+      "Revenue recognition optimization"
+    ],
+    "operational_insights": [
+      "Bottleneck identification in workflow",
+      "Resource utilization optimization",
+      "Customer satisfaction correlation",
+      "Seasonal performance patterns"
+    ]
+  },
+  "quality_control": {
+    "checkpoint_validations": [
+      "Lead qualification criteria verification",
+      "Proposal accuracy and completeness checks",
+      "Work order resource allocation validation",
+      "Job completion quality assurance",
+      "Invoice accuracy verification"
+    ],
+    "error_prevention": [
+      "Duplicate job detection",
+      "Resource double-booking prevention",
+      "Pricing consistency validation",
+      "Customer communication tracking"
+    ]
+  },
+  "dashboard_features": {
+    "pipeline_overview": [
+      "Active jobs at each business cycle phase",
+      "Pipeline value and conversion metrics",
+      "Resource allocation and capacity planning",
+      "Performance trending and forecasting"
+    ],
+    "operational_metrics": [
+      "Average cycle time by phase",
+      "Crew utilization and efficiency",
+      "Customer satisfaction scores",
+      "Financial performance indicators"
+    ]
+  },
+  "exception_handling": {
+    "workflow_exceptions": [
+      "Job cancellations and rescheduling",
+      "Scope changes and change orders",
+      "Weather delays and adjustments",
+      "Equipment failures and substitutions"
+    ],
+    "escalation_procedures": [
+      "Performance variance escalation",
+      "Customer complaint resolution",
+      "Safety incident management",
+      "Quality issue resolution"
+    ]
+  },
+  "useCases": [
+    "Complete job lifecycle orchestration from lead to payment",
+    "Real-time business cycle monitoring and optimization",
+    "Automated workflow progression with quality checkpoints",
+    "Cross-functional coordination between sales, ops, and billing",
+    "Performance-based crew assignment and scheduling",
+    "Dynamic pricing based on real-time capacity and performance",
+    "Exception handling and workflow recovery",
+    "Business intelligence and operational analytics"
+  ]
+}

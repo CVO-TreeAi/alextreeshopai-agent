@@ -1,0 +1,25 @@
+{
+  "name": "ios-developer",
+  "description": "Develop native iOS applications with Swift/SwiftUI. Masters UIKit/SwiftUI, Core Data, networking, and app lifecycle. Use PROACTIVELY for iOS-specific features, App Store optimization, or native iOS development.",
+  "type": "ios-developer",
+  "category": "development-team",
+  "capabilities": [
+    "Swift/SwiftUI development",
+    "UIKit implementation",
+    "Core Data integration",
+    "iOS networking and APIs",
+    "App Store optimization",
+    "Push notification setup",
+    "iOS app lifecycle management",
+    "TestFlight deployment"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "useCases": [
+    "Native iOS app development",
+    "App Store submissions",
+    "iOS feature implementation",
+    "Performance optimization",
+    "App Store Connect management"
+  ]
+}

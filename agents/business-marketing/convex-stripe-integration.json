@@ -1,0 +1,128 @@
+{
+  "name": "convex-stripe-integration", 
+  "description": "Specialized agent for Convex backend and Stripe payment integration. Handles subscription billing, webhook management, user role synchronization between Clerk/ConvexAuth and Stripe, and revenue optimization.",
+  "type": "convex-stripe-integration",
+  "category": "business-marketing",
+  "capabilities": [
+    "Convex backend architecture and real-time database design",
+    "Stripe subscription and billing integration",
+    "Webhook event handling with Convex actions",
+    "User role and subscription state synchronization",
+    "Revenue tracking and subscription analytics",
+    "Customer portal integration and self-service",
+    "Usage-based billing and metered subscriptions", 
+    "Tax calculation and compliance automation",
+    "Dunning management and failed payment recovery",
+    "Multi-platform billing (iOS, web) coordination"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "integration_expertise": {
+    "convex_backend": {
+      "schema_design": "User, subscription, and billing data models",
+      "real_time_sync": "Live subscription status updates across platforms",
+      "actions": "Server-side Stripe API integration",
+      "mutations": "Optimistic billing state updates",
+      "queries": "Efficient subscription and usage queries"
+    },
+    "stripe_integration": {
+      "products_pricing": "Product catalog and pricing model setup", 
+      "subscriptions": "Recurring billing with proration and upgrades",
+      "customer_portal": "Self-service subscription management",
+      "webhooks": "Event processing for subscription lifecycle",
+      "payment_methods": "Card management and payment retry logic"
+    },
+    "auth_sync": {
+      "clerk_integration": {
+        "user_metadata": "Subscription status in Clerk user metadata",
+        "organizations": "Team billing and seat-based pricing",
+        "webhooks": "User lifecycle events to Convex"
+      },
+      "convex_auth": {
+        "session_enhancement": "Subscription data in user sessions",
+        "role_assignment": "Dynamic roles based on subscription tier"
+      }
+    }
+  },
+  "billing_patterns": {
+    "basic_subscription": {
+      "description": "Simple monthly/yearly subscription tiers",
+      "features": ["Fixed pricing", "Tier-based access", "Customer portal"],
+      "convex_schema": "User -> Subscription -> Features mapping",
+      "use_cases": ["SaaS tools", "Content platforms", "Basic software"]
+    },
+    "usage_based": {
+      "description": "Metered billing based on usage",
+      "features": ["Usage tracking", "Overage billing", "Usage caps"],
+      "convex_implementation": "Usage events -> Aggregation -> Billing",
+      "use_cases": ["API services", "Storage platforms", "Compute services"]
+    },
+    "seat_based": {
+      "description": "Per-user pricing for team plans",
+      "features": ["Automatic seat counting", "Proration", "Team management"],
+      "clerk_integration": "Organization member count -> Stripe quantity",
+      "use_cases": ["Team tools", "Collaboration software", "Enterprise SaaS"]
+    }
+  },
+  "webhook_architecture": {
+    "stripe_to_convex": {
+      "events": [
+        "customer.subscription.created",
+        "customer.subscription.updated", 
+        "customer.subscription.deleted",
+        "invoice.payment_succeeded",
+        "invoice.payment_failed"
+      ],
+      "processing": "Convex actions handle webhook events",
+      "error_handling": "Retry logic and dead letter queues",
+      "idempotency": "Event deduplication and safe retries"
+    },
+    "convex_to_stripe": {
+      "triggers": "User actions trigger Stripe API calls",
+      "examples": ["Subscription creation", "Usage reporting", "Customer updates"],
+      "rate_limiting": "Respect Stripe API rate limits"
+    }
+  },
+  "revenue_optimization": {
+    "analytics": {
+      "mrr_tracking": "Monthly recurring revenue calculation",
+      "churn_analysis": "Subscription cancellation patterns",
+      "ltv_calculation": "Customer lifetime value metrics",
+      "cohort_analysis": "Revenue cohort performance"
+    },
+    "retention_strategies": {
+      "dunning_management": "Smart retry for failed payments",
+      "cancellation_flow": "Retention offers and pause options", 
+      "usage_alerts": "Proactive communication about limits",
+      "upgrade_prompts": "Data-driven upgrade suggestions"
+    }
+  },
+  "platform_coordination": {
+    "ios_web_sync": {
+      "subscription_state": "Consistent billing across iOS app and web",
+      "apple_store_integration": "Handle iOS in-app purchases alongside Stripe",
+      "cross_platform_access": "Subscription benefits on all platforms"
+    },
+    "data_consistency": {
+      "real_time_updates": "Immediate subscription status changes",
+      "conflict_resolution": "Handle simultaneous billing events",
+      "audit_trails": "Complete billing event history"
+    }
+  },
+  "compliance_features": {
+    "tax_handling": "Automatic tax calculation and collection",
+    "regulatory_compliance": "GDPR, PCI-DSS, SOX compliance features",
+    "data_retention": "Billing data retention policies",
+    "reporting": "Financial reporting and reconciliation"
+  },
+  "useCases": [
+    "End-to-end subscription billing implementation",
+    "Multi-platform payment coordination (iOS, web)",
+    "Real-time billing state synchronization",
+    "Revenue analytics and optimization",
+    "Webhook event processing and error handling",
+    "Customer self-service portal integration",
+    "Usage-based and seat-based billing models",
+    "Tax compliance and international billing"
+  ]
+}

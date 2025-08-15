@@ -1,0 +1,212 @@
+{
+  "name": "loadout-economics-manager", 
+  "description": "TreeAI Operations Agent for loadout cost management, billing rate optimization, and crew economics. Handles loadout hourly cost calculations, billing rate optimization, and real-time profitability analysis across all crew configurations and equipment setups.",
+  "type": "loadout-economics-manager",
+  "category": "treeai-operations",
+  "capabilities": [
+    "Loadout hourly cost calculation: (Crew Labor Cost + Equipment Cost + Material Cost)/Hour",
+    "Dynamic billing rate optimization: Loadout Cost/Hour + Profit Margin",
+    "Real-time profitability tracking by crew and equipment configuration",
+    "Cost variance analysis and optimization recommendations",
+    "Equipment ROI analysis and replacement planning",
+    "Crew configuration optimization for maximum profitability",
+    "Seasonal cost adjustments and pricing strategies",
+    "Competitive pricing analysis and market positioning"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "daily_operations": {
+    "primary_users": ["Operations managers", "Financial controllers", "Estimators", "Business owners"],
+    "interaction_frequency": "Daily cost tracking and weekly optimization reviews",
+    "real_time_monitoring": [
+      "Live loadout cost tracking during active jobs",
+      "Profitability alerts for jobs at risk",
+      "Equipment utilization and cost efficiency",
+      "Labor cost optimization recommendations"
+    ]
+  },
+  "cost_calculations": {
+    "loadout_hourly_cost": {
+      "formula": "(Crew Labor Cost + Equipment Cost + Material Cost) / Hour",
+      "components": {
+        "crew_labor_cost": {
+          "base_wages": "Hourly wages for all crew members",
+          "benefits_burden": "Insurance, taxes, workers comp (typically 35-45%)",
+          "overtime_premiums": "Time-and-a-half calculations",
+          "skill_premiums": "Certified arborist and specialist pay"
+        },
+        "equipment_cost": {
+          "depreciation": "Hourly depreciation of trucks, chippers, equipment",
+          "fuel_consumption": "Real-time fuel usage tracking",
+          "maintenance_reserve": "Preventive maintenance cost allocation",
+          "insurance_allocation": "Equipment insurance hourly cost"
+        },
+        "material_cost": {
+          "consumables": "Chains, fuel, oil, small tools",
+          "disposal_fees": "Dump fees allocated per hour",
+          "permits": "Permit costs allocated across job duration",
+          "subcontractor_costs": "Third-party services (crane, disposal, etc.)"
+        }
+      }
+    },
+    "billing_rate_optimization": {
+      "formula": "Loadout Cost/Hour + Target Profit Margin",
+      "profit_margin_factors": [
+        "Market competition analysis",
+        "Job complexity multipliers",
+        "Seasonal demand adjustments",
+        "Customer relationship pricing"
+      ],
+      "dynamic_adjustments": [
+        "Real-time market pricing updates",
+        "Capacity-based pricing (high demand = higher rates)",
+        "Job complexity premium calculations",
+        "Customer loyalty discounts"
+      ]
+    }
+  },
+  "loadout_configurations": {
+    "basic_crew": {
+      "configuration": "2-man crew with pickup truck",
+      "typical_cost_range": "$120-150/hour",
+      "optimal_jobs": "Small tree removal, pruning, cleanup",
+      "pph_expectations": "300-400 points per hour"
+    },
+    "standard_crew": {
+      "configuration": "3-man crew with chip truck and chipper",
+      "typical_cost_range": "$180-220/hour",
+      "optimal_jobs": "Medium tree removal, large pruning jobs",
+      "pph_expectations": "400-500 points per hour"
+    },
+    "heavy_crew": {
+      "configuration": "4+ crew with crane truck or bucket truck",
+      "typical_cost_range": "$280-350/hour",
+      "optimal_jobs": "Large tree removal, complex rigging",
+      "pph_expectations": "500-600+ points per hour"
+    },
+    "stump_grinding": {
+      "configuration": "1-2 crew with stump grinder",
+      "typical_cost_range": "$150-200/hour", 
+      "optimal_jobs": "Stump removal and grinding",
+      "pph_expectations": "600-800+ points per hour"
+    }
+  },
+  "profitability_analytics": {
+    "real_time_tracking": {
+      "job_profitability": "Live P&L during job execution",
+      "cost_variance": "Actual vs budgeted costs",
+      "efficiency_metrics": "Cost per point completed",
+      "margin_protection": "Alerts when margins drop below thresholds"
+    },
+    "historical_analysis": {
+      "loadout_performance": "Profitability by crew configuration",
+      "seasonal_trends": "Cost and revenue patterns over time",
+      "job_type_profitability": "Most/least profitable service types",
+      "customer_profitability": "Customer lifetime value analysis"
+    },
+    "optimization_insights": {
+      "cost_reduction_opportunities": "Specific areas to reduce costs",
+      "pricing_optimization": "Rate adjustments for maximum profit",
+      "equipment_efficiency": "Underutilized or overutilized assets",
+      "crew_productivity": "Labor efficiency improvements"
+    }
+  },
+  "cost_optimization_features": {
+    "equipment_management": {
+      "utilization_tracking": "Hours used vs hours available",
+      "maintenance_optimization": "Preventive maintenance scheduling",
+      "replacement_planning": "ROI analysis for equipment upgrades",
+      "fuel_efficiency": "Fuel consumption optimization strategies"
+    },
+    "labor_optimization": {
+      "skill_matching": "Right crew size and skills for each job",
+      "overtime_management": "Minimize expensive overtime costs",
+      "cross_training": "Versatile crews for multiple job types",
+      "productivity_incentives": "Performance-based compensation"
+    },
+    "operational_efficiency": {
+      "route_optimization": "Minimize travel time between jobs",
+      "job_sequencing": "Optimal job order for efficiency",
+      "material_management": "Reduce waste and optimize inventory",
+      "administrative_efficiency": "Reduce non-billable administrative time"
+    }
+  },
+  "pricing_strategies": {
+    "competitive_pricing": {
+      "market_analysis": "Local competitor rate monitoring",
+      "value_positioning": "Premium pricing for superior service",
+      "loss_leader_strategy": "Strategic below-cost pricing for market entry",
+      "bundling_opportunities": "Package deals for multiple services"
+    },
+    "dynamic_pricing": {
+      "demand_based": "Higher rates during peak seasons",
+      "capacity_based": "Premium pricing when fully booked",
+      "urgency_premium": "Emergency service rate premiums",
+      "volume_discounts": "Rate reductions for large projects"
+    },
+    "customer_specific": {
+      "relationship_pricing": "Loyalty discounts for repeat customers",
+      "commercial_rates": "Specialized pricing for commercial clients",
+      "municipal_contracts": "Government contract rate structures",
+      "property_management": "Volume-based property management rates"
+    }
+  },
+  "financial_controls": {
+    "cost_monitoring": {
+      "real_time_alerts": "Cost overrun warnings during jobs",
+      "budget_variance": "Planned vs actual cost analysis",
+      "trend_analysis": "Cost escalation identification",
+      "benchmarking": "Industry cost comparison"
+    },
+    "approval_workflows": {
+      "rate_changes": "Management approval for pricing adjustments",
+      "cost_overruns": "Escalation procedures for budget variances",
+      "equipment_purchases": "ROI justification for new equipment",
+      "crew_overtime": "Overtime authorization and tracking"
+    }
+  },
+  "reporting_capabilities": {
+    "daily_reports": [
+      "Daily loadout cost summary",
+      "Job profitability dashboard",
+      "Equipment utilization rates",
+      "Labor cost variance analysis"
+    ],
+    "management_reports": [
+      "Weekly P&L by loadout configuration",
+      "Monthly cost trend analysis",
+      "Quarterly equipment ROI review",
+      "Annual pricing strategy assessment"
+    ],
+    "operational_insights": [
+      "Most profitable loadout configurations",
+      "Cost reduction opportunity identification",
+      "Pricing optimization recommendations",
+      "Market positioning analysis"
+    ]
+  },
+  "integration_features": {
+    "accounting_integration": {
+      "cost_allocation": "Automatic job cost allocation",
+      "invoice_generation": "Billing based on actual costs and margins",
+      "financial_reporting": "Integration with accounting software",
+      "tax_preparation": "Cost documentation for tax purposes"
+    },
+    "operations_integration": {
+      "crew_scheduling": "Cost-optimized crew assignments",
+      "equipment_dispatch": "Efficient equipment allocation",
+      "job_costing": "Real-time job cost accumulation",
+      "performance_tracking": "Cost per point analysis"
+    }
+  },
+  "useCases": [
+    "Real-time loadout cost tracking and profitability monitoring",
+    "Dynamic pricing optimization based on costs and market conditions",
+    "Equipment ROI analysis and replacement planning",
+    "Crew configuration optimization for maximum profitability",
+    "Seasonal cost planning and pricing strategy development",
+    "Job profitability analysis and margin protection",
+    "Cost reduction identification and implementation",
+    "Competitive pricing analysis and market positioning"
+  ]
+}
