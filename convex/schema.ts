@@ -676,4 +676,38 @@ export default defineSchema({
     .index("by_aggregationPeriod", ["aggregationPeriod"])
     .index("by_recordedAt", ["recordedAt"])
     .index("by_isWithinThreshold", ["isWithinThreshold"]),
+
+  // AI Assessment Storage for Alex
+  ai_assessments: defineTable({
+    // Request Information
+    request_id: v.string(),
+    project_description: v.string(),
+    
+    // AI Model Information
+    model_used: v.string(), // "claude-3-5-sonnet-20241022"
+    assessment_timestamp: v.number(),
+    
+    // Full Assessment Data (JSON structure from AI)
+    assessment_data: v.any(),
+    
+    // Raw AI Response
+    raw_response: v.optional(v.string()),
+    
+    // Status & Metadata
+    status: v.string(), // "completed", "error", "processing"
+    error_message: v.optional(v.string()),
+    processing_time_ms: v.optional(v.number()),
+    
+    // Related Records
+    project_id: v.optional(v.id("projects")),
+    customer_id: v.optional(v.id("customers")),
+    
+    // Timestamps
+    created_at: v.number(),
+  })
+    .index("by_request_id", ["request_id"])
+    .index("by_status", ["status"])
+    .index("by_model_used", ["model_used"])
+    .index("by_assessment_timestamp", ["assessment_timestamp"])
+    .index("by_project_id", ["project_id"]),
 });
