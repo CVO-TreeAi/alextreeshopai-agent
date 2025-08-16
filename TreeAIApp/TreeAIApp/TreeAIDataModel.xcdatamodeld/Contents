@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="25.0.0" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="category">
+        <attribute name="certifications" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]" usesScalarValueType="NO"/>
+        <attribute name="hireDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hourlyRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <relationship name="laborCostComponent" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LaborCostComponent" inverseName="employee" inverseEntity="LaborCostComponent"/>
+        <relationship name="timeEntries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TimeEntry" inverseName="employee" inverseEntity="TimeEntry"/>
+    </entity>
+    <entity name="Equipment" representedClassName="Equipment" syncable="YES" codeGenerationType="category">
+        <attribute name="currentValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="maintenanceCostYTD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="operatingHoursYTD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="purchasePrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="yearPurchased" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="utilizations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EquipmentUtilization" inverseName="equipment" inverseEntity="EquipmentUtilization"/>
+    </entity>
+    <entity name="EquipmentUtilization" representedClassName="EquipmentUtilization" syncable="YES" codeGenerationType="category">
+        <attribute name="costPerHour" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fuelCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="maintenanceCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="operatingHours" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="utilizationRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="equipment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Equipment" inverseName="utilizations" inverseEntity="Equipment"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="equipmentUtilizations" inverseEntity="Project"/>
+    </entity>
+    <entity name="LaborCostComponent" representedClassName="LaborCostComponent" syncable="YES" codeGenerationType="category">
+        <attribute name="baseBurdenRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="benefitsCostAnnual" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="equipmentAllocation" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastCalculated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="productiveHoursAnnual" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="trueLaborCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="workersCompRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="laborCostComponent" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="category">
+        <attribute name="actualCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="actualHours" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="completedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="estimatedCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="estimatedHours" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="treeScore" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="equipmentUtilizations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EquipmentUtilization" inverseName="project" inverseEntity="EquipmentUtilization"/>
+        <relationship name="timeEntries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TimeEntry" inverseName="project" inverseEntity="TimeEntry"/>
+    </entity>
+    <entity name="TimeEntry" representedClassName="TimeEntry" syncable="YES" codeGenerationType="category">
+        <attribute name="billableMinutes" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="breakMinutes" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="clockIn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="clockOut" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="travelMinutes" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weatherDelayMinutes" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="timeEntries" inverseEntity="Employee"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="timeEntries" inverseEntity="Project"/>
+    </entity>
+</model>

@@ -1,0 +1,104 @@
+{
+  "react": {
+    "core": {
+      "Button": "react/core/button/REACT_CORE_Button.tsx",
+      "Tooltip": "react/core/tooltip/REACT_CORE_Tooltip.tsx",
+      "Typography": "react/core/typography/REACT_CORE_Typography.tsx",
+      "Icon": "react/core/icon/REACT_CORE_Icon.tsx",
+      "ThemeProvider": "react/core/theme/REACT_CORE_ThemeProvider.tsx"
+    },
+    "website": {
+      "Hero": "react/website/hero/REACT_WEBSITE_Hero.tsx"
+    },
+    "saas": {
+      "PricingTable": "react/saas/pricing-table/REACT_SAAS_PricingTable.tsx",
+      "OnboardingWizard": "react/saas/onboarding-wizard/REACT_SAAS_OnboardingWizard.tsx",
+      "SubscriptionManagement": "react/saas/subscription-management/REACT_SAAS_SubscriptionManagement.tsx",
+      "BillingPortal": "react/saas/billing-portal/REACT_SAAS_BillingPortal.tsx",
+      "UsageMetering": "react/saas/usage-metering/REACT_SAAS_UsageMetering.tsx",
+      "TenantSwitcher": "react/saas/tenant-switcher/REACT_SAAS_TenantSwitcher.tsx"
+    },
+    "layout": {
+      "AppShell": "react/layout/app-shell/REACT_LAYOUT_AppShell.tsx",
+      "Grid": "react/layout/grid/REACT_LAYOUT_Grid.tsx",
+      "Stack": "react/layout/stack/REACT_LAYOUT_Stack.tsx",
+      "Sidebar": "react/layout/sidebar/REACT_LAYOUT_Sidebar.tsx",
+      "Navbar": "react/layout/navbar/REACT_LAYOUT_Navbar.tsx"
+    },
+    "navigation": {
+      "Breadcrumbs": "react/navigation/breadcrumbs/REACT_NAV_Breadcrumbs.tsx",
+      "Tabs": "react/navigation/tabs/REACT_NAV_Tabs.tsx",
+      "Pagination": "react/navigation/pagination/REACT_NAV_Pagination.tsx",
+      "Stepper": "react/navigation/stepper/REACT_NAV_Stepper.tsx",
+      "SidebarNav": "react/navigation/sidebar-nav/REACT_NAV_SidebarNav.tsx"
+    },
+    "auth-ui": {
+      "LoginForm": "react/auth-ui/login-form/REACT_AUTH_LoginForm.tsx",
+      "SignUpForm": "react/auth-ui/signup-form/REACT_AUTH_SignUpForm.tsx",
+      "ResetPasswordForm": "react/auth-ui/reset-password/REACT_AUTH_ResetPasswordForm.tsx",
+      "TwoFactorForm": "react/auth-ui/two-factor/REACT_AUTH_TwoFactorForm.tsx",
+      "SSOButtons": "react/auth-ui/sso-buttons/REACT_AUTH_SSOButtons.tsx"
+    },
+    "business": {
+      "finance": {
+        "LedgerTable": "react/business/finance/ledger/REACT_BUSINESS_FINANCE_LedgerTable.tsx",
+        "InvoicesList": "react/business/finance/invoices/REACT_BUSINESS_FINANCE_InvoicesList.tsx",
+        "ChartOfAccountsTree": "react/business/finance/chart-of-accounts/REACT_BUSINESS_FINANCE_ChartOfAccountsTree.tsx",
+        "ExpensesList": "react/business/finance/expenses/REACT_BUSINESS_FINANCE_ExpensesList.tsx",
+        "PayrollRunSummary": "react/business/finance/payroll/REACT_BUSINESS_FINANCE_PayrollRunSummary.tsx",
+        "BillsList": "react/business/finance/bills/REACT_BUSINESS_FINANCE_BillsList.tsx",
+        "JournalEntriesTable": "react/business/finance/journal-entries/REACT_BUSINESS_FINANCE_JournalEntriesTable.tsx",
+        "BankReconciliation": "react/business/finance/reconciliation/REACT_BUSINESS_FINANCE_BankReconciliation.tsx"
+      },
+      "crm": {
+        "DealsPipelineBoard": "react/business/crm/deals/REACT_BUSINESS_CRM_DealsPipelineBoard.tsx",
+        "ContactsTable": "react/business/crm/contacts/REACT_BUSINESS_CRM_ContactsTable.tsx",
+        "CompaniesTable": "react/business/crm/companies/REACT_BUSINESS_CRM_CompaniesTable.tsx",
+        "ActivityLog": "react/business/crm/activity-log/REACT_BUSINESS_CRM_ActivityLog.tsx",
+        "NotesPanel": "react/business/crm/notes/REACT_BUSINESS_CRM_NotesPanel.tsx"
+      },
+      "operations": {
+        "TimeTileTimer": "react/business/operations/time-tracking/tile-timer/REACT_BUSINESS_OPS_TimeTileTimer.tsx",
+        "JobsBoard": "react/business/operations/jobs/REACT_BUSINESS_OPS_JobsBoard.tsx",
+        "SchedulingWeek": "react/business/operations/scheduling/REACT_BUSINESS_OPS_SchedulingWeek.tsx",
+        "DispatchQueue": "react/business/operations/dispatch/REACT_BUSINESS_OPS_DispatchQueue.tsx",
+        "WorkOrderCard": "react/business/operations/work-orders/WorkOrderCard.tsx"
+      },
+      "inventory": {
+        "ProductsTable": "react/business/inventory/products/REACT_BUSINESS_INVENTORY_ProductsTable.tsx",
+        "StockLevelsTable": "react/business/inventory/stock-levels/REACT_BUSINESS_INVENTORY_StockLevelsTable.tsx",
+        "PurchaseOrdersTable": "react/business/inventory/purchase-orders/REACT_BUSINESS_INVENTORY_PurchaseOrdersTable.tsx",
+        "SuppliersTable": "react/business/inventory/suppliers/REACT_BUSINESS_INVENTORY_SuppliersTable.tsx"
+      },
+      "hr": {
+        "EmployeesTable": "react/business/hr/employees/REACT_BUSINESS_HR_EmployeesTable.tsx",
+        "TimesheetsTable": "react/business/hr/timesheets/REACT_BUSINESS_HR_TimesheetsTable.tsx",
+        "PTORequestsTable": "react/business/hr/pto/REACT_BUSINESS_HR_PTORequestsTable.tsx",
+        "ApprovalsQueue": "react/business/hr/approvals/REACT_BUSINESS_HR_ApprovalsQueue.tsx"
+      }
+    }
+  },
+  "next": {
+    "visual": {
+      "Aurora": "next/components/visual/NEXT_VISUAL_Aurora.tsx",
+      "GlassCard": "next/components/visual/NEXT_VISUAL_GlassCard.tsx",
+      "NeonButton": "next/components/visual/NEXT_VISUAL_NeonButton.tsx"
+    },
+    "navigation": {
+      "SmartLink": "next/components/navigation/NEXT_NAVIGATION_SmartLink.tsx"
+    }
+  },
+  "backend": {
+    "supabase": {
+      "mcp_management": "backend-templates/supabase/mcp-servers/management-api/README.md",
+      "mcp_postgrest": "backend-templates/supabase/mcp-servers/postgrest/README.md"
+    },
+    "firebase": {
+      "templates": "backend-templates/firebase/README.md"
+    }
+  },
+  "agents": {
+    "claude-code": "ai-agents/claude-code/README.md",
+    "google": "ai-agents/google/README.md"
+  }
+}

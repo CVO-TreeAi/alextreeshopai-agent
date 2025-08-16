@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A000001294A5678000000001 /* TreeAIAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000002294A5678000000001 /* TreeAIAppApp.swift */; };
+		1A000003294A5678000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000004294A5678000000001 /* ContentView.swift */; };
+		1A000005294A567A000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A000006294A567A000000001 /* Assets.xcassets */; };
+		1A000007294A567A000000001 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A000008294A567A000000001 /* Preview Assets.xcassets */; };
+		
+		/* Core Files */
+		1A000010294A5678000000001 /* ARSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000011294A5678000000001 /* ARSessionManager.swift */; };
+		1A000012294A5678000000001 /* AgentCommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000013294A5678000000001 /* AgentCommunicationManager.swift */; };
+		1A000014294A5678000000001 /* AgentDrivenARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000015294A5678000000001 /* AgentDrivenARManager.swift */; };
+		1A000016294A5678000000001 /* AgentDrivenSafety.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000017294A5678000000001 /* AgentDrivenSafety.swift */; };
+		1A000018294A5678000000001 /* AgentDrivenTreeScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000019294A5678000000001 /* AgentDrivenTreeScore.swift */; };
+		1A000020294A5678000000001 /* AgentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000021294A5678000000001 /* AgentIntegrationTests.swift */; };
+		1A000022294A5678000000001 /* AgentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000023294A5678000000001 /* AgentServices.swift */; };
+		1A000024294A5678000000001 /* RealTimeAgentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000025294A5678000000001 /* RealTimeAgentCoordinator.swift */; };
+		
+		/* UI Components */
+		1A000030294A5678000000001 /* AgentDrivenUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000031294A5678000000001 /* AgentDrivenUIComponents.swift */; };
+		1A000032294A5678000000001 /* DynamicFormComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000033294A5678000000001 /* DynamicFormComponents.swift */; };
+		1A000034294A5678000000001 /* RealTimeAgentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000035294A5678000000001 /* RealTimeAgentView.swift */; };
+		1A000036294A5678000000001 /* SafetyComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000037294A5678000000001 /* SafetyComponents.swift */; };
+		1A000038294A5678000000001 /* TreeScoreComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000039294A5678000000001 /* TreeScoreComponents.swift */; };
+		1A000040294A5678000000001 /* UIComponentLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000041294A5678000000001 /* UIComponentLibrary.swift */; };
+		
+		/* UI Views */
+		1A000050294A5678000000001 /* ARMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000051294A5678000000001 /* ARMeasurementView.swift */; };
+		1A000052294A5678000000001 /* AlexChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000053294A5678000000001 /* AlexChatView.swift */; };
+		1A000054294A5678000000001 /* AssessmentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000055294A5678000000001 /* AssessmentContainerView.swift */; };
+		1A000056294A5678000000001 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000057294A5678000000001 /* DashboardView.swift */; };
+		1A000058294A5678000000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000059294A5678000000001 /* SettingsView.swift */; };
+		
+		/* Workflows */
+		1A000060294A5678000000001 /* AgentDrivenWorkflowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000061294A5678000000001 /* AgentDrivenWorkflowManager.swift */; };
+		1A000062294A5678000000001 /* AssessmentWorkflowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000063294A5678000000001 /* AssessmentWorkflowManager.swift */; };
+		
+		/* Frameworks */
+		1A000100294A5678000000001 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A000104294A5678000000001 /* ARKit.framework */; };
+		1A000101294A5678000000001 /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A000105294A5678000000001 /* RealityKit.framework */; };
+		1A000102294A5678000000001 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A000106294A5678000000001 /* AVFoundation.framework */; };
+		1A000103294A5678000000001 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A000107294A5678000000001 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A000001294A5678000000001 /* TreeAIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeAIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A000002294A5678000000001 /* TreeAIAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeAIAppApp.swift; sourceTree = "<group>"; };
+		1A000004294A5678000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A000006294A567A000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A000008294A567A000000001 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A000009294A567A000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		
+		/* Core Files */
+		1A000011294A5678000000001 /* ARSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionManager.swift; sourceTree = "<group>"; };
+		1A000013294A5678000000001 /* AgentCommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCommunicationManager.swift; sourceTree = "<group>"; };
+		1A000015294A5678000000001 /* AgentDrivenARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDrivenARManager.swift; sourceTree = "<group>"; };
+		1A000017294A5678000000001 /* AgentDrivenSafety.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDrivenSafety.swift; sourceTree = "<group>"; };
+		1A000019294A5678000000001 /* AgentDrivenTreeScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDrivenTreeScore.swift; sourceTree = "<group>"; };
+		1A000021294A5678000000001 /* AgentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentIntegrationTests.swift; sourceTree = "<group>"; };
+		1A000023294A5678000000001 /* AgentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentServices.swift; sourceTree = "<group>"; };
+		1A000025294A5678000000001 /* RealTimeAgentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeAgentCoordinator.swift; sourceTree = "<group>"; };
+		
+		/* UI Components */
+		1A000031294A5678000000001 /* AgentDrivenUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDrivenUIComponents.swift; sourceTree = "<group>"; };
+		1A000033294A5678000000001 /* DynamicFormComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFormComponents.swift; sourceTree = "<group>"; };
+		1A000035294A5678000000001 /* RealTimeAgentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeAgentView.swift; sourceTree = "<group>"; };
+		1A000037294A5678000000001 /* SafetyComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyComponents.swift; sourceTree = "<group>"; };
+		1A000039294A5678000000001 /* TreeScoreComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeScoreComponents.swift; sourceTree = "<group>"; };
+		1A000041294A5678000000001 /* UIComponentLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentLibrary.swift; sourceTree = "<group>"; };
+		
+		/* UI Views */
+		1A000051294A5678000000001 /* ARMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMeasurementView.swift; sourceTree = "<group>"; };
+		1A000053294A5678000000001 /* AlexChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexChatView.swift; sourceTree = "<group>"; };
+		1A000055294A5678000000001 /* AssessmentContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentContainerView.swift; sourceTree = "<group>"; };
+		1A000057294A5678000000001 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		1A000059294A5678000000001 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		
+		/* Workflows */
+		1A000061294A5678000000001 /* AgentDrivenWorkflowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDrivenWorkflowManager.swift; sourceTree = "<group>"; };
+		1A000063294A5678000000001 /* AssessmentWorkflowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentWorkflowManager.swift; sourceTree = "<group>"; };
+		
+		/* Frameworks */
+		1A000104294A5678000000001 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		1A000105294A5678000000001 /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
+		1A000106294A5678000000001 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1A000107294A5678000000001 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A000000294A5678000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000100294A5678000000001 /* ARKit.framework in Frameworks */,
+				1A000101294A5678000000001 /* RealityKit.framework in Frameworks */,
+				1A000102294A5678000000001 /* AVFoundation.framework in Frameworks */,
+				1A000103294A5678000000001 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A000009294A5678000000001 = {
+			isa = PBXGroup;
+			children = (
+				1A000002294A5678000000001 /* TreeAIApp */,
+				1A000001294A5678000000001 /* Products */,
+				1A000080294A5678000000001 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1A000001294A5678000000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A000001294A5678000000001 /* TreeAIApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A000002294A5678000000001 /* TreeAIApp */ = {
+			isa = PBXGroup;
+			children = (
+				1A000002294A5678000000001 /* TreeAIAppApp.swift */,
+				1A000004294A5678000000001 /* ContentView.swift */,
+				1A000070294A5678000000001 /* Core */,
+				1A000071294A5678000000001 /* UI */,
+				1A000072294A5678000000001 /* Workflows */,
+				1A000073294A5678000000001 /* Supporting Files */,
+				1A000074294A567A000000001 /* Preview Content */,
+			);
+			path = TreeAIApp;
+			sourceTree = "<group>";
+		};
+		1A000080294A5678000000001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A000104294A5678000000001 /* ARKit.framework */,
+				1A000105294A5678000000001 /* RealityKit.framework */,
+				1A000106294A5678000000001 /* AVFoundation.framework */,
+				1A000107294A5678000000001 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A000070294A5678000000001 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1A000011294A5678000000001 /* ARSessionManager.swift */,
+				1A000013294A5678000000001 /* AgentCommunicationManager.swift */,
+				1A000015294A5678000000001 /* AgentDrivenARManager.swift */,
+				1A000017294A5678000000001 /* AgentDrivenSafety.swift */,
+				1A000019294A5678000000001 /* AgentDrivenTreeScore.swift */,
+				1A000021294A5678000000001 /* AgentIntegrationTests.swift */,
+				1A000023294A5678000000001 /* AgentServices.swift */,
+				1A000025294A5678000000001 /* RealTimeAgentCoordinator.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1A000071294A5678000000001 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1A000075294A5678000000001 /* Components */,
+				1A000076294A5678000000001 /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1A000075294A5678000000001 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1A000031294A5678000000001 /* AgentDrivenUIComponents.swift */,
+				1A000033294A5678000000001 /* DynamicFormComponents.swift */,
+				1A000035294A5678000000001 /* RealTimeAgentView.swift */,
+				1A000037294A5678000000001 /* SafetyComponents.swift */,
+				1A000039294A5678000000001 /* TreeScoreComponents.swift */,
+				1A000041294A5678000000001 /* UIComponentLibrary.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1A000076294A5678000000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A000051294A5678000000001 /* ARMeasurementView.swift */,
+				1A000053294A5678000000001 /* AlexChatView.swift */,
+				1A000055294A5678000000001 /* AssessmentContainerView.swift */,
+				1A000057294A5678000000001 /* DashboardView.swift */,
+				1A000059294A5678000000001 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A000072294A5678000000001 /* Workflows */ = {
+			isa = PBXGroup;
+			children = (
+				1A000061294A5678000000001 /* AgentDrivenWorkflowManager.swift */,
+				1A000063294A5678000000001 /* AssessmentWorkflowManager.swift */,
+			);
+			path = Workflows;
+			sourceTree = "<group>";
+		};
+		1A000073294A5678000000001 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A000006294A567A000000001 /* Assets.xcassets */,
+				1A000009294A567A000000001 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A000074294A567A000000001 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1A000008294A567A000000001 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A000000294A5678000000001 /* TreeAIApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A000009294A567A000000001 /* Build configuration list for PBXNativeTarget "TreeAIApp" */;
+			buildPhases = (
+				1A000001294A5678000000001 /* Sources */,
+				1A000000294A5678000000001 /* Frameworks */,
+				1A000002294A567A000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TreeAIApp;
+			productName = TreeAIApp;
+			productReference = 1A000001294A5678000000001 /* TreeAIApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A000000294A5678000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1A000000294A5678000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 1A000003294A5678000000001 /* Build configuration list for PBXProject "TreeAIApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A000009294A5678000000001;
+			productRefGroup = 1A000001294A5678000000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A000000294A5678000000001 /* TreeAIApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A000002294A567A000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000007294A567A000000001 /* Preview Assets.xcassets in Resources */,
+				1A000005294A567A000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A000001294A5678000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000003294A5678000000001 /* ContentView.swift in Sources */,
+				1A000001294A5678000000001 /* TreeAIAppApp.swift in Sources */,
+				
+				/* Core Files */
+				1A000010294A5678000000001 /* ARSessionManager.swift in Sources */,
+				1A000012294A5678000000001 /* AgentCommunicationManager.swift in Sources */,
+				1A000014294A5678000000001 /* AgentDrivenARManager.swift in Sources */,
+				1A000016294A5678000000001 /* AgentDrivenSafety.swift in Sources */,
+				1A000018294A5678000000001 /* AgentDrivenTreeScore.swift in Sources */,
+				1A000020294A5678000000001 /* AgentIntegrationTests.swift in Sources */,
+				1A000022294A5678000000001 /* AgentServices.swift in Sources */,
+				1A000024294A5678000000001 /* RealTimeAgentCoordinator.swift in Sources */,
+				
+				/* UI Components */
+				1A000030294A5678000000001 /* AgentDrivenUIComponents.swift in Sources */,
+				1A000032294A5678000000001 /* DynamicFormComponents.swift in Sources */,
+				1A000034294A5678000000001 /* RealTimeAgentView.swift in Sources */,
+				1A000036294A5678000000001 /* SafetyComponents.swift in Sources */,
+				1A000038294A5678000000001 /* TreeScoreComponents.swift in Sources */,
+				1A000040294A5678000000001 /* UIComponentLibrary.swift in Sources */,
+				
+				/* UI Views */
+				1A000050294A5678000000001 /* ARMeasurementView.swift in Sources */,
+				1A000052294A5678000000001 /* AlexChatView.swift in Sources */,
+				1A000054294A5678000000001 /* AssessmentContainerView.swift in Sources */,
+				1A000056294A5678000000001 /* DashboardView.swift in Sources */,
+				1A000058294A5678000000001 /* SettingsView.swift in Sources */,
+				
+				/* Workflows */
+				1A000060294A5678000000001 /* AgentDrivenWorkflowManager.swift in Sources */,
+				1A000062294A5678000000001 /* AssessmentWorkflowManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A000004294A567A000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A000005294A567A000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A000006294A567A000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TreeAIApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "TreeAIApp/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "TreeAI requires camera access for AR tree measurements and assessments.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treeai.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A000007294A567A000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TreeAIApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "TreeAIApp/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "TreeAI requires camera access for AR tree measurements and assessments.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.treeai.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A000003294A5678000000001 /* Build configuration list for PBXProject "TreeAIApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A000004294A567A000000001 /* Debug */,
+				1A000005294A567A000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A000009294A567A000000001 /* Build configuration list for PBXNativeTarget "TreeAIApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A000006294A567A000000001 /* Debug */,
+				1A000007294A567A000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A000000294A5678000000001 /* Project object */;
+}
