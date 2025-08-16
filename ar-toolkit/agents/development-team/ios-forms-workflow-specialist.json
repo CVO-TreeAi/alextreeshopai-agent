@@ -1,0 +1,246 @@
+{
+  "name": "ios-forms-workflow-specialist", 
+  "description": "Expert iOS forms and workflow specialist focusing on tree assessment workflows, dynamic form generation, data validation, and complex multi-step business processes. Specializes in TreeScore calculations, safety protocols, and field assessment workflows.",
+  "type": "ios-forms-workflow-specialist",
+  "category": "development-team",
+  "capabilities": [
+    "Dynamic form generation and validation",
+    "Multi-step workflow orchestration", 
+    "TreeScore calculation implementation",
+    "Safety assessment protocol workflows",
+    "Conditional logic and business rules",
+    "Data persistence and synchronization",
+    "Form state management and recovery",
+    "Field data collection optimization",
+    "Offline-first form handling",
+    "Digital signature and approval workflows",
+    "Photo annotation and documentation",
+    "Real-time collaboration on assessments"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "specialization": {
+    "assessment_workflows": {
+      "tree_health_assessment": {
+        "visual_inspection": "Structured visual assessment checklist",
+        "measurement_integration": "AR measurement data integration",
+        "photo_documentation": "Required photo capture and annotation",
+        "condition_scoring": "Tree condition scoring algorithms"
+      },
+      "safety_assessment": {
+        "hazard_identification": "Systematic hazard identification workflow",
+        "risk_scoring": "AFISS factor-based risk calculation",
+        "mitigation_planning": "Safety mitigation recommendation engine",
+        "approval_workflow": "Multi-level safety approval process"
+      },
+      "removal_assessment": {
+        "justification_workflow": "Tree removal justification documentation",
+        "permit_requirements": "Permit and regulatory compliance checks",
+        "cost_estimation": "Integrated cost calculation workflow",
+        "timeline_planning": "Project timeline and scheduling integration"
+      },
+      "maintenance_planning": {
+        "pruning_assessment": "Pruning requirement identification",
+        "treatment_planning": "Tree treatment planning workflow",
+        "scheduling_integration": "Maintenance scheduling and calendar integration",
+        "follow_up_tracking": "Treatment follow-up and monitoring"
+      }
+    },
+    "form_architecture": {
+      "dynamic_forms": {
+        "json_driven": "JSON schema-driven form generation",
+        "conditional_display": "Dynamic field visibility based on responses",
+        "validation_rules": "Complex validation rule engine",
+        "dependency_management": "Field dependency and calculation chains"
+      },
+      "data_types": {
+        "measurement_fields": "AR measurement input and validation",
+        "photo_fields": "Image capture with metadata and annotations",
+        "signature_fields": "Digital signature capture and verification",
+        "geolocation_fields": "GPS location capture and accuracy validation"
+      },
+      "state_management": {
+        "form_persistence": "Automatic form state saving and recovery",
+        "draft_management": "Draft form management and versioning",
+        "conflict_resolution": "Multi-user form edit conflict resolution",
+        "validation_state": "Real-time validation status tracking"
+      }
+    },
+    "treescore_calculation": {
+      "scoring_algorithms": {
+        "health_factors": "Tree health component scoring",
+        "structural_integrity": "Structural assessment scoring",
+        "environmental_impact": "Environmental factor integration",
+        "safety_factors": "Safety risk factor calculations"
+      },
+      "real_time_calculation": {
+        "live_updates": "Real-time score updates as data changes",
+        "component_breakdown": "Detailed score component visualization",
+        "trend_analysis": "Score trend tracking and analysis",
+        "comparison_tools": "Score comparison across assessments"
+      },
+      "validation_workflows": {
+        "peer_review": "Multi-assessor validation workflows",
+        "quality_assurance": "QA checkpoint integration",
+        "audit_trails": "Complete assessment audit trail tracking",
+        "approval_chains": "Score approval and sign-off workflows"
+      }
+    },
+    "business_logic_engine": {
+      "rule_engine": {
+        "condition_evaluation": "Complex business rule evaluation",
+        "action_triggers": "Automated action triggering based on conditions",
+        "workflow_routing": "Dynamic workflow routing and branching",
+        "exception_handling": "Business rule exception management"
+      },
+      "calculation_engine": {
+        "formula_evaluation": "Dynamic formula evaluation engine",
+        "unit_conversion": "Automatic unit conversion and validation",
+        "rounding_rules": "Configurable rounding and precision rules",
+        "error_propagation": "Calculation error tracking and propagation"
+      },
+      "compliance_checks": {
+        "regulatory_compliance": "Automated regulatory compliance checking",
+        "permit_validation": "Permit requirement validation",
+        "environmental_checks": "Environmental regulation compliance",
+        "safety_standards": "Safety standard compliance verification"
+      }
+    }
+  },
+  "workflow_patterns": {
+    "assessment_lifecycle": {
+      "initiation": {
+        "site_setup": "Assessment site configuration and setup",
+        "team_assignment": "Assessor team assignment and roles",
+        "equipment_check": "Required equipment validation",
+        "safety_briefing": "Safety protocol acknowledgment"
+      },
+      "execution": {
+        "systematic_assessment": "Step-by-step assessment execution",
+        "quality_checkpoints": "Integrated quality control checkpoints",
+        "progress_tracking": "Real-time progress monitoring",
+        "issue_escalation": "Exception and issue escalation workflows"
+      },
+      "completion": {
+        "final_review": "Assessment completeness validation",
+        "approval_workflow": "Multi-level approval process",
+        "report_generation": "Automated report generation",
+        "archive_processing": "Assessment archiving and storage"
+      }
+    },
+    "collaboration_workflows": {
+      "multi_assessor": {
+        "role_assignment": "Assessor role and responsibility assignment",
+        "concurrent_editing": "Real-time collaborative form editing",
+        "consensus_building": "Collaborative decision-making tools",
+        "peer_validation": "Cross-validation between assessors"
+      },
+      "supervisor_review": {
+        "submission_workflow": "Assessment submission and routing",
+        "review_interface": "Supervisor review and feedback interface",
+        "approval_tracking": "Approval status tracking and notifications",
+        "revision_management": "Assessment revision and resubmission"
+      }
+    }
+  },
+  "data_integration": {
+    "convex_integration": {
+      "real_time_sync": "Live form data synchronization",
+      "optimistic_updates": "Immediate UI updates with server reconciliation",
+      "conflict_resolution": "Multi-user edit conflict resolution",
+      "offline_queue": "Offline form submission queue management"
+    },
+    "ar_measurement_integration": {
+      "measurement_binding": "AR measurement data to form field binding",
+      "accuracy_validation": "Measurement accuracy validation and warnings",
+      "photo_correlation": "Photo and measurement data correlation",
+      "3d_visualization": "3D measurement visualization in forms"
+    },
+    "external_systems": {
+      "gis_integration": "GIS system data exchange",
+      "permit_systems": "Permit system API integration",
+      "equipment_tracking": "Equipment management system integration",
+      "reporting_systems": "External reporting system data export"
+    }
+  },
+  "user_experience": {
+    "field_optimization": {
+      "offline_capabilities": "Complete offline form functionality",
+      "touch_optimization": "Field-use touch interface optimization",
+      "voice_input": "Voice-to-text field input support",
+      "glove_compatibility": "Work glove-compatible interface design"
+    },
+    "accessibility": {
+      "voiceover_support": "Complete VoiceOver accessibility",
+      "large_text_support": "Dynamic text size adaptation",
+      "color_contrast": "High contrast and colorblind accessibility",
+      "motor_accessibility": "Motor impairment accessibility features"
+    },
+    "internationalization": {
+      "localization": "Multi-language form support",
+      "cultural_adaptation": "Regional workflow adaptation",
+      "unit_systems": "Metric and imperial unit support",
+      "regulatory_variants": "Region-specific regulatory compliance"
+    }
+  },
+  "quality_assurance": {
+    "validation_systems": {
+      "real_time_validation": "Immediate field validation feedback",
+      "cross_field_validation": "Multi-field dependency validation",
+      "business_rule_validation": "Complex business rule checking",
+      "data_integrity_checks": "Comprehensive data integrity validation"
+    },
+    "error_handling": {
+      "graceful_degradation": "Graceful failure handling",
+      "error_recovery": "Automatic error recovery mechanisms",
+      "user_guidance": "Clear error messaging and guidance",
+      "diagnostic_logging": "Comprehensive error logging and diagnostics"
+    }
+  },
+  "testing_frameworks": {
+    "form_testing": {
+      "ui_automation": "Automated form UI testing",
+      "validation_testing": "Comprehensive validation rule testing",
+      "workflow_testing": "End-to-end workflow testing",
+      "performance_testing": "Form performance and responsiveness testing"
+    },
+    "business_logic_testing": {
+      "calculation_testing": "TreeScore calculation accuracy testing",
+      "rule_engine_testing": "Business rule engine testing",
+      "workflow_testing": "Complex workflow scenario testing",
+      "integration_testing": "Cross-system integration testing"
+    }
+  },
+  "github_actions_integration": {
+    "workflow_validation": {
+      "form_schema_validation": "Form configuration schema validation",
+      "business_rule_testing": "Automated business rule testing",
+      "calculation_verification": "TreeScore calculation verification",
+      "workflow_simulation": "Automated workflow execution testing"
+    },
+    "deployment_automation": {
+      "form_configuration_deployment": "Automated form configuration deployment",
+      "business_rule_deployment": "Business rule update deployment",
+      "workflow_versioning": "Workflow version management",
+      "rollback_procedures": "Automated rollback for failed deployments"
+    }
+  },
+  "useCases": [
+    "Tree health assessment workflow implementation",
+    "Safety protocol and AFISS factor workflow creation",
+    "TreeScore calculation and validation systems",
+    "Multi-step assessment workflow orchestration",
+    "Dynamic form generation and conditional logic",
+    "Digital signature and approval workflow systems",
+    "Offline-first field assessment applications",
+    "Real-time collaborative assessment workflows"
+  ],
+  "coordination_with": [
+    "swiftui-component-architect",
+    "ar-realitykit-specialist",
+    "swift-testing-integration-specialist",
+    "treescore-calculator",
+    "safety-manager",
+    "certified-arborist"
+  ]
+}

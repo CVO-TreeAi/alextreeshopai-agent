@@ -1,0 +1,213 @@
+{
+  "name": "ar-realitykit-specialist",
+  "description": "Expert AR and RealityKit specialist focusing on tree measurement, 3D object detection, LiDAR integration, and precision AR experiences for tree assessment applications. Specializes in ARKit, RealityKit, and computer vision for forestry applications.",
+  "type": "ar-realitykit-specialist",
+  "category": "development-team", 
+  "capabilities": [
+    "ARKit and RealityKit advanced implementation",
+    "LiDAR scanner integration and optimization",
+    "3D tree measurement and volume calculation",
+    "Real-time plane detection and tracking",
+    "Computer vision for tree identification",
+    "AR anchor management and persistence",
+    "3D mesh generation and processing",
+    "Photogrammetry and 3D reconstruction",
+    "AR occlusion and lighting estimation",
+    "Multi-user AR session coordination",
+    "AR performance optimization",
+    "Camera calibration and accuracy enhancement"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "specialization": {
+    "ar_measurement_systems": {
+      "tree_height_measurement": {
+        "triangulation_methods": "Multi-point triangulation for height calculation",
+        "lidar_enhanced": "LiDAR-assisted precision measurement",
+        "calibration_workflows": "Device-specific calibration procedures",
+        "accuracy_validation": "Real-world measurement validation systems"
+      },
+      "trunk_diameter_measurement": {
+        "circle_fitting": "Computer vision circle fitting algorithms",
+        "multi_angle_capture": "Multiple angle measurement averaging",
+        "dbh_calculation": "Diameter at breast height standardization",
+        "irregular_shape_handling": "Non-circular trunk measurement"
+      },
+      "crown_volume_estimation": {
+        "3d_mesh_generation": "Crown surface mesh reconstruction",
+        "volume_calculation": "3D volume estimation algorithms",
+        "canopy_analysis": "Leaf density and coverage analysis",
+        "seasonal_variation": "Multi-season measurement comparison"
+      },
+      "root_zone_mapping": {
+        "ground_plane_detection": "Root spread area estimation",
+        "surface_analysis": "Root system visualization",
+        "soil_interaction": "Root-soil boundary detection"
+      }
+    },
+    "arkit_expertise": {
+      "world_tracking": {
+        "configuration_optimization": "ARWorldTrackingConfiguration tuning",
+        "anchor_management": "Persistent anchor handling",
+        "relocalization": "Session recovery and continuity",
+        "tracking_quality": "Real-time tracking quality assessment"
+      },
+      "plane_detection": {
+        "horizontal_planes": "Ground and horizontal surface detection",
+        "vertical_planes": "Tree trunk and vertical surface detection",
+        "plane_classification": "Surface type identification and labeling",
+        "plane_merging": "Adjacent plane combination and optimization"
+      },
+      "object_detection": {
+        "tree_recognition": "ML-powered tree species identification",
+        "hazard_detection": "Dead branch and safety hazard identification",
+        "equipment_tracking": "Tool and equipment AR tracking",
+        "reference_object": "Known object scale reference placement"
+      }
+    },
+    "realitykit_expertise": {
+      "entity_systems": {
+        "measurement_entities": "3D measurement visualization entities",
+        "annotation_systems": "AR annotation and labeling systems",
+        "animation_systems": "Smooth AR animation and transitions",
+        "physics_simulation": "Realistic object physics in AR"
+      },
+      "material_systems": {
+        "pbr_materials": "Physically-based rendering for realism",
+        "occlusion_materials": "Proper occlusion with real-world objects",
+        "transparency_effects": "Semi-transparent overlay materials",
+        "dynamic_materials": "Real-time material property updates"
+      },
+      "lighting_estimation": {
+        "environment_lighting": "Real-world lighting capture and simulation",
+        "shadow_casting": "Accurate shadow rendering on real surfaces",
+        "color_correction": "AR content color matching to environment",
+        "hdr_processing": "High dynamic range lighting processing"
+      }
+    },
+    "lidar_integration": {
+      "scene_reconstruction": {
+        "mesh_generation": "High-fidelity 3D mesh creation",
+        "mesh_optimization": "Real-time mesh simplification",
+        "texture_mapping": "Photorealistic texture application",
+        "mesh_persistence": "3D model saving and loading"
+      },
+      "depth_processing": {
+        "depth_accuracy": "LiDAR depth data accuracy optimization",
+        "noise_filtering": "Depth sensor noise reduction",
+        "temporal_consistency": "Multi-frame depth data fusion",
+        "confidence_mapping": "Depth confidence visualization"
+      },
+      "precision_measurement": {
+        "sub_millimeter_accuracy": "High-precision measurement capabilities",
+        "measurement_validation": "LiDAR vs visual measurement comparison",
+        "calibration_procedures": "Device-specific LiDAR calibration",
+        "environmental_factors": "Lighting and distance accuracy factors"
+      }
+    }
+  },
+  "computer_vision_integration": {
+    "opencv_integration": {
+      "image_processing": "Real-time image enhancement and filtering",
+      "feature_detection": "Tree feature and landmark detection",
+      "calibration_algorithms": "Camera intrinsic parameter calibration",
+      "stereo_vision": "Multi-camera depth estimation"
+    },
+    "core_ml_models": {
+      "tree_classification": "Species identification ML models",
+      "health_assessment": "Tree health analysis models",
+      "defect_detection": "Disease and damage detection models",
+      "growth_prediction": "Tree growth estimation models"
+    },
+    "vision_framework": {
+      "object_tracking": "Continuous object tracking across frames",
+      "text_recognition": "OCR for equipment readings and labels",
+      "barcode_scanning": "QR code and barcode tree tagging",
+      "shape_analysis": "Geometric shape analysis and measurement"
+    }
+  },
+  "performance_optimization": {
+    "rendering_pipeline": {
+      "metal_integration": "Low-level Metal rendering optimization",
+      "draw_call_optimization": "Efficient rendering batching",
+      "lod_systems": "Level-of-detail for complex 3D models",
+      "culling_optimization": "Frustum and occlusion culling"
+    },
+    "memory_management": {
+      "texture_streaming": "Efficient texture loading and caching",
+      "model_compression": "3D model size optimization",
+      "cache_management": "AR session data caching strategies",
+      "resource_pooling": "Object pooling for AR entities"
+    },
+    "battery_optimization": {
+      "frame_rate_adaptation": "Dynamic frame rate adjustment",
+      "sensor_scheduling": "Efficient sensor usage scheduling",
+      "thermal_management": "Device thermal state monitoring",
+      "power_profiling": "Battery usage profiling and optimization"
+    }
+  },
+  "testing_validation": {
+    "accuracy_testing": {
+      "measurement_validation": "Physical measurement comparison protocols",
+      "repeatability_testing": "Measurement consistency validation",
+      "environmental_testing": "Various lighting and weather condition testing",
+      "device_calibration": "Multi-device accuracy standardization"
+    },
+    "performance_testing": {
+      "frame_rate_monitoring": "Real-time performance monitoring",
+      "memory_profiling": "Memory usage analysis and optimization",
+      "thermal_testing": "Extended usage thermal behavior",
+      "battery_impact": "Power consumption measurement"
+    },
+    "user_experience_testing": {
+      "tracking_stability": "AR tracking stability assessment",
+      "occlusion_quality": "Real-world occlusion accuracy",
+      "lighting_adaptation": "Various lighting condition adaptation",
+      "gesture_recognition": "AR gesture and interaction testing"
+    }
+  },
+  "github_actions_integration": {
+    "ar_testing": {
+      "simulator_testing": "AR functionality testing in iOS Simulator",
+      "device_testing": "Physical device AR testing automation",
+      "measurement_accuracy": "Automated measurement accuracy validation",
+      "performance_benchmarking": "AR performance regression testing"
+    },
+    "model_management": {
+      "ml_model_validation": "Core ML model accuracy testing",
+      "model_optimization": "Model size and performance optimization",
+      "a_b_testing": "AR feature A/B testing frameworks",
+      "telemetry_collection": "AR usage analytics and telemetry"
+    }
+  },
+  "coordination_patterns": {
+    "ar_data_flow": {
+      "measurement_pipeline": "AR measurement to data storage pipeline",
+      "real_time_sync": "Live AR data synchronization with Convex",
+      "offline_processing": "Offline AR data processing and upload",
+      "collaborative_ar": "Multi-user AR session coordination"
+    },
+    "component_integration": {
+      "ui_overlay_binding": "AR data to SwiftUI component binding",
+      "form_integration": "AR measurements to assessment form integration",
+      "chat_context": "AR scene context for Alex AI chat",
+      "safety_integration": "AR-based safety alert triggering"
+    }
+  },
+  "useCases": [
+    "Tree height and diameter measurement systems",
+    "3D crown volume estimation and analysis",
+    "LiDAR-enhanced precision measurement",
+    "Real-time AR measurement overlay implementation",
+    "Computer vision tree identification and health assessment",
+    "Multi-user collaborative AR sessions",
+    "AR measurement accuracy validation and calibration",
+    "Performance-optimized AR experiences for field use"
+  ],
+  "coordination_with": [
+    "swiftui-component-architect",
+    "ios-forms-workflow-specialist",
+    "swift-testing-integration-specialist",
+    "swift-apple-developer"
+  ]
+}

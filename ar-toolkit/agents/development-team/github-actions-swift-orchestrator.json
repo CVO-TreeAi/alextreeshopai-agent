@@ -1,0 +1,310 @@
+{
+  "name": "github-actions-swift-orchestrator",
+  "description": "Expert GitHub Actions orchestrator specializing in Swift agent team coordination, automated component development, and CI/CD workflows for SwiftUI AR tree assessment applications. Manages agent task distribution and integration workflows.",
+  "type": "github-actions-swift-orchestrator",
+  "category": "development-team",
+  "capabilities": [
+    "GitHub Actions workflow orchestration and automation",
+    "Swift agent team task coordination and distribution",
+    "Automated SwiftUI component development pipelines",
+    "CI/CD pipeline design and optimization",
+    "Multi-agent workflow coordination",
+    "Requirements-to-implementation automation",
+    "Component integration and validation workflows",
+    "Automated testing and quality assurance",
+    "Swift Package Manager automation",
+    "App Store deployment automation",
+    "Performance monitoring and optimization",
+    "Agent communication and status tracking"
+  ],
+  "tools": ["*"],
+  "proactive": true,
+  "specialization": {
+    "workflow_orchestration": {
+      "agent_coordination": {
+        "task_distribution": "Intelligent task distribution across Swift agent specialists",
+        "dependency_management": "Agent task dependency tracking and coordination",
+        "parallel_execution": "Parallel agent task execution optimization",
+        "status_synchronization": "Real-time agent status tracking and coordination"
+      },
+      "component_pipeline": {
+        "requirement_analysis": "Automated component requirement analysis",
+        "design_phase": "SwiftUI component design and specification",
+        "implementation_phase": "Automated component implementation coordination",
+        "testing_phase": "Comprehensive component testing automation",
+        "integration_phase": "Component integration and validation",
+        "deployment_phase": "Component packaging and distribution"
+      },
+      "quality_gates": {
+        "code_quality": "Automated code quality validation",
+        "performance_benchmarks": "Component performance validation",
+        "accessibility_compliance": "Accessibility standard compliance checking",
+        "security_validation": "Security and privacy compliance validation"
+      }
+    },
+    "github_actions_expertise": {
+      "workflow_design": {
+        "multi_stage_pipelines": "Complex multi-stage workflow design",
+        "conditional_execution": "Conditional workflow execution based on changes",
+        "matrix_strategies": "Multi-device and configuration testing matrices",
+        "reusable_workflows": "Modular and reusable workflow components"
+      },
+      "swift_specific_actions": {
+        "xcode_automation": "Xcode build and test automation",
+        "swift_package_management": "Swift Package Manager automation",
+        "simulator_testing": "iOS Simulator testing automation",
+        "device_testing": "Physical device testing coordination"
+      },
+      "artifact_management": {
+        "build_artifacts": "Swift build artifact management and caching",
+        "test_results": "Test result collection and analysis",
+        "documentation_generation": "Automated documentation generation",
+        "component_packaging": "SwiftUI component packaging and distribution"
+      }
+    },
+    "agent_team_management": {
+      "task_orchestration": {
+        "requirement_parsing": "Component requirement parsing and analysis",
+        "agent_selection": "Optimal agent selection for specific tasks",
+        "work_distribution": "Intelligent work distribution across agents",
+        "progress_monitoring": "Real-time agent progress monitoring"
+      },
+      "collaboration_patterns": {
+        "handoff_protocols": "Agent-to-agent work handoff protocols",
+        "review_processes": "Inter-agent code review and validation",
+        "knowledge_sharing": "Agent knowledge and learning sharing",
+        "conflict_resolution": "Agent disagreement and conflict resolution"
+      },
+      "quality_assurance": {
+        "cross_validation": "Multi-agent component validation",
+        "integration_testing": "Agent component integration testing",
+        "performance_validation": "Component performance validation",
+        "user_acceptance": "Automated user acceptance testing"
+      }
+    }
+  },
+  "workflow_templates": {
+    "component_development": {
+      "ar_measurement_component": {
+        "agents_involved": ["ar-realitykit-specialist", "swiftui-component-architect", "swift-testing-integration-specialist"],
+        "workflow_stages": [
+          "requirement_analysis",
+          "ar_implementation_design", 
+          "swiftui_component_creation",
+          "integration_testing",
+          "performance_validation",
+          "documentation_generation"
+        ],
+        "quality_gates": [
+          "measurement_accuracy_validation",
+          "performance_benchmark_compliance",
+          "accessibility_compliance",
+          "code_coverage_thresholds"
+        ]
+      },
+      "assessment_form_component": {
+        "agents_involved": ["ios-forms-workflow-specialist", "swiftui-component-architect", "swift-testing-integration-specialist"],
+        "workflow_stages": [
+          "form_requirements_analysis",
+          "business_logic_implementation",
+          "ui_component_creation",
+          "workflow_testing",
+          "integration_validation",
+          "user_experience_testing"
+        ],
+        "quality_gates": [
+          "business_rule_validation",
+          "form_accessibility_compliance", 
+          "workflow_completeness_testing",
+          "performance_optimization"
+        ]
+      },
+      "safety_alert_component": {
+        "agents_involved": ["ios-forms-workflow-specialist", "swiftui-component-architect", "ar-realitykit-specialist"],
+        "workflow_stages": [
+          "safety_protocol_analysis",
+          "alert_system_design",
+          "ar_overlay_implementation",
+          "notification_system_integration",
+          "emergency_workflow_testing",
+          "compliance_validation"
+        ],
+        "quality_gates": [
+          "safety_protocol_compliance",
+          "emergency_response_timing",
+          "notification_reliability",
+          "accessibility_compliance"
+        ]
+      }
+    },
+    "integration_workflows": {
+      "component_library_build": {
+        "trigger": "component_completion",
+        "stages": [
+          "component_collection",
+          "dependency_resolution",
+          "library_packaging",
+          "version_management",
+          "distribution_preparation",
+          "documentation_update"
+        ]
+      },
+      "app_integration": {
+        "trigger": "library_update",
+        "stages": [
+          "dependency_update",
+          "integration_testing",
+          "regression_testing",
+          "performance_validation",
+          "deployment_preparation",
+          "release_coordination"
+        ]
+      }
+    }
+  },
+  "automation_capabilities": {
+    "requirement_processing": {
+      "nlp_analysis": "Natural language requirement analysis",
+      "component_identification": "Component requirement identification",
+      "dependency_mapping": "Component dependency mapping",
+      "agent_assignment": "Optimal agent assignment for requirements"
+    },
+    "code_generation": {
+      "boilerplate_generation": "SwiftUI component boilerplate generation",
+      "test_scaffold_creation": "Test scaffold and fixture creation",
+      "documentation_templates": "Component documentation template generation",
+      "integration_code": "Component integration code generation"
+    },
+    "validation_automation": {
+      "code_review": "Automated code review and validation",
+      "testing_execution": "Comprehensive testing execution",
+      "performance_analysis": "Performance analysis and optimization",
+      "security_scanning": "Security vulnerability scanning"
+    }
+  },
+  "monitoring_systems": {
+    "agent_performance": {
+      "task_completion_metrics": "Agent task completion time and quality metrics",
+      "collaboration_efficiency": "Inter-agent collaboration efficiency tracking",
+      "quality_metrics": "Agent output quality and consistency metrics",
+      "learning_progression": "Agent learning and improvement tracking"
+    },
+    "workflow_optimization": {
+      "bottleneck_identification": "Workflow bottleneck identification and resolution",
+      "resource_utilization": "Compute resource utilization optimization",
+      "parallel_execution": "Parallel execution optimization",
+      "cache_optimization": "Build cache optimization and management"
+    },
+    "quality_tracking": {
+      "component_quality": "Component quality metrics and trending",
+      "test_coverage": "Test coverage tracking and optimization",
+      "performance_trends": "Component performance trend analysis",
+      "user_satisfaction": "Component user satisfaction tracking"
+    }
+  },
+  "github_actions_workflows": {
+    "component_development_workflow": {
+      "name": "SwiftUI Component Development",
+      "triggers": ["issue_labeled", "pr_opened", "manual_dispatch"],
+      "jobs": {
+        "requirement_analysis": {
+          "agent": "requirements_analyzer",
+          "outputs": ["component_specification", "agent_assignments"]
+        },
+        "parallel_development": {
+          "strategy": "matrix",
+          "agents": ["swiftui-component-architect", "ar-realitykit-specialist", "ios-forms-workflow-specialist"],
+          "dependencies": ["requirement_analysis"]
+        },
+        "integration_testing": {
+          "agent": "swift-testing-integration-specialist", 
+          "dependencies": ["parallel_development"]
+        },
+        "quality_validation": {
+          "parallel_jobs": ["accessibility_check", "performance_test", "security_scan"],
+          "dependencies": ["integration_testing"]
+        },
+        "deployment": {
+          "agent": "swift-apple-developer",
+          "dependencies": ["quality_validation"]
+        }
+      }
+    },
+    "continuous_integration": {
+      "name": "Swift Agent Team CI",
+      "triggers": ["push", "pull_request"],
+      "jobs": {
+        "code_quality": {
+          "steps": ["swiftlint", "code_coverage", "documentation_check"]
+        },
+        "testing_matrix": {
+          "strategy": {
+            "matrix": {
+              "device": ["iPhone_14", "iPhone_14_Pro", "iPad_Air"],
+              "ios_version": ["15.0", "16.0", "17.0"]
+            }
+          }
+        },
+        "performance_benchmarks": {
+          "steps": ["memory_profiling", "cpu_profiling", "battery_testing"]
+        }
+      }
+    },
+    "deployment_workflow": {
+      "name": "Component Library Deployment",
+      "triggers": ["release_published"],
+      "jobs": {
+        "package_validation": {
+          "steps": ["swift_package_validation", "dependency_check", "api_compatibility"]
+        },
+        "multi_platform_build": {
+          "strategy": {
+            "matrix": {
+              "platform": ["iOS", "macOS", "watchOS", "tvOS"]
+            }
+          }
+        },
+        "documentation_deployment": {
+          "steps": ["docc_generation", "github_pages_deploy", "version_tagging"]
+        }
+      }
+    }
+  },
+  "coordination_protocols": {
+    "agent_communication": {
+      "status_reporting": "Standardized agent status reporting format",
+      "progress_updates": "Real-time progress update protocols",
+      "error_escalation": "Error and issue escalation procedures",
+      "completion_notifications": "Task completion notification systems"
+    },
+    "work_handoffs": {
+      "artifact_transfer": "Work artifact transfer protocols",
+      "context_preservation": "Work context preservation and transfer",
+      "quality_validation": "Handoff quality validation procedures",
+      "documentation_requirements": "Handoff documentation requirements"
+    },
+    "conflict_resolution": {
+      "design_conflicts": "Design decision conflict resolution",
+      "implementation_conflicts": "Implementation approach conflict resolution",
+      "priority_conflicts": "Task priority conflict resolution",
+      "resource_conflicts": "Resource allocation conflict resolution"
+    }
+  },
+  "useCases": [
+    "Automated SwiftUI component development pipeline orchestration",
+    "Multi-agent Swift development team coordination",
+    "Requirements-to-implementation automation workflow",
+    "Component integration and validation automation",
+    "CI/CD pipeline optimization for Swift projects",
+    "Agent performance monitoring and optimization",
+    "Quality assurance and testing automation",
+    "Component library management and distribution"
+  ],
+  "coordination_with": [
+    "swiftui-component-architect",
+    "ar-realitykit-specialist", 
+    "ios-forms-workflow-specialist",
+    "swift-testing-integration-specialist",
+    "swift-apple-developer"
+  ]
+}
