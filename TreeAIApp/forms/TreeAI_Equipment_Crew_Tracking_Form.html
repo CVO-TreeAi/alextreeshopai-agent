@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeAI Equipment & Crew Tracking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .form-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #17a2b8;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .company-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #17a2b8;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0 5px 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: -20px -20px 15px -20px;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+        
+        .field {
+            flex: 1;
+            margin-bottom: 10px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .field-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .time-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .time-table th,
+        .time-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .time-table th {
+            background-color: #6c757d;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .time-input {
+            width: 70px;
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 2fr;
+            gap: 5px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .equipment-header {
+            background-color: #17a2b8;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .equipment-item {
+            padding: 5px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        .cost-calculation {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .cost-title {
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .cost-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .maintenance-section {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .maintenance-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .productivity-metrics {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .metrics-title {
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .instructions {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .signature-box {
+            border: 1px solid #ddd;
+            height: 50px;
+            margin-top: 5px;
+        }
+        
+        @media print {
+            body { background-color: white; }
+            .form-container { box-shadow: none; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <div class="company-logo">TreeAI</div>
+            <div class="form-title">Equipment & Crew Tracking Form</div>
+            <div class="subtitle">Equipment Utilization, Labor Time Tracking & True Labor Cost Calculation</div>
+        </div>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> Record all equipment usage and crew time for accurate True Labor Cost calculation. 
+            This data integrates with TreeAI pricing intelligence and project cost analysis.
+        </div>
+
+        <!-- Job Information -->
+        <div class="section">
+            <div class="section-title">1. Job Information</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Job ID/Work Order #:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Date:</label>
+                    <input type="date" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Location:</label>
+                    <input type="text" class="field-input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Crew Leader:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Weather Conditions:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Job Type:</label>
+                    <select class="field-input">
+                        <option>Tree Removal</option>
+                        <option>Pruning/Trimming</option>
+                        <option>Stump Grinding</option>
+                        <option>Emergency Response</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crew Time Tracking -->
+        <div class="section">
+            <div class="section-title">2. Crew Time Tracking</div>
+            
+            <table class="time-table">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Position</th>
+                        <th>Hourly Rate</th>
+                        <th>Clock In</th>
+                        <th>Clock Out</th>
+                        <th>Break Time</th>
+                        <th>Travel Time</th>
+                        <th>Billable Hours</th>
+                        <th>Labor Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="field-input" placeholder="Employee 1"></td>
+                        <td>
+                            <select class="field-input">
+                                <option>Certified Arborist</option>
+                                <option>Tree Climber</option>
+                                <option>Crew Leader</option>
+                                <option>Equipment Operator</option>
+                                <option>Ground Crew</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="field-input" placeholder="Employee 2"></td>
+                        <td>
+                            <select class="field-input">
+                                <option>Certified Arborist</option>
+                                <option>Tree Climber</option>
+                                <option>Crew Leader</option>
+                                <option>Equipment Operator</option>
+                                <option>Ground Crew</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="field-input" placeholder="Employee 3"></td>
+                        <td>
+                            <select class="field-input">
+                                <option>Certified Arborist</option>
+                                <option>Tree Climber</option>
+                                <option>Crew Leader</option>
+                                <option>Equipment Operator</option>
+                                <option>Ground Crew</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="field-input" placeholder="Employee 4"></td>
+                        <td>
+                            <select class="field-input">
+                                <option>Certified Arborist</option>
+                                <option>Tree Climber</option>
+                                <option>Crew Leader</option>
+                                <option>Equipment Operator</option>
+                                <option>Ground Crew</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="time" class="time-input"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.1" placeholder="0.0"></td>
+                        <td><input type="number" class="time-input" step="0.01" placeholder="$0.00"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="cost-calculation">
+                <div class="cost-title">True Labor Cost Summary</div>
+                <div class="cost-grid">
+                    <div><strong>Cost Component</strong></div>
+                    <div><strong>Rate</strong></div>
+                    <div><strong>Hours</strong></div>
+                    <div><strong>Total</strong></div>
+                    
+                    <div>Base Labor Cost:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0" style="width: 60px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div>Burden & Benefits (35%):</div>
+                    <div>35%</div>
+                    <div>-</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div>Workers Comp (12%):</div>
+                    <div>12%</div>
+                    <div>-</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div><strong>Total Labor Cost:</strong></div>
+                    <div>-</div>
+                    <div>-</div>
+                    <div><strong><input type="number" step="0.01" placeholder="$0.00" style="width: 80px; font-weight: bold;"></strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Utilization -->
+        <div class="section">
+            <div class="section-title">3. Equipment Utilization Log</div>
+            
+            <div class="equipment-grid">
+                <div class="equipment-header">Equipment</div>
+                <div class="equipment-header">Start Time</div>
+                <div class="equipment-header">End Time</div>
+                <div class="equipment-header">Hours Used</div>
+                <div class="equipment-header">Fuel Cost</div>
+                <div class="equipment-header">Rate/Hour</div>
+                <div class="equipment-header">Total Cost</div>
+                
+                <div class="equipment-item">
+                    <select class="field-input">
+                        <option>Chainsaw</option>
+                        <option>Chipper</option>
+                        <option>Stump Grinder</option>
+                        <option>Aerial Lift/Bucket Truck</option>
+                        <option>Truck</option>
+                        <option>Trailer</option>
+                        <option>Climbing Gear</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.1" placeholder="0.0" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                
+                <div class="equipment-item">
+                    <select class="field-input">
+                        <option>Chainsaw</option>
+                        <option>Chipper</option>
+                        <option>Stump Grinder</option>
+                        <option>Aerial Lift/Bucket Truck</option>
+                        <option>Truck</option>
+                        <option>Trailer</option>
+                        <option>Climbing Gear</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.1" placeholder="0.0" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                
+                <div class="equipment-item">
+                    <select class="field-input">
+                        <option>Chainsaw</option>
+                        <option>Chipper</option>
+                        <option>Stump Grinder</option>
+                        <option>Aerial Lift/Bucket Truck</option>
+                        <option>Truck</option>
+                        <option>Trailer</option>
+                        <option>Climbing Gear</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.1" placeholder="0.0" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                
+                <div class="equipment-item">
+                    <select class="field-input">
+                        <option>Chainsaw</option>
+                        <option>Chipper</option>
+                        <option>Stump Grinder</option>
+                        <option>Aerial Lift/Bucket Truck</option>
+                        <option>Truck</option>
+                        <option>Trailer</option>
+                        <option>Climbing Gear</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="time" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.1" placeholder="0.0" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+                <div class="equipment-item"><input type="number" step="0.01" placeholder="$0.00" class="field-input"></div>
+            </div>
+            
+            <div class="cost-calculation">
+                <div class="cost-title">Equipment Cost Summary</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div>
+                        <strong>Total Equipment Hours:</strong><br>
+                        <input type="number" step="0.1" placeholder="0.0" style="width: 100px; font-size: 16px; padding: 5px;">
+                    </div>
+                    <div>
+                        <strong>Total Fuel Costs:</strong><br>
+                        <input type="number" step="0.01" placeholder="$0.00" style="width: 100px; font-size: 16px; padding: 5px;">
+                    </div>
+                    <div>
+                        <strong>Total Equipment Cost:</strong><br>
+                        <input type="number" step="0.01" placeholder="$0.00" style="width: 100px; font-size: 16px; padding: 5px; font-weight: bold;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Performance & Maintenance -->
+        <div class="section">
+            <div class="section-title">4. Equipment Performance & Maintenance Notes</div>
+            
+            <div class="maintenance-section">
+                <div class="maintenance-title">Equipment Condition Assessment</div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label class="field-label">Equipment Issues Observed (check all that apply):</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item"><input type="checkbox"> Engine problems</div>
+                        <div class="checkbox-item"><input type="checkbox"> Hydraulic leaks</div>
+                        <div class="checkbox-item"><input type="checkbox"> Chain/blade dull</div>
+                        <div class="checkbox-item"><input type="checkbox"> Safety features not working</div>
+                        <div class="checkbox-item"><input type="checkbox"> Excessive vibration</div>
+                        <div class="checkbox-item"><input type="checkbox"> Fuel system issues</div>
+                        <div class="checkbox-item"><input type="checkbox"> Electrical problems</div>
+                        <div class="checkbox-item"><input type="checkbox"> Structural damage</div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Maintenance Required:</label>
+                        <select class="field-input">
+                            <option>None</option>
+                            <option>Routine Service</option>
+                            <option>Minor Repair</option>
+                            <option>Major Repair</option>
+                            <option>Out of Service</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Priority Level:</label>
+                        <select class="field-input">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                            <option>Critical</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Estimated Maintenance Cost:</label>
+                        <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Detailed Maintenance Notes:</label>
+                    <textarea class="field-input" rows="3" placeholder="Describe specific issues, repairs needed, parts required, etc..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productivity Metrics -->
+        <div class="section">
+            <div class="section-title">5. Productivity & Efficiency Metrics</div>
+            
+            <div class="productivity-metrics">
+                <div class="metrics-title">Job Performance Analysis</div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Estimated Job Hours:</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Actual Job Hours:</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Efficiency Percentage:</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0%">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Weather Delays (minutes):</label>
+                        <input type="number" class="field-input" step="1" placeholder="0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Equipment Delays (minutes):</label>
+                        <input type="number" class="field-input" step="1" placeholder="0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Other Delays (minutes):</label>
+                        <input type="number" class="field-input" step="1" placeholder="0">
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Factors Affecting Productivity:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item"><input type="checkbox"> Weather conditions</div>
+                        <div class="checkbox-item"><input type="checkbox"> Equipment problems</div>
+                        <div class="checkbox-item"><input type="checkbox"> Site access issues</div>
+                        <div class="checkbox-item"><input type="checkbox"> Customer interactions</div>
+                        <div class="checkbox-item"><input type="checkbox"> Crew experience level</div>
+                        <div class="checkbox-item"><input type="checkbox"> Job complexity higher than expected</div>
+                        <div class="checkbox-item"><input type="checkbox"> Safety precautions required</div>
+                        <div class="checkbox-item"><input type="checkbox"> Traffic/parking issues</div>
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Productivity Notes & Improvement Suggestions:</label>
+                    <textarea class="field-input" rows="3" placeholder="Note specific factors that helped or hindered productivity, suggestions for future similar jobs..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Summary -->
+        <div class="section">
+            <div class="section-title">6. Job Cost Summary</div>
+            
+            <div class="cost-calculation">
+                <div class="cost-title">Total Job Cost Breakdown</div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; margin: 15px 0;">
+                    <div><strong>Cost Category</strong></div>
+                    <div><strong>Amount</strong></div>
+                    <div><strong>Percentage</strong></div>
+                    
+                    <div>Total Labor Cost (including burden):</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div>Total Equipment Cost:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div>Materials & Supplies:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div>Subcontractor Costs:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong>TOTAL JOB COST:</strong></div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong><input type="number" step="0.01" placeholder="$0.00" style="width: 100px; font-weight: bold;"></strong></div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong>100%</strong></div>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 10px; background-color: #e9ecef; border-radius: 5px;">
+                    <strong>True Labor Cost Per Hour:</strong> $______ 
+                    <span style="margin-left: 20px;"><strong>Cost Per TreeScore Point:</strong> $______</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures">
+            <div>
+                <div class="field-label">Crew Leader Signature:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+            <div>
+                <div class="field-label">Supervisor/Foreman Approval:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center; border-top: 1px solid #ddd; padding-top: 15px;">
+            TreeAI Equipment & Crew Tracking Form v1.0 | True Labor Cost Integration | Form ID: ________________
+        </div>
+    </div>
+</body>
+</html>

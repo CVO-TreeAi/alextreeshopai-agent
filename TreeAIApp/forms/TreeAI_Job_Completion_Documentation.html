@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeAI Job Completion Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .form-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .company-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0 5px 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: -20px -20px 15px -20px;
+        }
+        
+        .completion-banner {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .completion-text {
+            color: #155724;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+        
+        .field {
+            flex: 1;
+            margin-bottom: 10px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .field-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 2fr;
+            gap: 5px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .work-header {
+            background-color: #28a745;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .work-item {
+            padding: 5px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        .materials-section {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .materials-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .photo-box {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .customer-section {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .customer-title {
+            font-weight: bold;
+            color: #0d47a1;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .quality-checklist {
+            background-color: #f8f9fa;
+            border: 1px solid #6c757d;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .checklist-title {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            min-width: 200px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+        
+        .time-summary {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .time-title {
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .signature-box {
+            border: 2px solid #333;
+            height: 60px;
+            margin-top: 5px;
+            background-color: white;
+        }
+        
+        .instructions {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        
+        @media print {
+            body { background-color: white; }
+            .form-container { box-shadow: none; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <div class="company-logo">TreeAI</div>
+            <div class="form-title">Job Completion Documentation</div>
+            <div class="subtitle">Work Verification, Customer Sign-off & Quality Assurance</div>
+        </div>
+
+        <div class="completion-banner">
+            <div class="completion-text">✅ JOB COMPLETED ✅</div>
+            <div>Complete all sections for proper documentation and customer satisfaction</div>
+        </div>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> Document all work performed, materials used, and obtain customer approval. 
+            This form ensures quality standards and provides complete job records for TreeAI system integration.
+        </div>
+
+        <!-- Job Information -->
+        <div class="section">
+            <div class="section-title">1. Job Information</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Job ID/Work Order #:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Completion Date:</label>
+                    <input type="date" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Completion Time:</label>
+                    <input type="time" class="field-input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Customer Name:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Property Address:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Crew Leader:</label>
+                    <input type="text" class="field-input">
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Performed -->
+        <div class="section">
+            <div class="section-title">2. Work Performed</div>
+            
+            <div class="work-grid">
+                <div class="work-header">Service Performed</div>
+                <div class="work-header">Quantity</div>
+                <div class="work-header">Unit</div>
+                <div class="work-header">Completed</div>
+                <div class="work-header">Notes</div>
+                
+                <div class="work-item">Tree Removal</div>
+                <div class="work-item"><input type="number" step="1" placeholder="0" style="width: 60px;"></div>
+                <div class="work-item">Trees</div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Species, size, etc."></div>
+                
+                <div class="work-item">Tree Pruning/Trimming</div>
+                <div class="work-item"><input type="number" step="1" placeholder="0" style="width: 60px;"></div>
+                <div class="work-item">Trees</div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Type of pruning"></div>
+                
+                <div class="work-item">Stump Grinding</div>
+                <div class="work-item"><input type="number" step="1" placeholder="0" style="width: 60px;"></div>
+                <div class="work-item">Stumps</div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Depth, backfill"></div>
+                
+                <div class="work-item">Debris Removal</div>
+                <div class="work-item"><input type="number" step="0.5" placeholder="0.0" style="width: 60px;"></div>
+                <div class="work-item">Loads</div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Disposal method"></div>
+                
+                <div class="work-item">Emergency Tree Work</div>
+                <div class="work-item"><input type="number" step="1" placeholder="0" style="width: 60px;"></div>
+                <div class="work-item">Incidents</div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Emergency details"></div>
+                
+                <div class="work-item">Cleanup & Site Restoration</div>
+                <div class="work-item">-</div>
+                <div class="work-item">Complete</div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Restoration details"></div>
+                
+                <div class="work-item">Other Services:</div>
+                <div class="work-item"><input type="number" step="1" placeholder="0" style="width: 60px;"></div>
+                <div class="work-item"><input type="text" placeholder="Units" style="width: 60px;"></div>
+                <div class="work-item"><input type="checkbox"></div>
+                <div class="work-item"><input type="text" placeholder="Specify service"></div>
+            </div>
+            
+            <div class="field" style="margin-top: 15px;">
+                <label class="field-label">Detailed Work Description:</label>
+                <textarea class="field-input" rows="4" placeholder="Provide detailed description of all work performed, methods used, any challenges encountered, etc..."></textarea>
+            </div>
+        </div>
+
+        <!-- Materials & Supplies -->
+        <div class="section">
+            <div class="section-title">3. Materials & Supplies Used</div>
+            
+            <div class="materials-section">
+                <div class="materials-title">Materials Inventory</div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 10px; margin: 10px 0;">
+                    <div><strong>Material/Supply Item</strong></div>
+                    <div><strong>Quantity</strong></div>
+                    <div><strong>Unit Cost</strong></div>
+                    <div><strong>Total Cost</strong></div>
+                    
+                    <div><input type="text" class="field-input" placeholder="e.g., Chain oil, rope, stakes"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div><input type="text" class="field-input" placeholder="Material item 2"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div><input type="text" class="field-input" placeholder="Material item 3"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div><input type="text" class="field-input" placeholder="Material item 4"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 80px;"></div>
+                    
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong>TOTAL MATERIALS COST:</strong></div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;">-</div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;">-</div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong><input type="number" step="0.01" placeholder="$0.00" style="width: 80px; font-weight: bold;"></strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Time Summary -->
+        <div class="section">
+            <div class="section-title">4. Time Summary</div>
+            
+            <div class="time-summary">
+                <div class="time-title">Job Duration & Efficiency</div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Job Start Time:</label>
+                        <input type="time" class="field-input">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Job End Time:</label>
+                        <input type="time" class="field-input">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Total Time (hours):</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Estimated Time (hours):</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Actual Billable Time (hours):</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Efficiency Percentage:</label>
+                        <input type="number" class="field-input" step="0.1" placeholder="0.0%">
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Time Variance Explanation (if over/under estimate):</label>
+                    <textarea class="field-input" rows="2" placeholder="Explain any significant time variances from original estimate..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quality Assurance -->
+        <div class="section">
+            <div class="section-title">5. Quality Assurance Checklist</div>
+            
+            <div class="quality-checklist">
+                <div class="checklist-title">Pre-Customer Inspection</div>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>All planned work completed per work order</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Site properly cleaned and debris removed</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>No property damage occurred</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Tools and equipment properly stored</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Safety protocols followed throughout job</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Work meets TreeAI quality standards</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Pruning cuts made properly (no stubs/tears)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Stumps ground to specified depth</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Customer walkthrough completed</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox">
+                        <label>Additional work opportunities discussed</label>
+                    </div>
+                </div>
+                
+                <div class="field" style="margin-top: 15px;">
+                    <label class="field-label">Quality Issues or Concerns:</label>
+                    <textarea class="field-input" rows="3" placeholder="Note any quality issues, concerns, or areas for improvement..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Documentation -->
+        <div class="section">
+            <div class="section-title">6. Photo Documentation Log</div>
+            
+            <div class="photo-grid">
+                <div class="photo-box">
+                    <strong>Before Photos</strong><br>
+                    <small>Tree condition & site before work</small><br><br>
+                    Photo #: ________<br>
+                    Time: ________<br>
+                    Notes: ________________
+                </div>
+                <div class="photo-box">
+                    <strong>During Work Photos</strong><br>
+                    <small>Work in progress & methods</small><br><br>
+                    Photo #: ________<br>
+                    Time: ________<br>
+                    Notes: ________________
+                </div>
+                <div class="photo-box">
+                    <strong>After Photos</strong><br>
+                    <small>Completed work & cleanup</small><br><br>
+                    Photo #: ________<br>
+                    Time: ________<br>
+                    Notes: ________________
+                </div>
+            </div>
+            
+            <div class="photo-grid">
+                <div class="photo-box">
+                    <strong>Property Condition</strong><br>
+                    <small>Showing no damage occurred</small><br><br>
+                    Photo #: ________<br>
+                    Time: ________<br>
+                    Notes: ________________
+                </div>
+                <div class="photo-box">
+                    <strong>Debris Removal</strong><br>
+                    <small>Site cleanup completion</small><br><br>
+                    Photo #: ________<br>
+                    Time: ________<br>
+                    Notes: ________________
+                </div>
+                <div class="photo-box">
+                    <strong>Special Work</strong><br>
+                    <small>Unique aspects or challenges</small><br><br>
+                    Photo #: ________<br>
+                    Time: ________<br>
+                    Notes: ________________
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Photo Storage Location:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox"> Company cloud storage</div>
+                    <div class="checkbox-item"><input type="checkbox"> Customer email sent</div>
+                    <div class="checkbox-item"><input type="checkbox"> Physical prints provided</div>
+                    <div class="checkbox-item"><input type="checkbox"> Job folder filed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Satisfaction -->
+        <div class="section">
+            <div class="section-title">7. Customer Satisfaction & Sign-off</div>
+            
+            <div class="customer-section">
+                <div class="customer-title">Customer Walkthrough & Approval</div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Customer Present for Walkthrough:</label>
+                        <select class="field-input">
+                            <option>Yes - Customer walked site</option>
+                            <option>Yes - Representative walked site</option>
+                            <option>No - Customer unavailable</option>
+                            <option>No - Left detailed note</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Customer Satisfaction Level:</label>
+                        <select class="field-input">
+                            <option>Very Satisfied</option>
+                            <option>Satisfied</option>
+                            <option>Neutral</option>
+                            <option>Dissatisfied</option>
+                            <option>Very Dissatisfied</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Customer Feedback & Comments:</label>
+                    <textarea class="field-input" rows="3" placeholder="Record customer comments, satisfaction level, any concerns or compliments..."></textarea>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Additional Services Discussed:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item"><input type="checkbox"> Regular maintenance program</div>
+                        <div class="checkbox-item"><input type="checkbox"> Additional tree work needed</div>
+                        <div class="checkbox-item"><input type="checkbox"> Storm damage assessment</div>
+                        <div class="checkbox-item"><input type="checkbox"> Fertilization/treatment</div>
+                        <div class="checkbox-item"><input type="checkbox"> Landscaping services</div>
+                        <div class="checkbox-item"><input type="checkbox"> Future planning consultation</div>
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label class="field-label">Follow-up Actions Required:</label>
+                    <textarea class="field-input" rows="2" placeholder="Any follow-up work, warranty items, or customer requests..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Job Summary -->
+        <div class="section">
+            <div class="section-title">8. Final Job Summary</div>
+            
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Final Job Cost:</label>
+                    <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                </div>
+                <div class="field">
+                    <label class="field-label">Original Estimate:</label>
+                    <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                </div>
+                <div class="field">
+                    <label class="field-label">Variance:</label>
+                    <input type="text" class="field-input" placeholder="$0.00 or 0%">
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Job Completion Summary:</label>
+                <textarea class="field-input" rows="4" placeholder="Summarize the completed job, any challenges overcome, customer satisfaction, lessons learned, and overall project success..."></textarea>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">TreeScore Accuracy Assessment:</label>
+                <select class="field-input">
+                    <option>TreeScore was very accurate (within 10%)</option>
+                    <option>TreeScore was mostly accurate (within 20%)</option>
+                    <option>TreeScore was somewhat accurate (within 30%)</option>
+                    <option>TreeScore was inaccurate (over 30% variance)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures">
+            <div>
+                <div class="field-label">Crew Leader Certification:</div>
+                <div style="margin: 10px 0;">
+                    <label style="font-size: 14px;">
+                        <input type="checkbox" style="margin-right: 10px; transform: scale(1.2);"> 
+                        I certify that all work has been completed according to specifications, 
+                        quality standards have been met, and the customer is satisfied.
+                    </label>
+                </div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+            <div>
+                <div class="field-label">Customer Approval & Sign-off:</div>
+                <div style="margin: 10px 0;">
+                    <label style="font-size: 14px;">
+                        <input type="checkbox" style="margin-right: 10px; transform: scale(1.2);"> 
+                        I approve the completed work and am satisfied with the quality 
+                        and professionalism of the service provided.
+                    </label>
+                </div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center; border-top: 1px solid #ddd; padding-top: 15px;">
+            TreeAI Job Completion Documentation v1.0 | Quality Assurance & Customer Satisfaction | Form ID: ________________
+        </div>
+    </div>
+</body>
+</html>

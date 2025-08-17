@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeAI Pricing Calculation Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .form-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #fd7e14;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .company-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fd7e14;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0 5px 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .pricing-banner {
+            background-color: #fff3cd;
+            border: 2px solid #fd7e14;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .pricing-text {
+            color: #856404;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: -20px -20px 15px -20px;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+        
+        .field {
+            flex: 1;
+            margin-bottom: 10px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .field-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .treescore-section {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .treescore-title {
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .labor-section {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .labor-title {
+            font-weight: bold;
+            color: #0d47a1;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .equipment-section {
+            background-color: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .equipment-title {
+            font-weight: bold;
+            color: #4a148c;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .calculation-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .calc-header {
+            background-color: #6c757d;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .calc-item {
+            padding: 5px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        .price-input {
+            width: 80px;
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: right;
+        }
+        
+        .total-section {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .total-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .final-quote {
+            background-color: #d1ecf1;
+            border: 3px solid #17a2b8;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .quote-title {
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .quote-amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0c5460;
+            margin: 15px 0;
+        }
+        
+        .complexity-guide {
+            background-color: #f8f9fa;
+            border: 1px solid #6c757d;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .guide-title {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .instructions {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .signature-box {
+            border: 1px solid #ddd;
+            height: 50px;
+            margin-top: 5px;
+        }
+        
+        @media print {
+            body { background-color: white; }
+            .form-container { box-shadow: none; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <div class="company-logo">TreeAI</div>
+            <div class="form-title">Pricing Calculation Worksheet</div>
+            <div class="subtitle">TreeScore to Price Conversion & True Labor Cost Analysis</div>
+        </div>
+
+        <div class="pricing-banner">
+            <div class="pricing-text">💰 INTELLIGENT PRICING SYSTEM 💰</div>
+            <div>Accurate pricing based on TreeScore, True Labor Cost, and TreeAI intelligence</div>
+        </div>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> Use this worksheet to convert TreeScore assessments into accurate pricing. 
+            Integrates with TreeAI True Labor Cost system for competitive and profitable pricing.
+        </div>
+
+        <!-- Job Information -->
+        <div class="section">
+            <div class="section-title">1. Job Information & TreeScore Input</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Job ID/Estimate #:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Date:</label>
+                    <input type="date" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Estimator:</label>
+                    <input type="text" class="field-input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Customer Name:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Property Address:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Service Type:</label>
+                    <select class="field-input">
+                        <option>Tree Removal</option>
+                        <option>Pruning/Trimming</option>
+                        <option>Stump Grinding</option>
+                        <option>Emergency Service</option>
+                        <option>Multiple Services</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- TreeScore Analysis -->
+        <div class="section">
+            <div class="section-title">2. TreeScore Analysis & Complexity Assessment</div>
+            
+            <div class="treescore-section">
+                <div class="treescore-title">TreeScore Breakdown</div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Calculated TreeScore:</label>
+                        <input type="number" class="field-input" placeholder="0" style="font-weight: bold; font-size: 18px;">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">AFISS Safety Score:</label>
+                        <input type="number" class="field-input" placeholder="0">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Complexity Level:</label>
+                        <select class="field-input">
+                            <option>Simple (0-400)</option>
+                            <option>Moderate (401-800)</option>
+                            <option>Complex (801-1200)</option>
+                            <option>Expert (1200+)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="complexity-guide">
+                    <div class="guide-title">TreeScore to Base Price Conversion Guide</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; text-align: center;">
+                        <div>
+                            <strong>Simple Jobs</strong><br>
+                            TreeScore: 0-400<br>
+                            Base Rate: $1.50/point<br>
+                            Crew: 2-3 people
+                        </div>
+                        <div>
+                            <strong>Moderate Jobs</strong><br>
+                            TreeScore: 401-800<br>
+                            Base Rate: $2.00/point<br>
+                            Crew: 3-4 people
+                        </div>
+                        <div>
+                            <strong>Complex Jobs</strong><br>
+                            TreeScore: 801-1200<br>
+                            Base Rate: $2.50/point<br>
+                            Crew: 4-5 people
+                        </div>
+                        <div>
+                            <strong>Expert Level</strong><br>
+                            TreeScore: 1200+<br>
+                            Base Rate: $3.00/point<br>
+                            Crew: 5+ people
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Selected Rate per TreeScore Point:</label>
+                        <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Base Price Calculation:</label>
+                        <input type="text" class="field-input" placeholder="TreeScore × Rate = $0.00" readonly style="background-color: #e9ecef;">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Base Job Price:</label>
+                        <input type="number" class="field-input" step="0.01" placeholder="$0.00" style="font-weight: bold;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Labor Cost Analysis -->
+        <div class="section">
+            <div class="section-title">3. True Labor Cost Analysis</div>
+            
+            <div class="labor-section">
+                <div class="labor-title">Crew Configuration & Labor Costs</div>
+                
+                <div class="calculation-grid">
+                    <div class="calc-header">Position</div>
+                    <div class="calc-header">Quantity</div>
+                    <div class="calc-header">True Rate/Hour</div>
+                    <div class="calc-header">Hours</div>
+                    
+                    <div class="calc-item">Certified Arborist</div>
+                    <div class="calc-item"><input type="number" class="price-input" placeholder="0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$65.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    
+                    <div class="calc-item">Tree Climber</div>
+                    <div class="calc-item"><input type="number" class="price-input" placeholder="0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$58.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    
+                    <div class="calc-item">Crew Leader</div>
+                    <div class="calc-item"><input type="number" class="price-input" placeholder="0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$52.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    
+                    <div class="calc-item">Equipment Operator</div>
+                    <div class="calc-item"><input type="number" class="price-input" placeholder="0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$48.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    
+                    <div class="calc-item">Ground Crew</div>
+                    <div class="calc-item"><input type="number" class="price-input" placeholder="0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$42.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                </div>
+                
+                <div style="background-color: #e9ecef; padding: 10px; border-radius: 4px; margin-top: 15px;">
+                    <div><strong>Note:</strong> True Labor Rates include base wage + burden (35%) + workers comp (12%) + benefits</div>
+                    <div style="margin-top: 10px;">
+                        <strong>Total Labor Hours:</strong> _____ hours &nbsp;&nbsp;&nbsp;
+                        <strong>Total Labor Cost:</strong> $_____ &nbsp;&nbsp;&nbsp;
+                        <strong>Average Rate/Hour:</strong> $_____
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Costs -->
+        <div class="section">
+            <div class="section-title">4. Equipment Cost Analysis</div>
+            
+            <div class="equipment-section">
+                <div class="equipment-title">Equipment Requirements & Costs</div>
+                
+                <div class="calculation-grid">
+                    <div class="calc-header">Equipment Type</div>
+                    <div class="calc-header">Hours</div>
+                    <div class="calc-header">Rate/Hour</div>
+                    <div class="calc-header">Total Cost</div>
+                    
+                    <div class="calc-item">Chainsaw</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$25.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                    
+                    <div class="calc-item">Chipper</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$85.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                    
+                    <div class="calc-item">Stump Grinder</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$125.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                    
+                    <div class="calc-item">Aerial Lift/Bucket Truck</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$95.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                    
+                    <div class="calc-item">Truck & Trailer</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$35.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                    
+                    <div class="calc-item">Climbing Gear</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$15.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                    
+                    <div class="calc-item">Crane (if required)</div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.1" placeholder="0.0"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$250.00"></div>
+                    <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                </div>
+                
+                <div style="background-color: #e9ecef; padding: 10px; border-radius: 4px; margin-top: 15px;">
+                    <div><strong>Equipment Cost Summary:</strong></div>
+                    <div style="margin-top: 10px;">
+                        <strong>Total Equipment Hours:</strong> _____ hours &nbsp;&nbsp;&nbsp;
+                        <strong>Total Equipment Cost:</strong> $_____ &nbsp;&nbsp;&nbsp;
+                        <strong>Fuel & Misc:</strong> $_____
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Costs & Adjustments -->
+        <div class="section">
+            <div class="section-title">5. Additional Costs & Risk Adjustments</div>
+            
+            <div class="calculation-grid">
+                <div class="calc-header">Cost Category</div>
+                <div class="calc-header">Amount</div>
+                <div class="calc-header">Percentage</div>
+                <div class="calc-header">Notes</div>
+                
+                <div class="calc-item">Materials & Supplies</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item">-</div>
+                <div class="calc-item"><input type="text" placeholder="rope, stakes, etc." style="width: 120px;"></div>
+                
+                <div class="calc-item">Permits & Fees</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item">-</div>
+                <div class="calc-item"><input type="text" placeholder="city permits, etc." style="width: 120px;"></div>
+                
+                <div class="calc-item">Disposal Costs</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item">-</div>
+                <div class="calc-item"><input type="text" placeholder="dump fees, etc." style="width: 120px;"></div>
+                
+                <div class="calc-item">Subcontractor Costs</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item">-</div>
+                <div class="calc-item"><input type="text" placeholder="crane operator, etc." style="width: 120px;"></div>
+                
+                <div class="calc-item">Risk Premium (High AFISS)</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item"><input type="number" step="1" placeholder="0" style="width: 60px;">%</div>
+                <div class="calc-item"><input type="text" placeholder="power lines, etc." style="width: 120px;"></div>
+                
+                <div class="calc-item">Access Difficulty Premium</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item"><input type="number" step="1" placeholder="0" style="width: 60px;">%</div>
+                <div class="calc-item"><input type="text" placeholder="tight access, etc." style="width: 120px;"></div>
+                
+                <div class="calc-item">Emergency/Rush Job Premium</div>
+                <div class="calc-item"><input type="number" class="price-input" step="0.01" placeholder="$0.00"></div>
+                <div class="calc-item"><input type="number" step="1" placeholder="0" style="width: 60px;">%</div>
+                <div class="calc-item"><input type="text" placeholder="after hours, etc." style="width: 120px;"></div>
+            </div>
+        </div>
+
+        <!-- Cost Summary & Pricing -->
+        <div class="section">
+            <div class="section-title">6. Cost Summary & Final Pricing</div>
+            
+            <div class="total-section">
+                <div class="total-title">Project Cost Breakdown</div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; margin: 20px 0;">
+                    <div><strong>Cost Component</strong></div>
+                    <div><strong>Amount</strong></div>
+                    <div><strong>Percentage</strong></div>
+                    
+                    <div>Labor Cost (True Labor Cost):</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div>Equipment Cost:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div>Materials & Supplies:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div>Additional Costs & Premiums:</div>
+                    <div><input type="number" step="0.01" placeholder="$0.00" style="width: 100px;"></div>
+                    <div><input type="number" step="0.1" placeholder="0.0%" style="width: 80px;"></div>
+                    
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong>SUBTOTAL (Direct Costs):</strong></div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong><input type="number" step="0.01" placeholder="$0.00" style="width: 100px; font-weight: bold;"></strong></div>
+                    <div style="border-top: 2px solid #333; padding-top: 10px;"><strong>100%</strong></div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <div class="row">
+                        <div class="field">
+                            <label class="field-label">Overhead Rate (%):</label>
+                            <input type="number" class="field-input" step="1" placeholder="15" style="text-align: center;">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Overhead Amount:</label>
+                            <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Cost + Overhead:</label>
+                            <input type="number" class="field-input" step="0.01" placeholder="$0.00" style="font-weight: bold;">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="field">
+                            <label class="field-label">Profit Margin (%):</label>
+                            <input type="number" class="field-input" step="1" placeholder="20" style="text-align: center;">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Profit Amount:</label>
+                            <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Total Before Tax:</label>
+                            <input type="number" class="field-input" step="0.01" placeholder="$0.00" style="font-weight: bold;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Quote -->
+        <div class="final-quote">
+            <div class="quote-title">FINAL CUSTOMER QUOTE</div>
+            <div class="quote-amount">$<input type="number" step="0.01" placeholder="0.00" style="border: none; background: transparent; text-align: center; font-size: 36px; font-weight: bold; width: 200px;"></div>
+            
+            <div style="margin: 20px 0;">
+                <div class="row">
+                    <div class="field">
+                        <label class="field-label">Quote Valid Until:</label>
+                        <input type="date" class="field-input">
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Payment Terms:</label>
+                        <select class="field-input">
+                            <option>Due upon completion</option>
+                            <option>50% down, 50% completion</option>
+                            <option>Net 30 days</option>
+                            <option>Custom terms</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-top: 15px;">
+                <strong>TreeScore Efficiency Metrics:</strong><br>
+                Cost per TreeScore Point: $_____ &nbsp;&nbsp;&nbsp;
+                Labor Cost per Hour: $_____ &nbsp;&nbsp;&nbsp;
+                Profit Margin: ____%
+            </div>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="section">
+            <div class="section-title">7. Pricing Notes & Competitive Analysis</div>
+            
+            <div class="field">
+                <label class="field-label">Pricing Strategy Notes:</label>
+                <textarea class="field-input" rows="3" placeholder="Document pricing rationale, competitive positioning, customer budget considerations, etc..."></textarea>
+            </div>
+            
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Competitor A Price:</label>
+                    <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                </div>
+                <div class="field">
+                    <label class="field-label">Competitor B Price:</label>
+                    <input type="number" class="field-input" step="0.01" placeholder="$0.00">
+                </div>
+                <div class="field">
+                    <label class="field-label">Market Position:</label>
+                    <select class="field-input">
+                        <option>Premium (highest price)</option>
+                        <option>Competitive (market rate)</option>
+                        <option>Value (below market)</option>
+                        <option>Loss leader (break even)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Customer Communication Notes:</label>
+                <textarea class="field-input" rows="2" placeholder="Key points to communicate value, justification for pricing, timeline, etc..."></textarea>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures">
+            <div>
+                <div class="field-label">Estimator/Sales Representative:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+            <div>
+                <div class="field-label">Manager Approval (if required):</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center; border-top: 1px solid #ddd; padding-top: 15px;">
+            TreeAI Pricing Calculation Worksheet v1.0 | TreeScore Intelligence & True Labor Cost Integration | Form ID: ________________
+        </div>
+    </div>
+</body>
+</html>

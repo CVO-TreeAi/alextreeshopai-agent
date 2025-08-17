@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeAI Safety Assessment Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .form-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .company-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0 5px 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .safety-warning {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .warning-text {
+            color: #721c24;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: -20px -20px 15px -20px;
+        }
+        
+        .critical-section {
+            border: 2px solid #dc3545;
+            background-color: #fff5f5;
+        }
+        
+        .critical-section .section-title {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+        
+        .field {
+            flex: 1;
+            margin-bottom: 10px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .field-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 2fr;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .checklist-header {
+            font-weight: bold;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .checklist-item {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .risk-level-select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .emergency-section {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .emergency-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: white;
+        }
+        
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .signature-box {
+            border: 2px solid #333;
+            height: 60px;
+            margin-top: 5px;
+            background-color: white;
+        }
+        
+        .notes-area {
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .action-required {
+            background-color: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #c62828;
+        }
+        
+        @media print {
+            body { background-color: white; }
+            .form-container { box-shadow: none; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <div class="company-logo">TreeAI</div>
+            <div class="form-title">Safety Assessment Checklist</div>
+            <div class="subtitle">Pre-Job Safety Inspection & Risk Assessment</div>
+        </div>
+
+        <div class="safety-warning">
+            <div class="warning-text">⚠️ STOP - Do Not Proceed Without Completing This Safety Assessment ⚠️</div>
+            <div>All items must be checked and approved before work begins. Any "FAIL" items require immediate action.</div>
+        </div>
+
+        <!-- Job Information -->
+        <div class="section">
+            <div class="section-title">1. Job Information</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Job ID/Work Order #:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Date:</label>
+                    <input type="date" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Time:</label>
+                    <input type="time" class="field-input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Location:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Safety Officer:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Crew Leader:</label>
+                    <input type="text" class="field-input">
+                </div>
+            </div>
+        </div>
+
+        <!-- Weather & Environmental Conditions -->
+        <div class="section">
+            <div class="section-title">2. Weather & Environmental Conditions</div>
+            <div class="checklist-grid">
+                <div class="checklist-header">Condition</div>
+                <div class="checklist-header">Pass</div>
+                <div class="checklist-header">Fail</div>
+                <div class="checklist-header">Risk</div>
+                <div class="checklist-header">Notes/Action Required</div>
+                
+                <div class="checklist-item">Wind Speed (Must be <20 mph for tree work)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Wind speed: ___ mph"></div>
+                
+                <div class="checklist-item">Precipitation (No work in rain/storms)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Current conditions"></div>
+                
+                <div class="checklist-item">Visibility (>100 feet minimum)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Visibility distance"></div>
+                
+                <div class="checklist-item">Ground Conditions (Stable, not icy/muddy)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Ground description"></div>
+            </div>
+        </div>
+
+        <!-- Personal Protective Equipment -->
+        <div class="section critical-section">
+            <div class="section-title">3. Personal Protective Equipment (PPE) Verification</div>
+            <div class="checklist-grid">
+                <div class="checklist-header">PPE Item</div>
+                <div class="checklist-header">Pass</div>
+                <div class="checklist-header">Fail</div>
+                <div class="checklist-header">Risk</div>
+                <div class="checklist-header">Notes/Action Required</div>
+                
+                <div class="checklist-item">Hard Hat (ANSI Z89.1 Type I)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Condition/expiration"></div>
+                
+                <div class="checklist-item">Safety Glasses/Face Shield</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Type/condition"></div>
+                
+                <div class="checklist-item">Hearing Protection</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="NRR rating"></div>
+                
+                <div class="checklist-item">Work Gloves (Cut-resistant)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Cut level rating"></div>
+                
+                <div class="checklist-item">Steel-Toed Boots</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="ANSI rating"></div>
+                
+                <div class="checklist-item">Climbing Harness (if applicable)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Inspection date/condition"></div>
+                
+                <div class="checklist-item">High-Visibility Vest</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Class rating"></div>
+            </div>
+            
+            <div class="action-required">
+                ❌ ANY FAILED PPE ITEMS MUST BE CORRECTED BEFORE WORK BEGINS ❌
+            </div>
+        </div>
+
+        <!-- Equipment Safety Checks -->
+        <div class="section">
+            <div class="section-title">4. Equipment Safety Inspection</div>
+            <div class="checklist-grid">
+                <div class="checklist-header">Equipment Item</div>
+                <div class="checklist-header">Pass</div>
+                <div class="checklist-header">Fail</div>
+                <div class="checklist-header">Risk</div>
+                <div class="checklist-header">Notes/Action Required</div>
+                
+                <div class="checklist-item">Chainsaws (Guards, chain tension, fuel)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Last maintenance date"></div>
+                
+                <div class="checklist-item">Ropes & Rigging (Inspect for cuts/wear)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Inspection results"></div>
+                
+                <div class="checklist-item">Bucket Truck/Aerial Lift</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Pre-operation check"></div>
+                
+                <div class="checklist-item">Chipper (Guards, emergency stops)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Safety device check"></div>
+                
+                <div class="checklist-item">First Aid Kit (Stocked & Current)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Critical</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Expiration dates"></div>
+                
+                <div class="checklist-item">Communication Devices (Radio/Phone)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Signal strength/battery"></div>
+            </div>
+        </div>
+
+        <!-- Environmental Hazards -->
+        <div class="section">
+            <div class="section-title">5. Environmental Hazard Assessment</div>
+            <div class="checklist-grid">
+                <div class="checklist-header">Hazard Type</div>
+                <div class="checklist-header">Clear</div>
+                <div class="checklist-header">Present</div>
+                <div class="checklist-header">Risk</div>
+                <div class="checklist-header">Mitigation Required</div>
+                
+                <div class="checklist-item">Power Lines (Overhead/Underground)</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Distance/voltage/utility contact"></div>
+                
+                <div class="checklist-item">Structures at Risk</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Critical</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Protection plan"></div>
+                
+                <div class="checklist-item">Traffic/Pedestrian Areas</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Critical</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Traffic control plan"></div>
+                
+                <div class="checklist-item">Underground Utilities</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="811 call status"></div>
+                
+                <div class="checklist-item">Hazardous Trees/Branches</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Critical</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Assessment/removal plan"></div>
+                
+                <div class="checklist-item">Wildlife/Nests</div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item"><input type="checkbox" class="status-checkbox"></div>
+                <div class="checklist-item">
+                    <select class="risk-level-select">
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Low</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                <div class="checklist-item"><input type="text" placeholder="Protected species plan"></div>
+            </div>
+        </div>
+
+        <!-- Emergency Procedures -->
+        <div class="emergency-section">
+            <div class="emergency-title">6. Emergency Procedures Verification</div>
+            
+            <div style="margin-bottom: 15px;">
+                <label><input type="checkbox" style="margin-right: 10px;"> All crew members briefed on emergency procedures</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> Emergency contact numbers verified and accessible</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> Nearest hospital location and route confirmed</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> Emergency evacuation plan established</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> Utility emergency contacts available</label>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <strong>Emergency Services:</strong><br>
+                    911<br>
+                    Fire Dept: ________________<br>
+                    Police: ________________
+                </div>
+                <div class="contact-box">
+                    <strong>Nearest Hospital:</strong><br>
+                    Name: ________________<br>
+                    Address: ________________<br>
+                    Phone: ________________
+                </div>
+                <div class="contact-box">
+                    <strong>Utility Companies:</strong><br>
+                    Electric: ________________<br>
+                    Gas: ________________<br>
+                    Water: ________________
+                </div>
+            </div>
+        </div>
+
+        <!-- Crew Certification -->
+        <div class="section">
+            <div class="section-title">7. Crew Certification & Qualifications</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Total Crew Size:</label>
+                    <input type="number" class="field-input" min="1" max="10">
+                </div>
+                <div class="field">
+                    <label class="field-label">ISA Certified Arborists Present:</label>
+                    <input type="number" class="field-input" min="0" max="10">
+                </div>
+                <div class="field">
+                    <label class="field-label">Aerial Lift Certified Operators:</label>
+                    <input type="number" class="field-input" min="0" max="10">
+                </div>
+            </div>
+            
+            <div style="margin-top: 15px;">
+                <label><input type="checkbox" style="margin-right: 10px;"> All crew members have current first aid/CPR certification</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> Crew leader has minimum 2 years experience</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> All equipment operators are properly certified</label><br>
+                <label><input type="checkbox" style="margin-right: 10px;"> Safety briefing completed with all crew members</label>
+            </div>
+        </div>
+
+        <!-- Final Safety Authorization -->
+        <div class="section critical-section">
+            <div class="section-title">8. Final Safety Authorization</div>
+            
+            <div class="notes-area">
+                <label class="field-label">Safety Notes & Special Precautions:</label>
+                <textarea class="field-input" rows="4" placeholder="Document any special safety concerns, precautions, or modifications to standard procedures..."></textarea>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <label style="font-size: 16px; font-weight: bold;">
+                    <input type="checkbox" style="margin-right: 10px; transform: scale(1.5);"> 
+                    I certify that all safety checks have been completed, all items marked "FAIL" have been corrected, 
+                    and this job is safe to proceed according to TreeAI safety standards and OSHA requirements.
+                </label>
+            </div>
+            
+            <div class="action-required">
+                ⚠️ WORK MAY NOT BEGIN WITHOUT SAFETY OFFICER SIGNATURE BELOW ⚠️
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures">
+            <div>
+                <div class="field-label">Safety Officer Signature:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+            <div>
+                <div class="field-label">Crew Leader Acknowledgment:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">
+                    Print Name: ____________________<br>
+                    Date: _____________ Time: _____________
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center; border-top: 1px solid #ddd; padding-top: 15px;">
+            TreeAI Safety Assessment Checklist v1.0 | OSHA Compliant | Agent-Driven Safety Integration | Form ID: ________________
+        </div>
+    </div>
+</body>
+</html>

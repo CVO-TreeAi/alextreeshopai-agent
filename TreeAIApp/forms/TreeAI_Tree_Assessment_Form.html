@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeAI Tree Assessment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .form-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .company-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0 5px 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: -20px -20px 15px -20px;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+        
+        .field {
+            flex: 1;
+            margin-bottom: 10px;
+        }
+        
+        .field-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .field-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+        
+        .measurement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .calculation-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .calculation-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .afiss-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .afiss-factor {
+            font-weight: bold;
+        }
+        
+        .score-input {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            border: 2px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .total-score {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .risk-header {
+            font-weight: bold;
+            background-color: #6c757d;
+            color: white;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .risk-item {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .signature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .signature-box {
+            border: 1px solid #ddd;
+            height: 50px;
+            margin-top: 5px;
+        }
+        
+        @media print {
+            body { background-color: white; }
+            .form-container { box-shadow: none; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <div class="company-logo">TreeAI</div>
+            <div class="form-title">Tree Assessment Form</div>
+            <div class="subtitle">Professional Tree Evaluation & TreeScore Calculation</div>
+        </div>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> Complete all sections. Use precise measurements. Calculate TreeScore using provided formulas. 
+            This form mirrors data collected by TreeAI AR system for situations without AR availability.
+        </div>
+
+        <!-- Basic Information -->
+        <div class="section">
+            <div class="section-title">1. Job Information</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Job ID/Work Order #:</label>
+                    <input type="text" class="field-input" placeholder="AUTO-GENERATED or Manual Entry">
+                </div>
+                <div class="field">
+                    <label class="field-label">Date:</label>
+                    <input type="date" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Time:</label>
+                    <input type="time" class="field-input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Property Address:</label>
+                    <input type="text" class="field-input" placeholder="Full street address">
+                </div>
+                <div class="field">
+                    <label class="field-label">GPS Coordinates (if available):</label>
+                    <input type="text" class="field-input" placeholder="Lat, Long">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Assessor Name:</label>
+                    <input type="text" class="field-input">
+                </div>
+                <div class="field">
+                    <label class="field-label">Certification:</label>
+                    <input type="text" class="field-input" placeholder="ISA, TCIA, etc.">
+                </div>
+                <div class="field">
+                    <label class="field-label">Weather Conditions:</label>
+                    <input type="text" class="field-input" placeholder="Clear, Windy, etc.">
+                </div>
+            </div>
+        </div>
+
+        <!-- Tree Measurements -->
+        <div class="section">
+            <div class="section-title">2. Tree Measurements</div>
+            <div class="measurement-grid">
+                <div class="field">
+                    <label class="field-label">Height (feet):</label>
+                    <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    <small>Measure from base to highest point</small>
+                </div>
+                <div class="field">
+                    <label class="field-label">DBH - Diameter at Breast Height (inches):</label>
+                    <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    <small>Measure at 4.5 feet from ground</small>
+                </div>
+                <div class="field">
+                    <label class="field-label">Crown Radius (feet):</label>
+                    <input type="number" class="field-input" step="0.1" placeholder="0.0">
+                    <small>Average radius from trunk to drip line</small>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Multiple Stems:</label>
+                    <input type="checkbox"> Yes
+                    <span style="margin-left: 20px;">If yes, list additional DBH measurements:</span>
+                    <input type="text" class="field-input" placeholder="DBH2: ___ DBH3: ___ DBH4: ___">
+                </div>
+            </div>
+        </div>
+
+        <!-- Species Identification -->
+        <div class="section">
+            <div class="section-title">3. Species Identification</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Common Name:</label>
+                    <input type="text" class="field-input" placeholder="e.g., Southern Live Oak">
+                </div>
+                <div class="field">
+                    <label class="field-label">Scientific Name (if known):</label>
+                    <input type="text" class="field-input" placeholder="e.g., Quercus virginiana">
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Species Characteristics (check all that apply):</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox"> Deciduous</div>
+                    <div class="checkbox-item"><input type="checkbox"> Evergreen</div>
+                    <div class="checkbox-item"><input type="checkbox"> Native to Florida</div>
+                    <div class="checkbox-item"><input type="checkbox"> Exotic/Non-native</div>
+                    <div class="checkbox-item"><input type="checkbox"> Protected Species</div>
+                    <div class="checkbox-item"><input type="checkbox"> Heritage Tree</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Assessment -->
+        <div class="section">
+            <div class="section-title">4. Tree Health Assessment</div>
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Overall Health Rating (1-10):</label>
+                    <input type="number" class="score-input" min="1" max="10" placeholder="0">
+                    <small>1=Poor/Dying, 10=Excellent</small>
+                </div>
+                <div class="field">
+                    <label class="field-label">Structural Integrity (1-10):</label>
+                    <input type="number" class="score-input" min="1" max="10" placeholder="0">
+                    <small>1=Structurally compromised, 10=Sound</small>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Observed Health Issues (check all that apply):</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox"> Dead/Dying branches</div>
+                    <div class="checkbox-item"><input type="checkbox"> Disease symptoms</div>
+                    <div class="checkbox-item"><input type="checkbox"> Insect damage</div>
+                    <div class="checkbox-item"><input type="checkbox"> Root damage/exposure</div>
+                    <div class="checkbox-item"><input type="checkbox"> Trunk decay/cavities</div>
+                    <div class="checkbox-item"><input type="checkbox"> Lean/structural defects</div>
+                    <div class="checkbox-item"><input type="checkbox"> Storm damage</div>
+                    <div class="checkbox-item"><input type="checkbox"> Construction damage</div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Additional Health Notes:</label>
+                <textarea class="field-input" rows="3" placeholder="Describe specific health concerns, disease symptoms, or structural issues..."></textarea>
+            </div>
+        </div>
+
+        <!-- Risk Assessment -->
+        <div class="section">
+            <div class="section-title">5. Risk Factor Assessment</div>
+            
+            <div class="risk-matrix">
+                <div class="risk-header">Risk Factor</div>
+                <div class="risk-header">Present</div>
+                <div class="risk-header">Distance</div>
+                <div class="risk-header">Risk Level</div>
+                
+                <div class="risk-item">Power lines</div>
+                <div class="risk-item"><input type="checkbox"></div>
+                <div class="risk-item"><input type="text" placeholder="feet" style="width: 60px;"></div>
+                <div class="risk-item">
+                    <select style="width: 80px;">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                
+                <div class="risk-item">Buildings/Structures</div>
+                <div class="risk-item"><input type="checkbox"></div>
+                <div class="risk-item"><input type="text" placeholder="feet" style="width: 60px;"></div>
+                <div class="risk-item">
+                    <select style="width: 80px;">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                
+                <div class="risk-item">Roads/Driveways</div>
+                <div class="risk-item"><input type="checkbox"></div>
+                <div class="risk-item"><input type="text" placeholder="feet" style="width: 60px;"></div>
+                <div class="risk-item">
+                    <select style="width: 80px;">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                
+                <div class="risk-item">Other Trees</div>
+                <div class="risk-item"><input type="checkbox"></div>
+                <div class="risk-item"><input type="text" placeholder="feet" style="width: 60px;"></div>
+                <div class="risk-item">
+                    <select style="width: 80px;">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+                
+                <div class="risk-item">Underground Utilities</div>
+                <div class="risk-item"><input type="checkbox"></div>
+                <div class="risk-item"><input type="text" placeholder="feet" style="width: 60px;"></div>
+                <div class="risk-item">
+                    <select style="width: 80px;">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- AFISS Assessment -->
+        <div class="section">
+            <div class="section-title">6. AFISS Safety Factor Assessment</div>
+            <div class="instructions">
+                <strong>AFISS Scoring:</strong> Rate each factor from 1-20 based on complexity/risk. 
+                Higher scores indicate increased difficulty and safety requirements.
+            </div>
+            
+            <div class="afiss-grid">
+                <div class="afiss-factor">A - Access (Vehicle/Equipment)</div>
+                <div><input type="number" class="score-input" min="1" max="20" placeholder="0"></div>
+                <div>1=Easy, 20=No access</div>
+                
+                <div class="afiss-factor">F - Fall Zone (Target area)</div>
+                <div><input type="number" class="score-input" min="1" max="20" placeholder="0"></div>
+                <div>1=Open area, 20=Critical targets</div>
+                
+                <div class="afiss-factor">I - Interference (Power lines, etc.)</div>
+                <div><input type="number" class="score-input" min="1" max="20" placeholder="0"></div>
+                <div>1=None, 20=Major interference</div>
+                
+                <div class="afiss-factor">S - Severity (Tree condition)</div>
+                <div><input type="number" class="score-input" min="1" max="20" placeholder="0"></div>
+                <div>1=Healthy, 20=Severely compromised</div>
+                
+                <div class="afiss-factor">S - Site Conditions (Weather, ground)</div>
+                <div><input type="number" class="score-input" min="1" max="20" placeholder="0"></div>
+                <div>1=Ideal, 20=Hazardous conditions</div>
+            </div>
+            
+            <div class="calculation-box">
+                <div class="calculation-title">AFISS Total Score Calculation:</div>
+                <div>A: _____ + F: _____ + I: _____ + S: _____ + S: _____ = <strong>AFISS Total: _____</strong></div>
+                <div style="margin-top: 10px;">
+                    <strong>Risk Level:</strong> 
+                    5-25 = Low | 26-50 = Medium | 51-75 = High | 76-100 = Critical
+                </div>
+            </div>
+        </div>
+
+        <!-- TreeScore Calculation -->
+        <div class="section">
+            <div class="section-title">7. TreeScore Calculation Worksheet</div>
+            <div class="instructions">
+                <strong>TreeScore Formula:</strong> Base Score = (Height × 10) + (DBH × 5) + (Crown Radius × 3) + AFISS Total + Health/Complexity Adjustments
+            </div>
+            
+            <div class="calculation-box">
+                <div class="calculation-title">TreeScore Calculation:</div>
+                <div style="margin-bottom: 10px;">
+                    <strong>Step 1 - Base Measurements:</strong><br>
+                    Height: _____ ft × 10 = _____ points<br>
+                    DBH: _____ in × 5 = _____ points<br>
+                    Crown Radius: _____ ft × 3 = _____ points<br>
+                    <strong>Subtotal: _____ points</strong>
+                </div>
+                
+                <div style="margin-bottom: 10px;">
+                    <strong>Step 2 - Add AFISS Score:</strong><br>
+                    AFISS Total: _____ points<br>
+                    <strong>Running Total: _____ points</strong>
+                </div>
+                
+                <div style="margin-bottom: 10px;">
+                    <strong>Step 3 - Health & Complexity Adjustments:</strong><br>
+                    Health Rating Adjustment: (10 - Health Rating) × 10 = _____ points<br>
+                    Multiple Stems: +50 points (if applicable): _____ points<br>
+                    Protected/Heritage Species: +100 points (if applicable): _____ points<br>
+                    <strong>Adjustment Total: _____ points</strong>
+                </div>
+                
+                <div class="total-score">
+                    <h3>FINAL TREESCORE: _____ POINTS</h3>
+                    <div>Complexity Level: 
+                        0-400 = Simple | 401-800 = Moderate | 801-1200 = Complex | 1200+ = Expert Level
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="section">
+            <div class="section-title">8. Assessment Summary & Recommendations</div>
+            <div class="field">
+                <label class="field-label">Recommended Action:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox"> Tree Removal</div>
+                    <div class="checkbox-item"><input type="checkbox"> Pruning/Trimming</div>
+                    <div class="checkbox-item"><input type="checkbox"> Crown Reduction</div>
+                    <div class="checkbox-item"><input type="checkbox"> Dead Wooding</div>
+                    <div class="checkbox-item"><input type="checkbox"> Cabling/Bracing</div>
+                    <div class="checkbox-item"><input type="checkbox"> No Action Required</div>
+                    <div class="checkbox-item"><input type="checkbox"> Monitor/Re-assess</div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Special Equipment Required:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox"> Bucket Truck</div>
+                    <div class="checkbox-item"><input type="checkbox"> Crane</div>
+                    <div class="checkbox-item"><input type="checkbox"> Chipper</div>
+                    <div class="checkbox-item"><input type="checkbox"> Stump Grinder</div>
+                    <div class="checkbox-item"><input type="checkbox"> Climbing Gear</div>
+                    <div class="checkbox-item"><input type="checkbox"> Traffic Control</div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="field">
+                    <label class="field-label">Estimated Crew Size:</label>
+                    <input type="number" class="field-input" min="1" max="10" placeholder="0">
+                </div>
+                <div class="field">
+                    <label class="field-label">Estimated Time (hours):</label>
+                    <input type="number" class="field-input" step="0.5" placeholder="0.0">
+                </div>
+                <div class="field">
+                    <label class="field-label">Priority Level:</label>
+                    <select class="field-input">
+                        <option>Routine</option>
+                        <option>Moderate</option>
+                        <option>High</option>
+                        <option>Emergency</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="field-label">Detailed Notes & Recommendations:</label>
+                <textarea class="field-input" rows="4" placeholder="Provide detailed assessment notes, specific recommendations, safety concerns, and any special considerations..."></textarea>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signature-section">
+            <div>
+                <div class="field-label">Assessor Signature:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">Date: ________________</div>
+            </div>
+            <div>
+                <div class="field-label">Property Owner/Supervisor Acknowledgment:</div>
+                <div class="signature-box"></div>
+                <div style="margin-top: 5px;">Date: ________________</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center; border-top: 1px solid #ddd; padding-top: 15px;">
+            TreeAI Tree Assessment Form v1.0 | Integrates with TreeAI True Labor Cost System | Form ID: ________________
+        </div>
+    </div>
+</body>
+</html>
